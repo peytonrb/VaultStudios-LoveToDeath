@@ -25,48 +25,55 @@ public class PlayerListUI : MonoBehaviour
     {
         removeButtons();
         enablePlayerCards("FORESTCORE");
+        GameManager.Instance.loveInterestName = "forestcore";
     }
-
     public void grillDad()
     {
         removeButtons();
         enablePlayerCards("GRILLDAD");
+        GameManager.Instance.loveInterestName = "grilldad";
     }
 
     public void emo()
     {
         removeButtons();
         enablePlayerCards("EMO");
+        GameManager.Instance.loveInterestName = "emo";
     }
 
     public void chemist()
     {
         removeButtons();
         enablePlayerCards("CHEMIST");
+        GameManager.Instance.loveInterestName = "chemist";
     }
 
     public void gamerFemme()
     {
         removeButtons();
         enablePlayerCards("GAMER FEMME");
+        GameManager.Instance.loveInterestName = "gamer";
     }
 
     public void surfer()
     {
         removeButtons();
         enablePlayerCards("SURFER");
+        GameManager.Instance.loveInterestName = "surfer";
     }
 
     public void jojo()
     {
         removeButtons();
         enablePlayerCards("JOJO");
+        GameManager.Instance.loveInterestName = "jojo";
     }
 
     public void occultGirl()
     {
         removeButtons();
         enablePlayerCards("OCCULT GIRL");
+        GameManager.Instance.loveInterestName = "occult";
     }
 
     // sets the selected player card active in the scene
