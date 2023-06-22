@@ -14,6 +14,16 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundMask;
     private Vector3 velocity;
     private bool isGrounded;
+    private GameObject loveInterest;
+    private PlayerListUI chosenInterest;
+    private string interestName;
+
+    void Start()
+    {
+        interestName = PlayerListUI.loveInterest;
+        loveInterest = GameObject.Find(interestName);
+        Debug.Log(interestName);
+    }
 
     void Update()
     {
