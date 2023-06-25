@@ -14,7 +14,9 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundMask;
     private Vector3 velocity;
     private bool isGrounded;
-    private GameObject loveInterest;
+
+    [Header("Love Interest")]
+    private GameObject loveInterest; // stores the GameObject of the love interest
     private PlayerListUI chosenInterest;
     private string interestName;
 
@@ -22,7 +24,6 @@ public class PlayerController : MonoBehaviour
     {
         interestName = PlayerListUI.loveInterest;
         loveInterest = GameObject.Find(interestName);
-        Debug.Log(interestName);
     }
 
     void Update()

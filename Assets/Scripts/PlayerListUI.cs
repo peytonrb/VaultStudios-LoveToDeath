@@ -35,12 +35,12 @@ public class PlayerListUI : MonoBehaviour
         loveInterest = "grilldad";
     }
 
-    public void emo()
-    {
-        removeButtons();
-        enablePlayerCards("EMO");
-        loveInterest = "emo";
-    }
+    // public void emo()
+    // {
+    //     removeButtons();
+    //     enablePlayerCards("EMO");
+    //     loveInterest = "emo";
+    // }
 
     public void chemist()
     {
@@ -56,12 +56,12 @@ public class PlayerListUI : MonoBehaviour
         loveInterest = "gamer";
     }
 
-    public void surfer()
-    {
-        removeButtons();
-        enablePlayerCards("SURFER");
-        loveInterest = "surfer";
-    }
+    // public void surfer()
+    // {
+    //     removeButtons();
+    //     enablePlayerCards("SURFER");
+    //     loveInterest = "surfer";
+    // }
 
     public void jojo()
     {
