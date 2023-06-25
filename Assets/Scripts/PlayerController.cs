@@ -23,8 +23,13 @@ public class PlayerController : MonoBehaviour
     [Header("Murder")]
     private bool hasMurderItems;
 
+    [Header("Other")]
+    public GameObject inventory;
+    public InventoryManager inventoryManager;
+
     void Start()
     {
+        inventory.SetActive(false);
         hasMurderItems = false;
         interestName = PlayerListUI.loveInterest;
         loveInterest = GameObject.Find(interestName);
@@ -55,5 +60,17 @@ public class PlayerController : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+        // key presses
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            inventory.SetActive(true);
+            inventoryManager.listItems();
+        }
+
+        if (inventory.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+        {
+            inventory.SetActive(false);
+        }
     }
 }
