@@ -20,8 +20,12 @@ public class PlayerController : MonoBehaviour
     private PlayerListUI chosenInterest;
     private string interestName;
 
+    [Header("Murder")]
+    private bool hasMurderItems;
+
     void Start()
     {
+        hasMurderItems = false;
         interestName = PlayerListUI.loveInterest;
         loveInterest = GameObject.Find(interestName);
     }
