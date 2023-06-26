@@ -8,8 +8,14 @@ public class ItemPickup : MonoBehaviour
 
     void Update()
     {
-        // NEED LOGIC ALLOWING PLAYER TO PICK UP OBJECT
-        pickup();
+        Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 5f); // second number is radius
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.F))
+            {
+                pickup();
+            }
+        }
     }
 
     private void pickup()
