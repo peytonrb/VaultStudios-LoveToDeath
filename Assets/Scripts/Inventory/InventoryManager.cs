@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
@@ -38,8 +39,9 @@ public class InventoryManager : MonoBehaviour
         {
             GameObject obj = Instantiate(inventoryItem, itemContent);
 
-            // var is SO BAD TO USE. DO NOT USE 
-            var itemName = obj.transform.Find("ItemName").GetComponent<Text>();
+            // dear baby programmers that may be reading this... NEVER USE VAR. EVER. this is bad practice bc it allows
+            //      for ambiguity in the code, which can cause errors and different functionality
+            var itemName = obj.transform.Find("ItemName").GetComponent<TextMeshProUGUI>();
             var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
 
             itemName.text = item.itemName;
