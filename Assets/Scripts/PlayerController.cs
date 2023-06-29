@@ -91,7 +91,8 @@ public class PlayerController : MonoBehaviour
 
     private void inventoryContainsItems()
     {
-
+        // if inventory contains items (.contains in inventorymanager), setactive ability to kill that character 
+        // do i need to link items to target in this script?
     }
 
     // assigns the murder targets to the variables
