@@ -12,7 +12,8 @@ public class ChemistController : MonoBehaviour
 
     [Header("Is Killable")]
     public bool isKillable;
-    private string[] friends = {"grilldad", "jojo", "carmen"};
+    public string[] friends = {"grilldad", "jojo", "carmen"};
+    public string[] requiredItems = {};
 
     void Start()
     {

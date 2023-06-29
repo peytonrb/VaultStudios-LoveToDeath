@@ -13,6 +13,7 @@ public class GamerController : MonoBehaviour
     [Header("Is Killable")]
     public bool isKillable;
     private string[] friends = {"forestcore", "emo", "jojo"};
+    public string[] requiredItems = {};
 
     void Start()
     {

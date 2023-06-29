@@ -13,6 +13,7 @@ public class ForestcoreController : MonoBehaviour
     [Header("Is Killable")]
     public bool isKillable;
     private string[] friends = {"chemist", "jojo", "gamer"};
+    public string[] requiredItems = {};
 
     void Start()
     {

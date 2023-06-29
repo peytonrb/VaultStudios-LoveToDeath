@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        // movement mechanics
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
@@ -60,6 +61,7 @@ public class PlayerController : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+        // end movement mechanics
 
         // key presses
         if (Input.GetKeyDown(KeyCode.E))
@@ -72,10 +74,18 @@ public class PlayerController : MonoBehaviour
         {
             inventory.SetActive(false);
         }
+        // end key presses
+
+        determineMurderItems(interestName);
+    }
+
+    private void determineMurderItems(string interestName)
+    {
+        
     }
 
     private void inventoryContainsItems()
     {
-        
+
     }
 }
