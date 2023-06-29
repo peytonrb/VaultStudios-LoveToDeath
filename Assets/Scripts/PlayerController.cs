@@ -186,13 +186,22 @@ public class PlayerController : MonoBehaviour
         {
             if (iteration == 1)
             {
-                murderItems1 = forestcore.requiredItems;
+                for (int i = 0; i < forestcore.requiredItems.Length; i++)
+                {
+                    murderItems1[i] = forestcore.requiredItems[i];
+                }
             } else if (iteration == 2)
             {
-
+                for (int i = 0; i < forestcore.requiredItems.Length; i++)
+                {
+                    murderItems2[i] = forestcore.requiredItems[i];
+                }
             } else if (iteration == 3)
             {
-
+                for (int i = 0; i < forestcore.requiredItems.Length; i++)
+                {
+                    murderItems3[i] = forestcore.requiredItems[i];
+                }
             }
         } else if (name == "grilldad")
         {
