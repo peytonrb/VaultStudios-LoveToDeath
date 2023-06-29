@@ -12,7 +12,7 @@ public class OccultController : MonoBehaviour
 
     [Header("Is Killable")]
     public bool isKillable;
-    private string[] friends = {"forestcore", "grilldad", "chemist"};
+    public string[] friends = {"forestcore", "grilldad", "chemist"};
     public string[] requiredItems = {};
 
     void Start()

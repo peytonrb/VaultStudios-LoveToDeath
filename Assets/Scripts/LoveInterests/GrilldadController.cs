@@ -12,7 +12,7 @@ public class GrilldadController : MonoBehaviour
 
     [Header("Is Killable")]
     public bool isKillable;
-    private string[] friends = {"forestcore", "emo", "chemist"};
+    public string[] friends = {"forestcore", "emo", "chemist"};
     public string[] requiredItems = {};
 
     void Start()

@@ -770,6 +770,7 @@ MonoBehaviour:
   isLoveInterest: 0
   player: {fileID: 1482284574}
   isKillable: 0
+  requiredItems: []
 --- !u!1 &483860425
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,6 +818,11 @@ MonoBehaviour:
   isLoveInterest: 0
   player: {fileID: 1482284574}
   isKillable: 0
+  friends:
+  - grilldad
+  - jojo
+  - carmen
+  requiredItems: []
 --- !u!1 &493637112
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,6 +870,7 @@ MonoBehaviour:
   isLoveInterest: 0
   player: {fileID: 1482284574}
   isKillable: 0
+  requiredItems: []
 --- !u!1 &634331091
 GameObject:
   m_ObjectHideFlags: 0
@@ -1491,6 +1498,12 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+  chemist: {fileID: 483860427}
+  forestcore: {fileID: 2096276607}
+  gamer: {fileID: 493637114}
+  grilldad: {fileID: 2102738884}
+  jojo: {fileID: 435362489}
+  occult: {fileID: 1864489027}
   hasMurderItems: 0
   inventory: {fileID: 302007078}
   inventoryManager: {fileID: 394017096}
@@ -1572,6 +1585,7 @@ MonoBehaviour:
   isLoveInterest: 0
   player: {fileID: 1482284574}
   isKillable: 0
+  requiredItems: []
 --- !u!1 &2004133324
 GameObject:
   m_ObjectHideFlags: 0
@@ -1652,6 +1666,7 @@ MonoBehaviour:
   isLoveInterest: 0
   player: {fileID: 1482284574}
   isKillable: 0
+  requiredItems: []
 --- !u!1 &2102738882
 GameObject:
   m_ObjectHideFlags: 0
@@ -1699,3 +1714,4 @@ MonoBehaviour:
   isLoveInterest: 0
   player: {fileID: 1482284574}
   isKillable: 0
+  requiredItems: []

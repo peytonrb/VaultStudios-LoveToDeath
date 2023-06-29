@@ -12,7 +12,7 @@ public class JojoController : MonoBehaviour
 
     [Header("Is Killable")]
     public bool isKillable;
-    private string[] friends = {"grilldad", "chemist", "gamer"};
+    public string[] friends = {"grilldad", "chemist", "gamer"};
     public string[] requiredItems = {};
 
     void Start()

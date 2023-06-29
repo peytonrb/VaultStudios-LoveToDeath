@@ -19,9 +19,19 @@ public class PlayerController : MonoBehaviour
     private GameObject loveInterest; // stores the GameObject of the love interest
     private PlayerListUI chosenInterest;
     private string interestName;
+    public ChemistController chemist;
+    public ForestcoreController forestcore;
+    public GamerController gamer;
+    public GrilldadController grilldad;
+    public JojoController jojo;
+    public OccultController occult;
 
     [Header("Murder")]
     public bool hasMurderItems;
+    private string[] targets;
+    private string[] murderItems1;
+    private string[] murderItems2;
+    private string[] murderItems3;
 
     [Header("Other")]
     public GameObject inventory;
@@ -76,12 +86,130 @@ public class PlayerController : MonoBehaviour
         }
         // end key presses
 
-        determineMurderItems(interestName);
+        assignMurders(interestName);
     }
 
-    private void determineMurderItems(string interestName)
+    private void assignMurders(string interestName)
     {
-        
+        int iteration = 0;
+
+        if (interestName == "forestcore")
+        {
+            // assigning the names to the variable local to this script
+            for (int i = 0; i < targets.Length; i++)
+            {
+                forestcore.friends[i] = targets[i];
+            }
+
+            // assigning the items to the variable local to this script
+            foreach (string name in targets)
+            {
+                iteration++;
+                assignMurderItems(name, iteration);
+            }
+        } else if (interestName == "grilldad")
+        {
+            // assigning the names to the variable local to this script
+            for (int i = 0; i < targets.Length; i++)
+            {
+                grilldad.friends[i] = targets[i];
+            }
+
+            // assigning the items to the variable local to this script
+            foreach (string name in targets)
+            {
+                iteration++;
+                assignMurderItems(name, iteration);
+            }
+        } else if (interestName == "chemist")
+        {
+            // assigning the names to the variable local to this script
+            for (int i = 0; i < targets.Length; i++)
+            {
+                chemist.friends[i] = targets[i];
+            }
+
+            // assigning the items to the variable local to this script
+            foreach (string name in targets)
+            {
+                iteration++;
+                assignMurderItems(name, iteration);
+            }
+        } else if (interestName == "gamer")
+        {
+            // assigning the names to the variable local to this script
+            for (int i = 0; i < targets.Length; i++)
+            {
+                gamer.friends[i] = targets[i];
+            }
+
+            // assigning the items to the variable local to this script
+            foreach (string name in targets)
+            {
+                iteration++;
+                assignMurderItems(name, iteration);
+            }
+        } else if (interestName == "occult")
+        {
+            // assigning the names to the variable local to this script
+            for (int i = 0; i < targets.Length; i++)
+            {
+                occult.friends[i] = targets[i];
+            }
+
+            // assigning the items to the variable local to this script
+            foreach (string name in targets)
+            {
+                iteration++;
+                assignMurderItems(name, iteration);
+            }
+        } else if (interestName == "jojo")
+        {
+            // assigning the names to the variable local to this script
+            for (int i = 0; i < targets.Length; i++)
+            {
+                jojo.friends[i] = targets[i];
+            }
+
+            // assigning the items to the variable local to this script
+            foreach (string name in targets)
+            {
+                iteration++;
+                assignMurderItems(name, iteration);
+            }
+        }
+    }
+
+    private void assignMurderItems(string name, int iteration)
+    {
+        if (name == "forestcore")
+        {
+            if (iteration == 1)
+            {
+                murderItems1 = forestcore.requiredItems;
+            } else if (iteration == 2)
+            {
+
+            } else if (iteration == 3)
+            {
+
+            }
+        } else if (name == "grilldad")
+        {
+
+        } else if (name == "chemist")
+        {
+
+        } else if (name == "gamer")
+        {
+
+        } else if (name == "occult")
+        {
+
+        } else if (name == "jojo")
+        {
+
+        }
     }
 
     private void inventoryContainsItems()
