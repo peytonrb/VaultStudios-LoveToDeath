@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     private string interestName;
 
     [Header("Murder")]
-    private bool hasMurderItems;
+    public bool hasMurderItems;
 
     [Header("Other")]
     public GameObject inventory;
@@ -72,5 +72,10 @@ public class PlayerController : MonoBehaviour
         {
             inventory.SetActive(false);
         }
+    }
+
+    private void inventoryContainsItems()
+    {
+        
     }
 }

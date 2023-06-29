@@ -768,6 +768,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLoveInterest: 0
+  player: {fileID: 1482284574}
   isKillable: 0
 --- !u!1 &483860425
 GameObject:
@@ -814,6 +815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLoveInterest: 0
+  player: {fileID: 1482284574}
   isKillable: 0
 --- !u!1 &493637112
 GameObject:
@@ -860,6 +862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLoveInterest: 0
+  player: {fileID: 1482284574}
   isKillable: 0
 --- !u!1 &634331091
 GameObject:
@@ -1488,6 +1491,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+  hasMurderItems: 0
   inventory: {fileID: 302007078}
   inventoryManager: {fileID: 394017096}
 --- !u!1 &1702921024
@@ -1566,6 +1570,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLoveInterest: 0
+  player: {fileID: 1482284574}
   isKillable: 0
 --- !u!1 &2004133324
 GameObject:
@@ -1645,6 +1650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLoveInterest: 0
+  player: {fileID: 1482284574}
   isKillable: 0
 --- !u!1 &2102738882
 GameObject:
@@ -1691,4 +1697,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLoveInterest: 0
+  player: {fileID: 1482284574}
   isKillable: 0

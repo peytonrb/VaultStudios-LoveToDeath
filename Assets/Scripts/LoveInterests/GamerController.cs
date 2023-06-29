@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GamerController : MonoBehaviour
 {
     [Header("Chosen Love Interest")]
     public bool isLoveInterest;
     private PlayerListUI chosenInterest;
+    public PlayerController player;
 
     [Header("Is Killable")]
     public bool isKillable;
-    private string[] friends = {"name", "name", "name"};
+    private string[] friends = {"forestcore", "emo", "jojo"};
 
     void Start()
     {
@@ -35,7 +37,15 @@ public class GamerController : MonoBehaviour
         // if they are love interest
         if (isLoveInterest)
         {
-
+            // guarantees player is within range of love interest
+            Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 5f); // second number is radius
+            foreach (var hitCollider in hitColliders)
+            {
+                if (hitCollider.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.F) && player.hasMurderItems)
+                {
+                    initiateMurderGame();
+                }
+            }
         }
         // if they are killable
         else if (isKillable)
@@ -48,4 +58,9 @@ public class GamerController : MonoBehaviour
 
         }
     }
+
+    private void initiateMurderGame()
+    {
+        SceneManager.LoadScene(5);
+    }   
 }

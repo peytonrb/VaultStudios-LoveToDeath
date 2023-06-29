@@ -26,6 +26,16 @@ public class InventoryManager : MonoBehaviour
         items.Remove(item);
     }
 
+    public bool contains(Item item)
+    {
+        if (items.Contains(item))
+        {
+            return true;
+        }
+        
+        return false;
+    }
+
     // needs to be called when inventory button is pressed
     public void listItems()
     {
