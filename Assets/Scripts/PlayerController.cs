@@ -94,6 +94,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    // assigns the murder targets to the variables
     private void assignMurders(string interestName)
     {
         int iteration = 0;
@@ -185,6 +186,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // assigns the items required to kill the targets to the variables
     private void assignMurderItems(string name, int iteration)
     {
         if (name == "forestcore")
