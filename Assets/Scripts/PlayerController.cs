@@ -89,6 +89,11 @@ public class PlayerController : MonoBehaviour
         assignMurders(interestName);
     }
 
+    private void inventoryContainsItems()
+    {
+
+    }
+
     private void assignMurders(string interestName)
     {
         int iteration = 0;
@@ -205,24 +210,109 @@ public class PlayerController : MonoBehaviour
             }
         } else if (name == "grilldad")
         {
-
+            if (iteration == 1)
+            {
+                for (int i = 0; i < grilldad.requiredItems.Length; i++)
+                {
+                    murderItems1[i] = grilldad.requiredItems[i];
+                }
+            } else if (iteration == 2)
+            {
+                for (int i = 0; i < grilldad.requiredItems.Length; i++)
+                {
+                    murderItems2[i] = grilldad.requiredItems[i];
+                }
+            } else if (iteration == 3)
+            {
+                for (int i = 0; i < grilldad.requiredItems.Length; i++)
+                {
+                    murderItems3[i] = grilldad.requiredItems[i];
+                }
+            }
         } else if (name == "chemist")
         {
-
+            if (iteration == 1)
+            {
+                for (int i = 0; i < chemist.requiredItems.Length; i++)
+                {
+                    murderItems1[i] = chemist.requiredItems[i];
+                }
+            } else if (iteration == 2)
+            {
+                for (int i = 0; i < chemist.requiredItems.Length; i++)
+                {
+                    murderItems2[i] = chemist.requiredItems[i];
+                }
+            } else if (iteration == 3)
+            {
+                for (int i = 0; i < chemist.requiredItems.Length; i++)
+                {
+                    murderItems3[i] = chemist.requiredItems[i];
+                }
+            }
         } else if (name == "gamer")
         {
-
+            if (iteration == 1)
+            {
+                for (int i = 0; i < gamer.requiredItems.Length; i++)
+                {
+                    murderItems1[i] = gamer.requiredItems[i];
+                }
+            } else if (iteration == 2)
+            {
+                for (int i = 0; i < gamer.requiredItems.Length; i++)
+                {
+                    murderItems2[i] = gamer.requiredItems[i];
+                }
+            } else if (iteration == 3)
+            {
+                for (int i = 0; i < gamer.requiredItems.Length; i++)
+                {
+                    murderItems3[i] = gamer.requiredItems[i];
+                }
+            }
         } else if (name == "occult")
         {
-
+            if (iteration == 1)
+            {
+                for (int i = 0; i < occult.requiredItems.Length; i++)
+                {
+                    murderItems1[i] = occult.requiredItems[i];
+                }
+            } else if (iteration == 2)
+            {
+                for (int i = 0; i < occult.requiredItems.Length; i++)
+                {
+                    murderItems2[i] = occult.requiredItems[i];
+                }
+            } else if (iteration == 3)
+            {
+                for (int i = 0; i < occult.requiredItems.Length; i++)
+                {
+                    murderItems3[i] = occult.requiredItems[i];
+                }
+            }
         } else if (name == "jojo")
         {
-
+            if (iteration == 1)
+            {
+                for (int i = 0; i < jojo.requiredItems.Length; i++)
+                {
+                    murderItems1[i] = jojo.requiredItems[i];
+                }
+            } else if (iteration == 2)
+            {
+                for (int i = 0; i < jojo.requiredItems.Length; i++)
+                {
+                    murderItems2[i] = jojo.requiredItems[i];
+                }
+            } else if (iteration == 3)
+            {
+                for (int i = 0; i < jojo.requiredItems.Length; i++)
+                {
+                    murderItems3[i] = jojo.requiredItems[i];
+                }
+            }
         }
-    }
-
-    private void inventoryContainsItems()
-    {
-
     }
 }
