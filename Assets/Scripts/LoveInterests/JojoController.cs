@@ -9,14 +9,17 @@ public class JojoController : MonoBehaviour
     public bool isLoveInterest;
     private PlayerListUI chosenInterest;
     public PlayerController player;
+    public string[] friends = {"grilldad", "chemist", "gamer"};
 
     [Header("Is Killable")]
     public bool isKillable;
-    public string[] friends = {"grilldad", "chemist", "gamer"};
+    public bool playerHasItems;
     public string[] requiredItems = {};
 
     void Start()
     {
+        playerHasItems = false;
+
         if (PlayerListUI.loveInterest == "jojo")
         {
             isLoveInterest = true;
@@ -38,20 +41,20 @@ public class JojoController : MonoBehaviour
         // if they are love interest
         if (isLoveInterest)
         {
-            // guarantees player is within range of love interest
-            Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 5f); // second number is radius
-            foreach (var hitCollider in hitColliders)
-            {
-                if (hitCollider.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.F) && player.hasMurderItems)
-                {
-                    initiateMurderGame();
-                }
-            }
+
         }
         // if they are killable
         else if (isKillable)
         {
-            
+            // guarantees player is within range of love interest
+            Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 5f); // second number is radius
+            foreach (var hitCollider in hitColliders)
+            {
+                if (hitCollider.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.F) && playerHasItems)
+                {
+                    initiateMurderGame();
+                }
+            }
         }
         // if they are npc
         else

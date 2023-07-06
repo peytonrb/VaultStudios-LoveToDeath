@@ -26,9 +26,20 @@ public class InventoryManager : MonoBehaviour
         items.Remove(item);
     }
 
-    public bool contains(Item item)
+    public bool contains(string itemName)
     {
-        if (items.Contains(item))
+        Item foundItem = null;
+
+        // index all the items and find matching item names
+        foreach (Item item in items)
+        {
+            if (item.name == itemName)
+            {
+                foundItem = item;
+            }
+        }
+
+        if (items.Contains(foundItem))
         {
             return true;
         }
@@ -45,7 +56,7 @@ public class InventoryManager : MonoBehaviour
             Destroy(item.gameObject);
         }
 
-        foreach(var item in items)
+        foreach(Item item in items)
         {
             GameObject obj = Instantiate(inventoryItem, itemContent);
 

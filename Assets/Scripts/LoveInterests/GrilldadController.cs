@@ -9,14 +9,17 @@ public class GrilldadController : MonoBehaviour
     public bool isLoveInterest;
     private PlayerListUI chosenInterest;
     public PlayerController player;
+    public string[] friends = {"forestcore", "emo", "chemist"};
 
     [Header("Is Killable")]
     public bool isKillable;
-    public string[] friends = {"forestcore", "emo", "chemist"};
+    public bool playerHasItems;
     public string[] requiredItems = {};
 
     void Start()
     {
+        playerHasItems = false;
+
         if (PlayerListUI.loveInterest == "grilldad")
         {
             isLoveInterest = true;
@@ -38,20 +41,19 @@ public class GrilldadController : MonoBehaviour
         // if they are love interest
         if (isLoveInterest)
         {
-            // guarantees player is within range of love interest
-            Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 5f); // second number is radius
-            foreach (var hitCollider in hitColliders)
-            {
-                if (hitCollider.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.F) && player.hasMurderItems)
-                {
-                    initiateMurderGame();
-                }
-            }
         }
         // if they are killable
         else if (isKillable)
         {
-            
+            // guarantees player is within range of love interest
+            Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 5f); // second number is radius
+            foreach (var hitCollider in hitColliders)
+            {
+                if (hitCollider.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.F) && playerHasItems)
+                {
+                    initiateMurderGame();
+                }
+            } 
         }
         // if they are npc
         else

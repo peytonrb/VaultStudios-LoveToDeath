@@ -27,7 +27,9 @@ public class PlayerController : MonoBehaviour
     public OccultController occult;
 
     [Header("Murder")]
-    public bool hasMurderItems;
+    public bool hasMurderItems1;
+    public bool hasMurderItems2;
+    public bool hasMurderItems3;
     private string[] targets;
     private string[] murderItems1;
     private string[] murderItems2;
@@ -40,7 +42,9 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         inventory.SetActive(false);
-        hasMurderItems = false;
+        hasMurderItems1 = false;
+        hasMurderItems2 = false;
+        hasMurderItems3 = false;
         interestName = PlayerListUI.loveInterest;
         loveInterest = GameObject.Find(interestName);
     }
@@ -80,6 +84,20 @@ public class PlayerController : MonoBehaviour
             inventoryManager.listItems();
         }
 
+        // love interest interaction key
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            // guarantees player is within range of love interest
+            Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 5f); // second number is radius
+            foreach (var hitCollider in hitColliders)
+            {
+                if (hitCollider.gameObject.tag == "Player")
+                {
+                    inventoryContainsItems(); // checks if player has murder items
+                }
+            }
+        }
+
         if (inventory.activeSelf && Input.GetKeyDown(KeyCode.Escape))
         {
             inventory.SetActive(false);
@@ -91,8 +109,79 @@ public class PlayerController : MonoBehaviour
 
     private void inventoryContainsItems()
     {
-        // if inventory contains items (.contains in inventorymanager), setactive ability to kill that character 
-        // do i need to link items to target in this script?
+        int counter1 = 0;
+        int counter2 = 0;
+        int counter3 = 0;
+
+        // checks if player has required items
+        for (int i = 0; i < murderItems1.Length; i++)
+        {
+            if (inventoryManager.contains(murderItems1[i]))
+            {
+                counter1++;
+            }
+        }
+
+        for (int i = 0; i < murderItems2.Length; i++)
+        {
+            if (inventoryManager.contains(murderItems2[i]))
+            {
+                counter2++;
+            }
+        }
+
+        for (int i = 0; i < murderItems3.Length; i++)
+        {
+            if (inventoryManager.contains(murderItems3[i]))
+            {
+                counter3++;
+            }
+        }
+
+        // makes sure player has ALL required items
+        if (counter1 == 3)
+        {
+            hasMurderItems1 = true;
+            setToKill(1);
+        }
+        else if (counter2 == 3)
+        {
+            hasMurderItems2 = true;
+            setToKill(2);
+        }
+        else if (counter3 == 3)
+        {
+            hasMurderItems3 = true;
+            setToKill(3);
+        }
+    }
+
+    private void setToKill(int index)
+    {
+        if (targets[index] == "forestcore")
+        {
+            forestcore.playerHasItems = true;
+        }
+        else if (targets[index] == "grilldad")
+        {
+            grilldad.playerHasItems = true;
+        }
+        else if (targets[index] == "chemist")
+        {
+            chemist.playerHasItems = true;
+        }
+        else if (targets[index] == "gamer")
+        {
+            gamer.playerHasItems = true;
+        }
+        else if (targets[index] == "jojo")
+        {
+            jojo.playerHasItems = true;
+        }
+        else if (targets[index] == "occult")
+        {
+            occult.playerHasItems = true;
+        }
     }
 
     // assigns the murder targets to the variables
