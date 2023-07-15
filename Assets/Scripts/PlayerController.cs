@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour
     private GameObject target1;
     private GameObject target2;
     private GameObject target3;
-    private int murderCount;
 
     [Header("Other")]
     public GameObject inventory;
@@ -49,7 +48,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         inventory.SetActive(false);
-        murderCount = 0;
         interestName = PlayerListUI.loveInterest;
         loveInterest = GameObject.Find(interestName);
         loveInterest.gameObject.tag = "LoveInterest";
@@ -109,34 +107,32 @@ public class PlayerController : MonoBehaviour
             {
                 if (hitCollider.gameObject.tag == "Target") // this is going to break --> maybe???? 
                 {
-                    if (targets[murderCount] == "forestcore" && forestcore.playerHasItems)
+                    if (forestcore.playerHasItems)
                     {
                         forestcore.initiateMurderGame();
                     }
-                    else if (targets[murderCount] == "grilldad" && grilldad.playerHasItems)
+                    else if (grilldad.playerHasItems)
                     {
                         grilldad.initiateMurderGame();
                     }
-                    else if (targets[murderCount] == "chemist" && chemist.playerHasItems)
+                    else if (chemist.playerHasItems)
                     {
                         chemist.initiateMurderGame();
                     }
-                    else if (targets[murderCount] == "jojo" && jojo.playerHasItems)
+                    else if (jojo.playerHasItems)
                     {
                         jojo.initiateMurderGame();
                     }
-                    else if (targets[murderCount] == "gamer" && gamer.playerHasItems)
+                    else if (gamer.playerHasItems)
                     {
                         gamer.initiateMurderGame();
                     }
-                    else if (targets[murderCount] == "occult" && occult.playerHasItems)
+                    else if (occult.playerHasItems)
                     {
                         occult.initiateMurderGame();
                     }
                 }
             }
-
-            murderCount++; // IF GAME IS WON -> INCREMENT
         }
 
         if (inventory.activeSelf && Input.GetKeyDown(KeyCode.Escape))
@@ -180,24 +176,15 @@ public class PlayerController : MonoBehaviour
         // makes sure player has ALL required items
         if (counter1 == 3)
         {
-            if (murderCount == 0) // enforces order/schedule of murders
-            {
-                setToKill(1);
-            }
+            setToKill(1);
         }
         else if (counter2 == 3)
         {
-            if (murderCount == 1) // enforces order/schedule of murders
-            {
-                setToKill(2);
-            }
+            setToKill(2);
         }
         else if (counter3 == 3)
         {
-            if (murderCount == 2) // enforces order/schedule of murders
-            {
-                setToKill(3);
-            }
+            setToKill(3);
         }
     }
 
