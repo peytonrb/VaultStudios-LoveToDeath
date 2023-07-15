@@ -63,7 +63,7 @@ public class GamerController : MonoBehaviour
         }
     }
 
-    private void initiateMurderGame()
+    public void initiateMurderGame()
     {
         SceneManager.LoadScene(5);
     }   

@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     private string[] murderItems1;
     private string[] murderItems2;
     private string[] murderItems3;
+    private int murderCount;
 
     [Header("Other")]
     public GameObject inventory;
@@ -42,6 +43,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         inventory.SetActive(false);
+        murderCount = 0;
         hasMurderItems1 = false;
         hasMurderItems2 = false;
         hasMurderItems3 = false;
@@ -65,14 +67,6 @@ public class PlayerController : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move * speed * Time.deltaTime);
 
-        /**********************************************************
-        *               DO WE NEED A JUMP FUNCTION?               *
-        **********************************************************/
-        // if (Input.GetButtonDown("Jump") && isGrounded)
-        // {
-        //     velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); 
-        // }
-
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
         // end movement mechanics
@@ -84,18 +78,22 @@ public class PlayerController : MonoBehaviour
             inventoryManager.listItems();
         }
 
-        // love interest interaction key
+        // love interest interaction key 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            // guarantees player is within range of love interest
+            /*
+            // guarantees player is within range of love interest AND player has items required
             Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 5f); // second number is radius
             foreach (var hitCollider in hitColliders)
             {
-                if (hitCollider.gameObject.tag == "Player")
+                if (hitCollider.gameObject.tag == "Player") // this is going to break.
                 {
                     inventoryContainsItems(); // checks if player has murder items
+                    target[murderCount].initiateMurderGame();
                 }
             }
+            */
+            murderCount++; // IF GAME IS WON -> INCREMENT
         }
 
         if (inventory.activeSelf && Input.GetKeyDown(KeyCode.Escape))
@@ -142,17 +140,29 @@ public class PlayerController : MonoBehaviour
         if (counter1 == 3)
         {
             hasMurderItems1 = true;
-            setToKill(1);
+
+            if (murderCount == 0) // enforces order/schedule of murders
+            {
+                setToKill(1);
+            }
         }
         else if (counter2 == 3)
         {
             hasMurderItems2 = true;
-            setToKill(2);
+
+            if (murderCount == 1) // enforces order/schedule of murders
+            {
+                setToKill(2);
+            }
         }
         else if (counter3 == 3)
         {
             hasMurderItems3 = true;
-            setToKill(3);
+
+            if (murderCount == 2) // enforces order/schedule of murders
+            {
+                setToKill(3);
+            }
         }
     }
 

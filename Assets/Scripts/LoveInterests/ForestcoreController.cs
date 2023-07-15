@@ -62,7 +62,7 @@ public class ForestcoreController : MonoBehaviour
         }
     }
 
-    private void initiateMurderGame()
+    public void initiateMurderGame()
     {
         SceneManager.LoadScene(4);
     }

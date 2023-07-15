@@ -62,7 +62,7 @@ public class GrilldadController : MonoBehaviour
         }
     }
 
-    private void initiateMurderGame()
+    public void initiateMurderGame()
     {
         SceneManager.LoadScene(6);
     }

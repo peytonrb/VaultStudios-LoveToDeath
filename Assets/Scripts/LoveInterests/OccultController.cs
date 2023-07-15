@@ -63,7 +63,7 @@ public class OccultController : MonoBehaviour
         }
     }
 
-    private void initiateMurderGame()
+    public void initiateMurderGame()
     {
         SceneManager.LoadScene(8);
     }

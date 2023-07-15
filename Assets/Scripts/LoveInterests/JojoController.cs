@@ -63,7 +63,7 @@ public class JojoController : MonoBehaviour
         }
     }
 
-    private void initiateMurderGame()
+    public void initiateMurderGame()
     {
         SceneManager.LoadScene(7);
     }
