@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 velocity;
     private bool isGrounded;
 
-    [Header("Love Interest")]
+    [Header("Lover")]
     private GameObject loveInterest; // stores the GameObject of the love interest
     private PlayerListUI chosenInterest;
     private string interestName;
@@ -27,32 +27,54 @@ public class PlayerController : MonoBehaviour
     public OccultController occult;
 
     [Header("Murder")]
-    public bool hasMurderItems1;
-    public bool hasMurderItems2;
-    public bool hasMurderItems3;
     private string[] targets;
     private string[] murderItems1;
     private string[] murderItems2;
     private string[] murderItems3;
+    private GameObject target1;
+    private GameObject target2;
+    private GameObject target3;
     private int murderCount;
 
     [Header("Other")]
     public GameObject inventory;
     public InventoryManager inventoryManager;
 
+    /*
+        i am writing this for any other programmers that may come across this program... to help understand, 
+        targets[] and all the string[] murderItems variables are all associated. for example, targets[0] will
+        ALWAYS CORRELATED TO murderItems1[]. targets[1] is always correlated to murderItems2[], etc.
+    */
+
     void Start()
     {
         inventory.SetActive(false);
         murderCount = 0;
-        hasMurderItems1 = false;
-        hasMurderItems2 = false;
-        hasMurderItems3 = false;
         interestName = PlayerListUI.loveInterest;
         loveInterest = GameObject.Find(interestName);
+        loveInterest.gameObject.tag = "LoveInterest";
+        assignMurders(interestName);
+
+        target1 = GameObject.Find(targets[0]);
+        target1.gameObject.tag = "Target";
+
+        target2 = GameObject.Find(targets[1]);
+        target2.gameObject.tag = "Target";              // <--- make sure these aren't null!!
+
+        target3 = GameObject.Find(targets[2]);
+        target3.gameObject.tag = "Target";
+
+        // debugging
+        Debug.Log(targets); // MAKE SURE THIS ASSIGNS WELL
+        Debug.Log(murderItems1); // MAKE SURE THIS ASSIGNS WELL
+        Debug.Log(murderItems2); // MAKE SURE THIS ASSIGNS WELL
+        Debug.Log(murderItems3); // MAKE SURE THIS ASSIGNS WELL
     }
 
     void Update()
     {
+        inventoryContainsItems();
+
         // movement mechanics
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -81,18 +103,39 @@ public class PlayerController : MonoBehaviour
         // love interest interaction key 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            /*
             // guarantees player is within range of love interest AND player has items required
             Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 5f); // second number is radius
             foreach (var hitCollider in hitColliders)
             {
-                if (hitCollider.gameObject.tag == "Player") // this is going to break.
+                if (hitCollider.gameObject.tag == "Target") // this is going to break --> maybe???? 
                 {
-                    inventoryContainsItems(); // checks if player has murder items
-                    target[murderCount].initiateMurderGame();
+                    if (targets[murderCount] == "forestcore" && forestcore.playerHasItems)
+                    {
+                        forestcore.initiateMurderGame();
+                    }
+                    else if (targets[murderCount] == "grilldad" && grilldad.playerHasItems)
+                    {
+                        grilldad.initiateMurderGame();
+                    }
+                    else if (targets[murderCount] == "chemist" && chemist.playerHasItems)
+                    {
+                        chemist.initiateMurderGame();
+                    }
+                    else if (targets[murderCount] == "jojo" && jojo.playerHasItems)
+                    {
+                        jojo.initiateMurderGame();
+                    }
+                    else if (targets[murderCount] == "gamer" && gamer.playerHasItems)
+                    {
+                        gamer.initiateMurderGame();
+                    }
+                    else if (targets[murderCount] == "occult" && occult.playerHasItems)
+                    {
+                        occult.initiateMurderGame();
+                    }
                 }
             }
-            */
+
             murderCount++; // IF GAME IS WON -> INCREMENT
         }
 
@@ -101,8 +144,6 @@ public class PlayerController : MonoBehaviour
             inventory.SetActive(false);
         }
         // end key presses
-
-        assignMurders(interestName);
     }
 
     private void inventoryContainsItems()
@@ -139,8 +180,6 @@ public class PlayerController : MonoBehaviour
         // makes sure player has ALL required items
         if (counter1 == 3)
         {
-            hasMurderItems1 = true;
-
             if (murderCount == 0) // enforces order/schedule of murders
             {
                 setToKill(1);
@@ -148,8 +187,6 @@ public class PlayerController : MonoBehaviour
         }
         else if (counter2 == 3)
         {
-            hasMurderItems2 = true;
-
             if (murderCount == 1) // enforces order/schedule of murders
             {
                 setToKill(2);
@@ -157,8 +194,6 @@ public class PlayerController : MonoBehaviour
         }
         else if (counter3 == 3)
         {
-            hasMurderItems3 = true;
-
             if (murderCount == 2) // enforces order/schedule of murders
             {
                 setToKill(3);
