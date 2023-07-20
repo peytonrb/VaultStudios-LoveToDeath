@@ -25,16 +25,56 @@ public class WireController : MonoBehaviour
     void Start()
     {
         System.Random rng = new System.Random();
-        // change end of range when the number of wires changes
         // make sure the two numbers are not the same
-        int randomWire = rng.Next(1,3);
-        int randomWire2 = rng.Next(1,3);
-        // if statements
+        int randomWire = rng.Next(1,7);
+        int randomWire2 = rng.Next(1,7);
+        // if statements use the random numbers and correlate them to their
+        // respective cube, and turn their boolean variable, "canExplode"
+        // to true
         // || means or
         if (randomWire == 1 || randomWire2 == 1)
         {
-            //cube1.canExplode = true;
+            cube1.canExplode = true;
         }
+
+        if (randomWire == 2 || randomWire2 == 2)
+        {
+            cube2.canExplode = true;
+        }
+
+        if (randomWire == 3 || randomWire2 == 3)
+        {
+            cube3.canExplode = true;
+        }
+
+        if (randomWire == 4 || randomWire2 == 4)
+        {
+            cube4.canExplode = true;
+        }
+
+        if (randomWire == 5 || randomWire2 == 5)
+        {
+            cube5.canExplode = true;
+        }
+
+        if (randomWire == 6 || randomWire2 == 6)
+        {
+            cube6.canExplode = true;
+        }
+
+        // trying out a while loop to see if itll keep changing the value
+        // until its different from the first pick
+
+        // it worked well, i will continue to keep this as the safety net
+        while (randomWire == randomWire2)
+        {
+            randomWire2 = rng.Next(1,6);
+        }
+
+        // prints out the value of the two exploding cubes into the console
+        Debug.Log(randomWire);
+        Debug.Log(randomWire2);
+
     }
 
     // Update is called once per frame
