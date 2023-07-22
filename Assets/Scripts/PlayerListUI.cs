@@ -11,7 +11,7 @@ public class PlayerListUI : MonoBehaviour
     public Button start;
     public static string loveInterest;
 
-    //hi peyton (^人^)
+    //hi peyton (^人^) <- WHO DID THIS THIS IS SO CUTE
 
     void Start()
     {
@@ -30,6 +30,7 @@ public class PlayerListUI : MonoBehaviour
         enablePlayerCards("FORESTCORE");
         loveInterest = "forestcore";
     }
+
     public void grillDad()
     {
         removeButtons();
@@ -72,10 +73,10 @@ public class PlayerListUI : MonoBehaviour
         loveInterest = "jojo";
     }
 
-    public void occultGirl()
+    public void occult()
     {
         removeButtons();
-        enablePlayerCards("OCCULT GIRL");
+        enablePlayerCards("OCCULT");
         loveInterest = "occult";
     }
 

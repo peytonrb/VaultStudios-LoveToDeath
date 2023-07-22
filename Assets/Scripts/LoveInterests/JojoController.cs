@@ -14,7 +14,7 @@ public class JojoController : MonoBehaviour
     [Header("Is Killable")]
     public bool isKillable;
     public bool playerHasItems;
-    public string[] requiredItems = {};
+    public string[] requiredItems = {"fishing line", "toolbox", "crowbar"};
 
     void Start()
     {

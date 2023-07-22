@@ -26,10 +26,10 @@ public class PlayerController : MonoBehaviour
     public OccultController occult;
 
     [Header("Murder")]
-    private string[] targets;
-    private string[] murderItems1;
-    private string[] murderItems2;
-    private string[] murderItems3;
+    private string[] targets = new string[3];
+    private string[] murderItems1 = new string[3];
+    private string[] murderItems2 = new string[3];
+    private string[] murderItems3 = new string[3];
     private GameObject target1;
     private GameObject target2;
     private GameObject target3;
@@ -49,11 +49,9 @@ public class PlayerController : MonoBehaviour
         inventory.SetActive(false);
         interestName = PlayerListUI.loveInterest;
         loveInterest = GameObject.Find(interestName);
-        loveInterest.gameObject.tag = "LoveInterest"; // null - not working
+        // there will be a bug here if you do not start the test game from the PlayerCards scene
+        loveInterest.gameObject.tag = "LoveInterest"; 
         assignMurders(interestName);
-        assignMurderItems(targets[0], 1);
-        assignMurderItems(targets[1], 2);
-        assignMurderItems(targets[2], 3);
 
         target1 = GameObject.Find(targets[0]);
         target1.gameObject.tag = "Target";
@@ -63,12 +61,6 @@ public class PlayerController : MonoBehaviour
 
         target3 = GameObject.Find(targets[2]);
         target3.gameObject.tag = "Target";
-
-        // debugging
-        Debug.Log(targets); // MAKE SURE THIS ASSIGNS WELL
-        Debug.Log(murderItems1); // MAKE SURE THIS ASSIGNS WELL
-        Debug.Log(murderItems2); // MAKE SURE THIS ASSIGNS WELL
-        Debug.Log(murderItems3); // MAKE SURE THIS ASSIGNS WELL
     }
 
     void Update()
@@ -227,9 +219,9 @@ public class PlayerController : MonoBehaviour
         if (interestName == "forestcore")
         {
             // assigning the names to the variable local to this script
-            for (int i = 0; i < targets.Length; i++)
+            for (int i = 0; i < 3; i++)
             {
-                forestcore.friends[i] = targets[i];
+                targets[i] = forestcore.friends[i];
             }
 
             // assigning the items to the variable local to this script
@@ -241,9 +233,9 @@ public class PlayerController : MonoBehaviour
         } else if (interestName == "grilldad")
         {
             // assigning the names to the variable local to this script
-            for (int i = 0; i < targets.Length; i++)
+            for (int i = 0; i < 3; i++)
             {
-                grilldad.friends[i] = targets[i];
+                targets[i] = grilldad.friends[i];
             }
 
             // assigning the items to the variable local to this script
@@ -255,9 +247,9 @@ public class PlayerController : MonoBehaviour
         } else if (interestName == "chemist")
         {
             // assigning the names to the variable local to this script
-            for (int i = 0; i < targets.Length; i++)
+            for (int i = 0; i < 3; i++)
             {
-                chemist.friends[i] = targets[i];
+                targets[i] = chemist.friends[i];
             }
 
             // assigning the items to the variable local to this script
@@ -269,9 +261,9 @@ public class PlayerController : MonoBehaviour
         } else if (interestName == "gamer")
         {
             // assigning the names to the variable local to this script
-            for (int i = 0; i < targets.Length; i++)
+            for (int i = 0; i < 3; i++)
             {
-                gamer.friends[i] = targets[i];
+                targets[i] = gamer.friends[i];
             }
 
             // assigning the items to the variable local to this script
@@ -283,9 +275,9 @@ public class PlayerController : MonoBehaviour
         } else if (interestName == "occult")
         {
             // assigning the names to the variable local to this script
-            for (int i = 0; i < targets.Length; i++)
+            for (int i = 0; i < 3; i++)
             {
-                occult.friends[i] = targets[i];
+                targets[i] = occult.friends[i];
             }
 
             // assigning the items to the variable local to this script
@@ -297,9 +289,9 @@ public class PlayerController : MonoBehaviour
         } else if (interestName == "jojo")
         {
             // assigning the names to the variable local to this script
-            for (int i = 0; i < targets.Length; i++)
+            for (int i = 0; i < 3; i++)
             {
-                jojo.friends[i] = targets[i];
+                targets[i] = jojo.friends[i];
             }
 
             // assigning the items to the variable local to this script

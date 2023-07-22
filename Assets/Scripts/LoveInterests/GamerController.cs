@@ -14,7 +14,7 @@ public class GamerController : MonoBehaviour
     [Header("Is Killable")]
     public bool isKillable;
     public bool playerHasItems;
-    public string[] requiredItems = {};
+    public string[] requiredItems = {"wire cutter", "screwdriver", "gloves"};
 
     void Start()
     {

@@ -629,7 +629,10 @@ MonoBehaviour:
   - gamer
   isKillable: 0
   playerHasItems: 0
-  requiredItems: []
+  requiredItems:
+  - fishing line
+  - toolbox
+  - crowbar
 --- !u!1 &483860425
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,7 +685,10 @@ MonoBehaviour:
   - carmen
   isKillable: 0
   playerHasItems: 0
-  requiredItems: []
+  requiredItems:
+  - beaker
+  - bunsen burner
+  - gloves
 --- !u!1 &493637112
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,7 +741,10 @@ MonoBehaviour:
   player: {fileID: 1482284574}
   isKillable: 0
   playerHasItems: 0
-  requiredItems: []
+  requiredItems:
+  - wire cutter
+  - screwdriver
+  - gloves
 --- !u!1 &634331091
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,7 +1360,10 @@ MonoBehaviour:
   - chemist
   isKillable: 0
   playerHasItems: 0
-  requiredItems: []
+  requiredItems:
+  - necronomicon
+  - ouija board
+  - candles
 --- !u!1 &2004133324
 GameObject:
   m_ObjectHideFlags: 0
@@ -1437,7 +1449,10 @@ MonoBehaviour:
   - gamer
   isKillable: 0
   playerHasItems: 0
-  requiredItems: []
+  requiredItems:
+  - berries
+  - tea
+  - mortar
 --- !u!1 &2102738882
 GameObject:
   m_ObjectHideFlags: 0
@@ -1490,7 +1505,10 @@ MonoBehaviour:
   - chemist
   isKillable: 0
   playerHasItems: 0
-  requiredItems: []
+  requiredItems:
+  - gasoline
+  - key
+  - saw
 --- !u!23 &83047507716194883
 MeshRenderer:
   m_ObjectHideFlags: 0

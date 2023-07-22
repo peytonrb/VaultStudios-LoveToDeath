@@ -14,7 +14,7 @@ public class ChemistController : MonoBehaviour
     [Header("Is Killable")]
     public bool isKillable;
     public bool playerHasItems;
-    public string[] requiredItems = {};
+    public string[] requiredItems = {"beaker", "bunsen burner", "gloves"};
 
     void Start()
     {

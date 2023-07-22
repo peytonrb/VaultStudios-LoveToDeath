@@ -14,7 +14,7 @@ public class GrilldadController : MonoBehaviour
     [Header("Is Killable")]
     public bool isKillable;
     public bool playerHasItems;
-    public string[] requiredItems = {};
+    public string[] requiredItems = {"gasoline", "key", "saw"};
 
     void Start()
     {
