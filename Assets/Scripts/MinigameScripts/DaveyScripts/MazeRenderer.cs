@@ -12,7 +12,6 @@ public class MazeRenderer : MonoBehaviour
     public Transform wallPrefab;
     private float cellSize = 1f;
 
-    // Start is called before the first frame update
     void Start()
     {
         WallState[,] maze = MazeGenerator.Generate(width, height);
@@ -65,11 +64,5 @@ public class MazeRenderer : MonoBehaviour
                 }
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

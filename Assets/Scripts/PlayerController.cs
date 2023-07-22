@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     public CharacterController controller;
     public float speed;
     public float gravity = -9.81f;
-    public float jumpHeight;
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
@@ -50,8 +49,11 @@ public class PlayerController : MonoBehaviour
         inventory.SetActive(false);
         interestName = PlayerListUI.loveInterest;
         loveInterest = GameObject.Find(interestName);
-        loveInterest.gameObject.tag = "LoveInterest";
+        loveInterest.gameObject.tag = "LoveInterest"; // null - not working
         assignMurders(interestName);
+        assignMurderItems(targets[0], 1);
+        assignMurderItems(targets[1], 2);
+        assignMurderItems(targets[2], 3);
 
         target1 = GameObject.Find(targets[0]);
         target1.gameObject.tag = "Target";
@@ -188,6 +190,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // do not change unless there is bug
     private void setToKill(int index)
     {
         if (targets[index] == "forestcore")
@@ -216,7 +219,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // assigns the murder targets to the variables
+    // assigns the murder targets to the variables - DO NOT CHANGE
     private void assignMurders(string interestName)
     {
         int iteration = 0;
@@ -308,26 +311,26 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // assigns the items required to kill the targets to the variables
+    // assigns the items required to kill the targets to the variables -- DO NOT CHANGE
     private void assignMurderItems(string name, int iteration)
     {
         if (name == "forestcore")
         {
             if (iteration == 1)
             {
-                for (int i = 0; i < forestcore.requiredItems.Length; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     murderItems1[i] = forestcore.requiredItems[i];
                 }
             } else if (iteration == 2)
             {
-                for (int i = 0; i < forestcore.requiredItems.Length; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     murderItems2[i] = forestcore.requiredItems[i];
                 }
             } else if (iteration == 3)
             {
-                for (int i = 0; i < forestcore.requiredItems.Length; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     murderItems3[i] = forestcore.requiredItems[i];
                 }
@@ -336,19 +339,19 @@ public class PlayerController : MonoBehaviour
         {
             if (iteration == 1)
             {
-                for (int i = 0; i < grilldad.requiredItems.Length; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     murderItems1[i] = grilldad.requiredItems[i];
                 }
             } else if (iteration == 2)
             {
-                for (int i = 0; i < grilldad.requiredItems.Length; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     murderItems2[i] = grilldad.requiredItems[i];
                 }
             } else if (iteration == 3)
             {
-                for (int i = 0; i < grilldad.requiredItems.Length; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     murderItems3[i] = grilldad.requiredItems[i];
                 }
@@ -357,19 +360,19 @@ public class PlayerController : MonoBehaviour
         {
             if (iteration == 1)
             {
-                for (int i = 0; i < chemist.requiredItems.Length; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     murderItems1[i] = chemist.requiredItems[i];
                 }
             } else if (iteration == 2)
             {
-                for (int i = 0; i < chemist.requiredItems.Length; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     murderItems2[i] = chemist.requiredItems[i];
                 }
             } else if (iteration == 3)
             {
-                for (int i = 0; i < chemist.requiredItems.Length; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     murderItems3[i] = chemist.requiredItems[i];
                 }
@@ -378,19 +381,19 @@ public class PlayerController : MonoBehaviour
         {
             if (iteration == 1)
             {
-                for (int i = 0; i < gamer.requiredItems.Length; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     murderItems1[i] = gamer.requiredItems[i];
                 }
             } else if (iteration == 2)
             {
-                for (int i = 0; i < gamer.requiredItems.Length; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     murderItems2[i] = gamer.requiredItems[i];
                 }
             } else if (iteration == 3)
             {
-                for (int i = 0; i < gamer.requiredItems.Length; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     murderItems3[i] = gamer.requiredItems[i];
                 }
@@ -399,19 +402,19 @@ public class PlayerController : MonoBehaviour
         {
             if (iteration == 1)
             {
-                for (int i = 0; i < occult.requiredItems.Length; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     murderItems1[i] = occult.requiredItems[i];
                 }
             } else if (iteration == 2)
             {
-                for (int i = 0; i < occult.requiredItems.Length; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     murderItems2[i] = occult.requiredItems[i];
                 }
             } else if (iteration == 3)
             {
-                for (int i = 0; i < occult.requiredItems.Length; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     murderItems3[i] = occult.requiredItems[i];
                 }
@@ -420,19 +423,19 @@ public class PlayerController : MonoBehaviour
         {
             if (iteration == 1)
             {
-                for (int i = 0; i < jojo.requiredItems.Length; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     murderItems1[i] = jojo.requiredItems[i];
                 }
             } else if (iteration == 2)
             {
-                for (int i = 0; i < jojo.requiredItems.Length; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     murderItems2[i] = jojo.requiredItems[i];
                 }
             } else if (iteration == 3)
             {
-                for (int i = 0; i < jojo.requiredItems.Length; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     murderItems3[i] = jojo.requiredItems[i];
                 }
