@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Target
   - LoveInterest
+  - BigPot
+  - SmallPot
   layers:
   - Default
   - TransparentFX

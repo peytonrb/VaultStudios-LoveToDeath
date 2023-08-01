@@ -5,29 +5,37 @@ using UnityEngine;
 public class CookedIngredientController : MonoBehaviour
 {
     private int value;
-    private MeshRenderer potionMaterial;
-    private bool isCooked;
+    public MeshRenderer potionMaterial;
+    public GameObject cookedPotion;
+    public bool isCooked;
+    public IngredientController currentColor;
+    private Color combinedColor;
+    public Color nightshadeColor;
 
     void Start()
     {
-        potionMaterial = GetComponent<MeshRenderer>();
         isCooked = false;
-        StartCoroutine(cookTimer());
+        cookedPotion.SetActive(false);
     }
 
     private void OnMouseDown()
     {
+        cookedPotion.SetActive(true);
+        StartCoroutine(cookTimer());
         GameManager_Aspen.plateValue += value;
     }
 
     IEnumerator cookTimer()
     {
         yield return new WaitForSeconds(10);
+        isCooked = true;
         value = 1000;
 
         if (isCooked)
         {
-            potionMaterial.material.color = new Color(48f/256f, 25f/256f, 52f/256f);
+            combinedColor = Color.Lerp(nightshadeColor, currentColor.potionColor, Mathf.PingPong(Time.time, 1));
+            potionMaterial.material.color = combinedColor;
+            currentColor.potionColor = combinedColor;
         }
     }
 }

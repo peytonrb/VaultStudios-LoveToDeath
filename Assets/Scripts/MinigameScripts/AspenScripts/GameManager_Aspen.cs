@@ -31,6 +31,6 @@ public class GameManager_Aspen : MonoBehaviour
         honey = tempHoney * 10000;
 
         orderValue = moonseedBerries + sweetTea + mortar + nightshade + honey;
-        Debug.Log(orderValue);
+        Debug.Log("order value: " + orderValue);
     }
 }
