@@ -8,9 +8,7 @@ public class CookedIngredientController : MonoBehaviour
     public MeshRenderer potionMaterial;
     public GameObject cookedPotion;
     public bool isCooked;
-    public IngredientController currentColor;
     private Color combinedColor;
-    public Color nightshadeColor;
 
     void Start()
     {
@@ -33,9 +31,7 @@ public class CookedIngredientController : MonoBehaviour
 
         if (isCooked)
         {
-            combinedColor = Color.Lerp(nightshadeColor, currentColor.potionColor, Mathf.PingPong(Time.time, 1));
-            potionMaterial.material.color = combinedColor;
-            currentColor.potionColor = combinedColor;
+            potionMaterial.material.color = new Color(48f/256f, 25f/256f, 52f/256f);
         }
     }
 }

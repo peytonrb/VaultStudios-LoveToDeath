@@ -20,12 +20,13 @@ public class IngredientController : MonoBehaviour
         float g;
         float b;
         Color combinedColor = Color.white;
+        potionColor = combinedColor;
 
         if (gameObject.name == "MoonseedBerries") // 1
         {
-            r = Mathf.Sqrt(((float) Math.Pow(berryColor.r, 2f) + (float) Math.Pow(potionColor.r, 2f)) / 2f);
-            g = Mathf.Sqrt(((float) Math.Pow(berryColor.g, 2f) + (float) Math.Pow(potionColor.g, 2f)) / 2f);
-            b = Mathf.Sqrt(((float) Math.Pow(berryColor.b, 2f) + (float) Math.Pow(potionColor.b, 2f)) / 2f);
+            r = Mathf.Sqrt((Mathf.Pow(berryColor.r, 2f) + Mathf.Pow(potionColor.r, 2f)) / 2f);
+            g = Mathf.Sqrt((Mathf.Pow(berryColor.g, 2f) + Mathf.Pow(potionColor.g, 2f)) / 2f);
+            b = Mathf.Sqrt((Mathf.Pow(berryColor.b, 2f) + Mathf.Pow(potionColor.b, 2f)) / 2f);
             combinedColor = new Color(r, g, b);
             // combinedColor = Color.Lerp(berryColor, potionColor, 0.5f);
             bigPotionMat.material.color = combinedColor;
@@ -33,9 +34,9 @@ public class IngredientController : MonoBehaviour
 
         if (gameObject.name == "SweetTea") // 10
         {
-            r = Mathf.Sqrt(((float) Math.Pow(teaColor.r, 2f) + (float) Math.Pow(potionColor.r, 2f)) / 2f);
-            g = Mathf.Sqrt(((float) Math.Pow(teaColor.g, 2f) + (float) Math.Pow(potionColor.g, 2f)) / 2f);
-            b = Mathf.Sqrt(((float) Math.Pow(teaColor.b, 2f) + (float) Math.Pow(potionColor.b, 2f)) / 2f);
+            r = Mathf.Sqrt((Mathf.Pow(teaColor.r, 2f) + Mathf.Pow(potionColor.r, 2f)) / 2f);
+            g = Mathf.Sqrt((Mathf.Pow(teaColor.g, 2f) + Mathf.Pow(potionColor.g, 2f)) / 2f);
+            b = Mathf.Sqrt((Mathf.Pow(teaColor.b, 2f) + Mathf.Pow(potionColor.b, 2f)) / 2f);
             combinedColor = new Color(r, g, b);
             // combinedColor = Color.Lerp(teaColor, potionColor, 0.5f);
             bigPotionMat.material.color = combinedColor;
@@ -43,9 +44,9 @@ public class IngredientController : MonoBehaviour
 
         if (gameObject.name == "Mortar") // 100
         {
-            r = Mathf.Sqrt(((float) Math.Pow(mortarColor.r, 2f) + (float) Math.Pow(potionColor.r, 2f)) / 2f);
-            g = Mathf.Sqrt(((float) Math.Pow(mortarColor.g, 2f) + (float) Math.Pow(potionColor.g, 2f)) / 2f);
-            b = Mathf.Sqrt(((float) Math.Pow(mortarColor.b, 2f) + (float) Math.Pow(potionColor.b, 2f)) / 2f);
+            r = Mathf.Sqrt((Mathf.Pow(mortarColor.r, 2f) + Mathf.Pow(potionColor.r, 2f)) / 2f);
+            g = Mathf.Sqrt((Mathf.Pow(mortarColor.g, 2f) + Mathf.Pow(potionColor.g, 2f)) / 2f);
+            b = Mathf.Sqrt((Mathf.Pow(mortarColor.b, 2f) + Mathf.Pow(potionColor.b, 2f)) / 2f);
             combinedColor = new Color(r, g, b);
             // combinedColor = Color.Lerp(mortarColor, potionColor, 0.5f);
             bigPotionMat.material.color = combinedColor;
@@ -53,16 +54,14 @@ public class IngredientController : MonoBehaviour
 
         if (gameObject.name == "Honey") // 10000
         {
-            r = Mathf.Sqrt(((float) Math.Pow(honeyColor.r, 2f) + (float) Math.Pow(potionColor.r, 2f)) / 2f);
-            g = Mathf.Sqrt(((float) Math.Pow(honeyColor.g, 2f) + (float) Math.Pow(potionColor.g, 2f)) / 2f);
-            b = Mathf.Sqrt(((float) Math.Pow(honeyColor.b, 2f) + (float) Math.Pow(potionColor.b, 2f)) / 2f);
+            r = Mathf.Sqrt((Mathf.Pow(honeyColor.r, 2f) + Mathf.Pow(potionColor.r, 2f)) / 2f);
+            g = Mathf.Sqrt((Mathf.Pow(honeyColor.g, 2f) + Mathf.Pow(potionColor.g, 2f)) / 2f);
+            b = Mathf.Sqrt((Mathf.Pow(honeyColor.b, 2f) + Mathf.Pow(potionColor.b, 2f)) / 2f);
             combinedColor = new Color(r, g, b);
             // combinedColor = Color.Lerp(honeyColor, potionColor, 0.5f);
             bigPotionMat.material.color = combinedColor;
         }
 
-        potionColor = combinedColor;
-        Debug.Log(potionColor.r + " " + potionColor.g + " " + potionColor.b);
         GameManager_Aspen.plateValue += value;
     }
 }
