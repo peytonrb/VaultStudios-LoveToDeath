@@ -13,11 +13,13 @@ public class ForestcoreController : MonoBehaviour
 
     [Header("Is Killable")]
     public bool isKillable;
+    public bool isDead;
     public bool playerHasItems;
     public string[] requiredItems = {"berries", "tea", "mortar"};
 
     void Start()
     {
+        isDead = false;
         playerHasItems = false;
 
         if (PlayerListUI.loveInterest == "forestcore")

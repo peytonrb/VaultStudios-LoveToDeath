@@ -13,11 +13,13 @@ public class JojoController : MonoBehaviour
 
     [Header("Is Killable")]
     public bool isKillable;
+    public bool isDead;
     public bool playerHasItems;
     public string[] requiredItems = {"fishing line", "toolbox", "crowbar"};
 
     void Start()
     {
+        isDead = false;
         playerHasItems = false;
 
         if (PlayerListUI.loveInterest == "jojo")

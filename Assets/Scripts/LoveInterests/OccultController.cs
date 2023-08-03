@@ -13,11 +13,13 @@ public class OccultController : MonoBehaviour
 
     [Header("Is Killable")]
     public bool isKillable;
+    public bool isDead;
     public bool playerHasItems;
     public string[] requiredItems = {"necronomicon", "ouija board", "candles"};
 
     void Start()
     {
+        isDead = false;
         playerHasItems = false;
 
         if (PlayerListUI.loveInterest == "occult")

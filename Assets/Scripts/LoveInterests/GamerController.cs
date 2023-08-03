@@ -13,11 +13,13 @@ public class GamerController : MonoBehaviour
 
     [Header("Is Killable")]
     public bool isKillable;
+    public bool isDead;
     public bool playerHasItems;
     public string[] requiredItems = {"wire cutter", "screwdriver", "gloves"};
 
     void Start()
     {
+        isDead = false;
         playerHasItems = false;
 
         if (PlayerListUI.loveInterest == "gamer")

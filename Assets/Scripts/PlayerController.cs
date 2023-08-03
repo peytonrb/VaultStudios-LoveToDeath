@@ -15,9 +15,6 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
 
     [Header("Lover")]
-    private GameObject loveInterest; // stores the GameObject of the love interest
-    private PlayerListUI chosenInterest;
-    private string interestName;
     public ChemistController chemist;
     public ForestcoreController forestcore;
     public GamerController gamer;
@@ -28,6 +25,9 @@ public class PlayerController : MonoBehaviour
     public bool isSocialTime;
     public bool isMurderTime;
     public bool isIngredientTime;
+    private GameObject loveInterest; // stores the GameObject of the love interest
+    private PlayerListUI chosenInterest;
+    private string interestName;    
     private int dateCount;
     private int bodyCount;  // if player wins minigame --> increase body count
 
@@ -57,7 +57,6 @@ public class PlayerController : MonoBehaviour
     [Header("Other")]
     public GameObject inventory;
     public InventoryManager inventoryManager;
-    public DialogueTrigger dialogue;
 
     /*
         i am writing this for any other programmers that may come across this program... to help understand, 

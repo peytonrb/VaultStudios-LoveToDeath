@@ -830,6 +830,7 @@ MonoBehaviour:
   - chemist
   - gamer
   isKillable: 0
+  isDead: 0
   playerHasItems: 0
   requiredItems:
   - fishing line
@@ -844,13 +845,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 435362487}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbd1760a729407640be21dfab0dfd961, type: 3}
+  m_Script: {fileID: 11500000, guid: 69784a67907c1f049a808d3fd5d78d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Armani
+    name: 
     loveInterestDate: []
     friendDate: []
+  manager: {fileID: 1848510533}
+  isDead: 0
+  isLoveInterest: 0
+  isKillable: 0
+  controller: {fileID: 435362489}
 --- !u!1 &483860425
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,6 +909,7 @@ MonoBehaviour:
   - jojo
   - carmen
   isKillable: 0
+  isDead: 0
   playerHasItems: 0
   requiredItems:
   - beaker
@@ -917,13 +924,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 483860425}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbd1760a729407640be21dfab0dfd961, type: 3}
+  m_Script: {fileID: 11500000, guid: fcd58a9767d8ed74cb19a64e2f9bd97e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Wesley
+    name: 
     loveInterestDate: []
     friendDate: []
+  manager: {fileID: 1848510533}
+  isDead: 0
+  isLoveInterest: 0
+  isKillable: 0
+  controller: {fileID: 483860427}
 --- !u!1 &493637112
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,6 +988,7 @@ MonoBehaviour:
   - jojo
   player: {fileID: 1482284574}
   isKillable: 0
+  isDead: 0
   playerHasItems: 0
   requiredItems:
   - wire cutter
@@ -990,13 +1003,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 493637112}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbd1760a729407640be21dfab0dfd961, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c67f09d3b5dae243a5b85835cdf8689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Carmen
+    name: 
     loveInterestDate: []
     friendDate: []
+  manager: {fileID: 1848510533}
+  isDead: 0
+  isLoveInterest: 0
+  isKillable: 0
+  controller: {fileID: 493637114}
 --- !u!1 &634331091
 GameObject:
   m_ObjectHideFlags: 0
@@ -2390,6 +2408,9 @@ MonoBehaviour:
   dialogueText: {fileID: 1892395020}
   textBoxUI: {fileID: 278192807}
   player: {fileID: 1482284574}
+  isDead: 0
+  isLoveInterest: 0
+  isKillable: 0
 --- !u!4 &1848510534
 Transform:
   m_ObjectHideFlags: 0
@@ -2457,6 +2478,7 @@ MonoBehaviour:
   - grilldad
   - chemist
   isKillable: 0
+  isDead: 0
   playerHasItems: 0
   requiredItems:
   - necronomicon
@@ -2471,13 +2493,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1864489025}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbd1760a729407640be21dfab0dfd961, type: 3}
+  m_Script: {fileID: 11500000, guid: f4279623889f9294ea99329c5c35637d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Kai
+    name: 
     loveInterestDate: []
     friendDate: []
+  manager: {fileID: 1848510533}
+  isDead: 0
+  isLoveInterest: 0
+  isKillable: 0
+  controller: {fileID: 1864489027}
 --- !u!1 &1892395018
 GameObject:
   m_ObjectHideFlags: 0
@@ -2946,6 +2973,7 @@ MonoBehaviour:
   - jojo
   - gamer
   isKillable: 0
+  isDead: 0
   playerHasItems: 0
   requiredItems:
   - berries
@@ -2960,13 +2988,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 2096276605}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbd1760a729407640be21dfab0dfd961, type: 3}
+  m_Script: {fileID: 11500000, guid: bb1f4d970407f5d4aa2ee824a73cec1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Aspen
+    name: 
     loveInterestDate: []
     friendDate: []
+  manager: {fileID: 1848510533}
+  isDead: 0
+  isLoveInterest: 0
+  isKillable: 0
+  controller: {fileID: 2096276607}
 --- !u!1 &2102738882
 GameObject:
   m_ObjectHideFlags: 0
@@ -3019,6 +3052,7 @@ MonoBehaviour:
   - emo
   - chemist
   isKillable: 0
+  isDead: 0
   playerHasItems: 0
   requiredItems:
   - gasoline
@@ -3033,13 +3067,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 2102738882}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbd1760a729407640be21dfab0dfd961, type: 3}
+  m_Script: {fileID: 11500000, guid: 6392d6d46a30e064197312b970d0ceff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Davey
+    name: 
     loveInterestDate: []
     friendDate: []
+  manager: {fileID: 1848510533}
+  isDead: 0
+  isLoveInterest: 0
+  isKillable: 0
+  controller: {fileID: 2102738884}
 --- !u!23 &83047507716194883
 MeshRenderer:
   m_ObjectHideFlags: 0

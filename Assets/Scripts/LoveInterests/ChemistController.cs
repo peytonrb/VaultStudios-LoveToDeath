@@ -13,11 +13,13 @@ public class ChemistController : MonoBehaviour
 
     [Header("Is Killable")]
     public bool isKillable;
+    public bool isDead;
     public bool playerHasItems;
     public string[] requiredItems = {"beaker", "bunsen burner", "gloves"};
     
     void Start()
     {
+        isDead = false;
         playerHasItems = false;
 
         if (PlayerListUI.loveInterest == "chemist")

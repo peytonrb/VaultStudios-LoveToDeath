@@ -10,6 +10,9 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text dialogueText;
     public GameObject textBoxUI;
     public PlayerController player;
+    public bool isDead;
+    public bool isLoveInterest;
+    public bool isKillable;
     // public Animator animator;
     
     void Start()
@@ -24,6 +27,7 @@ public class DialogueManager : MonoBehaviour
         {
             DisplayNextSentence();
         }
+
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -33,7 +37,7 @@ public class DialogueManager : MonoBehaviour
         sentences.Clear();
         textBoxUI.SetActive(true);
 
-        if (player.isDateTime)                                              // probably issues here
+        if (player.isDateTime && !isDead && isLoveInterest)               // DO I NEED TO CHECK FOR IF CHARACTER IS DEAD HERE OR LOVE INTEREST HERE??
         {
             foreach (string sentence in dialogue.loveInterestDate)
             {
@@ -41,7 +45,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
-        if (player.isSocialTime)
+        if (player.isSocialTime && !isDead && isKillable)
         {
             foreach (string sentence in dialogue.friendDate)
             {
