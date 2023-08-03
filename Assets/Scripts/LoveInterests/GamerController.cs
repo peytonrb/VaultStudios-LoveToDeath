@@ -10,23 +10,11 @@ public class GamerController : MonoBehaviour
     private PlayerListUI chosenInterest;
     public string[] friends = {"forestcore", "emo", "jojo"};
     public PlayerController player;
-    
-    [TextArea(3,10)]
-    public string[] dateDialogue1;
-
-    [TextArea(3,10)]
-    public string[] dateDialogue2;
-
-    [TextArea(3,10)]
-    public string[] dateDialogue3;
 
     [Header("Is Killable")]
     public bool isKillable;
     public bool playerHasItems;
     public string[] requiredItems = {"wire cutter", "screwdriver", "gloves"};
-
-    [TextArea(3,10)]
-    public string[] friendDateDialogue;
 
     void Start()
     {

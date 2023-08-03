@@ -7,7 +7,7 @@ public class DialogueTrigger : MonoBehaviour
     public Dialogue dialogue;
     // public GameObject trigger;
 
-    public void OnTriggerExit(Collider collider) // on mouse down?
+    public void dialogueStart() // attach to button?
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         // trigger.GetComponent<Collider>().enabled = false;

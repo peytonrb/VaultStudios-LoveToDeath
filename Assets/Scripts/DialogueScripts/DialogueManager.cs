@@ -5,14 +5,16 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    private Queue<string> conversation;
+    private Queue<string> sentences;
+    public TMP_Text nameText;
     public TMP_Text dialogueText;
     public GameObject textBoxUI;
+    public PlayerController player;
     // public Animator animator;
     
     void Start()
     {
-        conversation = new Queue<string>();
+        sentences = new Queue<string>();
         textBoxUI.SetActive(false);
     }
 
@@ -27,12 +29,24 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         // animator.SetBool("isOpen", true);
-        conversation.Clear();
+        nameText.text = dialogue.name;
+        sentences.Clear();
         textBoxUI.SetActive(true);
 
-        foreach (string fact in dialogue.conversation)
+        if (player.isDateTime)                                              // probably issues here
         {
-            conversation.Enqueue(fact);
+            foreach (string sentence in dialogue.loveInterestDate)
+            {
+                sentences.Enqueue(sentence);
+            }
+        }
+
+        if (player.isSocialTime)
+        {
+            foreach (string sentence in dialogue.friendDate)
+            {
+                sentences.Enqueue(sentence);
+            }
         }
 
         DisplayNextSentence();
@@ -40,13 +54,13 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-        if (conversation.Count == 0)
+        if (sentences.Count == 0)
         {
             EndDialogue();
             return;
         }
 
-        string fact = conversation.Dequeue();
+        string fact = sentences.Dequeue();
         StopAllCoroutines();
         StartCoroutine(SentenceScroll(fact));
     }

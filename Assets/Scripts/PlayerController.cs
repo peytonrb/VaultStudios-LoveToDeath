@@ -24,11 +24,12 @@ public class PlayerController : MonoBehaviour
     public GrilldadController grilldad;
     public JojoController jojo;
     public OccultController occult;
-    private bool isDateTime;
-    private bool isSocialTime;
-    private bool isMurderTime;
-    private bool isIngredientTime;
+    public bool isDateTime;
+    public bool isSocialTime;
+    public bool isMurderTime;
+    public bool isIngredientTime;
     private int dateCount;
+    private int bodyCount;  // if player wins minigame --> increase body count
 
     [Header("UI")]
     public GameObject forestcoreDate;
@@ -56,6 +57,7 @@ public class PlayerController : MonoBehaviour
     [Header("Other")]
     public GameObject inventory;
     public InventoryManager inventoryManager;
+    public DialogueTrigger dialogue;
 
     /*
         i am writing this for any other programmers that may come across this program... to help understand, 
@@ -73,6 +75,7 @@ public class PlayerController : MonoBehaviour
         isMurderTime = false;
         isIngredientTime = false;
         dateCount = 0;
+        bodyCount = 0;
         interestName = PlayerListUI.loveInterest;
         loveInterest = GameObject.Find(interestName);
         // there will be a bug here if you do not start the test game from the PlayerCards scene
@@ -145,8 +148,9 @@ public class PlayerController : MonoBehaviour
                     {
                         if (interestName == "forestcore")
                         {
-                            forestcoreDate.SetActive(true);             // date dialogue --> in love interest controllers
-                            forestcoreSprite.SetActive(true);           // gifts during dates...
+                            forestcoreDate.SetActive(true);             
+                            forestcoreSprite.SetActive(true);           // gifts during dates...?
+                            // set button active during dates that links to dialogue trigger method?
                         }
                         else if (interestName == "grilldad")
                         {
@@ -190,9 +194,11 @@ public class PlayerController : MonoBehaviour
                 Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 5f); // second number is radius
                 foreach (var hitCollider in hitColliders)
                 {
-                    if (hitCollider.gameObject.tag == "Target") // this could break 
+                    if (hitCollider.gameObject.tag == "Target")  
                     {
-                       // initiate friend date
+                       // setactive scenes for each character
+                       // setactive sprite
+                       // setactive button to press to initiate friend dialogue
                     }
                     else
                     {
@@ -256,6 +262,11 @@ public class PlayerController : MonoBehaviour
             inventory.SetActive(false);
         }
         // end key presses
+
+        if (bodyCount == 3)
+        {
+            //game over --> win screen
+        }
     }
 
     IEnumerator ingredientTimer()

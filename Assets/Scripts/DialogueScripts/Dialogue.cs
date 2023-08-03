@@ -8,5 +8,11 @@ public class Dialogue
     public string name;
 
     [TextArea(3,10)]
-    public string[] conversation;
+    public string[] loveInterestDate;
+
+    [TextArea(3,10)]
+    public string[] friendDate;
+
+    // [TextArea(3,10)]
+    // public string[] npcConversation;
 }

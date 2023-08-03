@@ -11,22 +11,11 @@ public class ChemistController : MonoBehaviour
     public PlayerController player;
     public string[] friends = {"grilldad", "jojo", "carmen"};
 
-    [TextArea(3,10)]
-    public string[] dateDialogue1;
-
-    [TextArea(3,10)]
-    public string[] dateDialogue2;
-
-    [TextArea(3,10)]
-    public string[] dateDialogue3;
-
     [Header("Is Killable")]
     public bool isKillable;
     public bool playerHasItems;
     public string[] requiredItems = {"beaker", "bunsen burner", "gloves"};
-
-    [TextArea(3,10)]
-    public string[] friendDateDialogue;
+    
     void Start()
     {
         playerHasItems = false;

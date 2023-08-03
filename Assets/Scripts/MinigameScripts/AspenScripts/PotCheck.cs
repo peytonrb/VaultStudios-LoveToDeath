@@ -7,6 +7,7 @@ public class PotCheck : MonoBehaviour
     public CookedIngredientController cooked;
     public MeshRenderer bigPotionMat;
     public IngredientController ingredient;
+    public PlayerController player;
 
     private void OnMouseDown()
     {
@@ -15,6 +16,7 @@ public class PotCheck : MonoBehaviour
             if (GameManager_Aspen.orderValue == GameManager_Aspen.plateValue)
             {
                 Debug.Log("correct");
+                //display win screen --> on win screen button press --> player.bodycount++
             }
             else 
             {
