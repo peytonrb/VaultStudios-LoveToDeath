@@ -749,12 +749,16 @@ MonoBehaviour:
   - grilldad
   - chemist
   - gamer
+  dateDialogue1: []
+  dateDialogue2: []
+  dateDialogue3: []
   isKillable: 0
   playerHasItems: 0
   requiredItems:
   - fishing line
   - toolbox
   - crowbar
+  friendDateDialogue: []
 --- !u!1 &483860425
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,12 +809,16 @@ MonoBehaviour:
   - grilldad
   - jojo
   - carmen
+  dateDialogue1: []
+  dateDialogue2: []
+  dateDialogue3: []
   isKillable: 0
   playerHasItems: 0
   requiredItems:
   - beaker
   - bunsen burner
   - gloves
+  friendDateDialogue: []
 --- !u!1 &493637112
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,12 +869,16 @@ MonoBehaviour:
   - emo
   - jojo
   player: {fileID: 1482284574}
+  dateDialogue1: []
+  dateDialogue2: []
+  dateDialogue3: []
   isKillable: 0
   playerHasItems: 0
   requiredItems:
   - wire cutter
   - screwdriver
   - gloves
+  friendDateDialogue: []
 --- !u!1 &634331091
 GameObject:
   m_ObjectHideFlags: 0
@@ -2277,12 +2289,16 @@ MonoBehaviour:
   - forestcore
   - grilldad
   - chemist
+  dateDialogue1: []
+  dateDialogue2: []
+  dateDialogue3: []
   isKillable: 0
   playerHasItems: 0
   requiredItems:
   - necronomicon
   - ouija board
   - candles
+  friendDateDialogue: []
 --- !u!1 &1953524392
 GameObject:
   m_ObjectHideFlags: 0
@@ -2479,12 +2495,16 @@ MonoBehaviour:
   - chemist
   - jojo
   - gamer
+  dateDialogue1: []
+  dateDialogue2: []
+  dateDialogue3: []
   isKillable: 0
   playerHasItems: 0
   requiredItems:
   - berries
   - tea
   - mortar
+  friendDateDialogue: []
 --- !u!1 &2102738882
 GameObject:
   m_ObjectHideFlags: 0
@@ -2535,12 +2555,16 @@ MonoBehaviour:
   - forestcore
   - emo
   - chemist
+  dateDialogue1: []
+  dateDialogue2: []
+  dateDialogue3: []
   isKillable: 0
   playerHasItems: 0
   requiredItems:
   - gasoline
   - key
   - saw
+  friendDateDialogue: []
 --- !u!23 &83047507716194883
 MeshRenderer:
   m_ObjectHideFlags: 0

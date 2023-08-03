@@ -11,10 +11,22 @@ public class JojoController : MonoBehaviour
     public PlayerController player;
     public string[] friends = {"grilldad", "chemist", "gamer"};
 
+    [TextArea(3,10)]
+    public string[] dateDialogue1;
+
+    [TextArea(3,10)]
+    public string[] dateDialogue2;
+
+    [TextArea(3,10)]
+    public string[] dateDialogue3;
+
     [Header("Is Killable")]
     public bool isKillable;
     public bool playerHasItems;
     public string[] requiredItems = {"fishing line", "toolbox", "crowbar"};
+
+    [TextArea(3,10)]
+    public string[] friendDateDialogue;
 
     void Start()
     {

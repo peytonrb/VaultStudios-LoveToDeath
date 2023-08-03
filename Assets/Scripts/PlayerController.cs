@@ -145,7 +145,7 @@ public class PlayerController : MonoBehaviour
                     {
                         if (interestName == "forestcore")
                         {
-                            forestcoreDate.SetActive(true);             // dialogue --> need new method
+                            forestcoreDate.SetActive(true);             // date dialogue --> in love interest controllers
                             forestcoreSprite.SetActive(true);           // gifts during dates...
                         }
                         else if (interestName == "grilldad")
@@ -180,7 +180,7 @@ public class PlayerController : MonoBehaviour
                     }
                     else
                     {
-                        // text bubble from npc -- make dialogue method
+                        // text bubble from npc -- stored in npc controllers
                     }
                 }
             }
@@ -207,7 +207,7 @@ public class PlayerController : MonoBehaviour
 
             if (isIngredientTime)
             {
-                // ingredient search
+                // ingredient search mechanics
             }
 
             if (isMurderTime)
@@ -264,6 +264,7 @@ public class PlayerController : MonoBehaviour
         isMurderTime = true;
     }
 
+    // do not change unless bugs
     private void inventoryContainsItems()
     {
         int counter1 = 0;
