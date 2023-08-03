@@ -8,6 +8,7 @@ TagManager:
   - LoveInterest
   - BigPot
   - SmallPot
+  - DateBackground
   layers:
   - Default
   - TransparentFX

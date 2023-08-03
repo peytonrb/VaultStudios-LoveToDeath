@@ -24,6 +24,25 @@ public class PlayerController : MonoBehaviour
     public GrilldadController grilldad;
     public JojoController jojo;
     public OccultController occult;
+    private bool isDateTime;
+    private bool isSocialTime;
+    private bool isMurderTime;
+    private bool isIngredientTime;
+    private int dateCount;
+
+    [Header("UI")]
+    public GameObject forestcoreDate;
+    public GameObject grilldadDate;
+    public GameObject chemistDate;
+    public GameObject gamerDate;
+    public GameObject jojoDate;
+    public GameObject occultDate;
+    public GameObject forestcoreSprite;
+    public GameObject grilldadSprite;
+    public GameObject chemistSprite;
+    public GameObject gamerSprite;
+    public GameObject jojoSprite;
+    public GameObject occultSprite;
 
     [Header("Murder")]
     private string[] targets = new string[3];
@@ -44,9 +63,16 @@ public class PlayerController : MonoBehaviour
         ALWAYS CORRELATED TO murderItems1[]. targets[1] is always correlated to murderItems2[], etc.
     */
 
+    // also i am like 99.9% sure theres a better way to do all of this but i have never done this type of 
+    // gameplay coding before i am doing my best
+
     void Start()
     {
-        inventory.SetActive(false);
+        isDateTime = true;
+        isSocialTime = false;
+        isMurderTime = false;
+        isIngredientTime = false;
+        dateCount = 0;
         interestName = PlayerListUI.loveInterest;
         loveInterest = GameObject.Find(interestName);
         // there will be a bug here if you do not start the test game from the PlayerCards scene
@@ -61,6 +87,21 @@ public class PlayerController : MonoBehaviour
 
         target3 = GameObject.Find(targets[2]);
         target3.gameObject.tag = "Target";
+
+        // set active calls
+        inventory.SetActive(false);
+        forestcoreDate.SetActive(false);
+        grilldadDate.SetActive(false);
+        chemistDate.SetActive(false);
+        gamerDate.SetActive(false);
+        jojoDate.SetActive(false);
+        occultDate.SetActive(false);
+        forestcoreSprite.SetActive(false);
+        grilldadSprite.SetActive(false);
+        chemistSprite.SetActive(false);
+        gamerSprite.SetActive(false);
+        jojoSprite.SetActive(false);
+        occultSprite.SetActive(false);
     }
 
     void Update()
@@ -92,38 +133,119 @@ public class PlayerController : MonoBehaviour
             inventoryManager.listItems();
         }
 
-        // love interest interaction key 
+        // character interaction key 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            // guarantees player is within range of love interest AND player has items required
-            Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 5f); // second number is radius
-            foreach (var hitCollider in hitColliders)
+            if (isDateTime)
             {
-                if (hitCollider.gameObject.tag == "Target") // this is going to break --> maybe???? 
+                Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 5f); // second number is radius
+                foreach (var hitCollider in hitColliders)
                 {
-                    if (forestcore.playerHasItems)
+                    if (hitCollider.gameObject.tag == "LoveInterest")
                     {
-                        forestcore.initiateMurderGame();
+                        if (interestName == "forestcore")
+                        {
+                            forestcoreDate.SetActive(true);             // dialogue --> need new method
+                            forestcoreSprite.SetActive(true);           // gifts during dates...
+                        }
+                        else if (interestName == "grilldad")
+                        {
+                            grilldadDate.SetActive(true);
+                            grilldadSprite.SetActive(true);
+                        }
+                        else if (interestName == "chemist")
+                        {
+                            chemistDate.SetActive(true);
+                            chemistSprite.SetActive(true);
+                        }
+                        else if (interestName == "gamer")
+                        {
+                            gamerDate.SetActive(true);
+                            gamerSprite.SetActive(true);
+                        }
+                        else if (interestName == "jojo")
+                        {
+                            jojoDate.SetActive(true);
+                            jojoSprite.SetActive(true);
+                        }
+                        else if (interestName == "occult")
+                        {
+                            occultDate.SetActive(true);
+                            occultSprite.SetActive(true);
+                        }
+
+                        dateCount++;
+                        isSocialTime = true;
+                        isDateTime = false;
                     }
-                    else if (grilldad.playerHasItems)
+                    else
                     {
-                        grilldad.initiateMurderGame();
+                        // text bubble from npc -- make dialogue method
                     }
-                    else if (chemist.playerHasItems)
+                }
+            }
+
+            if (isSocialTime)
+            {
+                Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 5f); // second number is radius
+                foreach (var hitCollider in hitColliders)
+                {
+                    if (hitCollider.gameObject.tag == "Target") // this could break 
                     {
-                        chemist.initiateMurderGame();
+                       // initiate friend date
                     }
-                    else if (jojo.playerHasItems)
+                    else
                     {
-                        jojo.initiateMurderGame();
+                        // text bubble from npc
                     }
-                    else if (gamer.playerHasItems)
+
+                    isSocialTime = false;
+                    isIngredientTime = true;
+                    StartCoroutine(ingredientTimer());
+                }
+            }
+
+            if (isIngredientTime)
+            {
+                // ingredient search
+            }
+
+            if (isMurderTime)
+            {
+                isIngredientTime = false;
+                // guarantees player is within range of love interest AND player has items required
+                Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 5f); // second number is radius
+                foreach (var hitCollider in hitColliders)
+                {
+                    if (hitCollider.gameObject.tag == "Target") // this is going to break --> maybe???? 
                     {
-                        gamer.initiateMurderGame();
-                    }
-                    else if (occult.playerHasItems)
-                    {
-                        occult.initiateMurderGame();
+                        if (forestcore.playerHasItems)
+                        {
+                            forestcore.initiateMurderGame();
+                        }
+                        else if (grilldad.playerHasItems)
+                        {
+                            grilldad.initiateMurderGame();
+                        }
+                        else if (chemist.playerHasItems)
+                        {   
+                            chemist.initiateMurderGame();
+                        }
+                        else if (jojo.playerHasItems)
+                        {
+                            jojo.initiateMurderGame();
+                        }
+                        else if (gamer.playerHasItems)
+                        {
+                            gamer.initiateMurderGame();
+                        }
+                        else if (occult.playerHasItems)
+                        {
+                            occult.initiateMurderGame();
+                        }
+
+                        isMurderTime = false;
+                        isDateTime = true;
                     }
                 }
             }
@@ -134,6 +256,12 @@ public class PlayerController : MonoBehaviour
             inventory.SetActive(false);
         }
         // end key presses
+    }
+
+    IEnumerator ingredientTimer()
+    {
+        yield return new WaitForSeconds(180);
+        isMurderTime = true;
     }
 
     private void inventoryContainsItems()
