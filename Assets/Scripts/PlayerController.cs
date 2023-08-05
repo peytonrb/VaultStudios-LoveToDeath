@@ -45,6 +45,15 @@ public class PlayerController : MonoBehaviour
     public GameObject jojoSprite;
     public GameObject occultSprite;
 
+    [Header("Dialogue")]
+    public DialogueTriggerFC forestcoreDialogue;
+    public DialogueTriggerGD grilldadDialogue;
+    public DialogueTriggerC chemistDialogue;
+    public DialogueTriggerG gamerDialogue;
+    public DialogueTriggerJJ jojoDialogue;
+    public DialogueTriggerO occultDialogue;
+    public DialogueManager dialogueManager;
+
     [Header("Murder")]
     private string[] targets = new string[3];
     private string[] murderItems1 = new string[3];
@@ -85,7 +94,7 @@ public class PlayerController : MonoBehaviour
         target1.gameObject.tag = "Target";
 
         target2 = GameObject.Find(targets[1]);
-        target2.gameObject.tag = "Target";              // <--- make sure these aren't null!!
+        target2.gameObject.tag = "Target";           
 
         target3 = GameObject.Find(targets[2]);
         target3.gameObject.tag = "Target";
@@ -135,6 +144,11 @@ public class PlayerController : MonoBehaviour
             inventoryManager.listItems();
         }
 
+        if (Input.GetKeyDown(KeyCode.Return) && dialogueManager.isActive)
+        {
+            dialogueManager.DisplayNextSentence();
+        }
+
         // character interaction key 
         if (Input.GetKeyDown(KeyCode.F))
         {
@@ -149,32 +163,37 @@ public class PlayerController : MonoBehaviour
                         {
                             forestcoreDate.SetActive(true);             
                             forestcoreSprite.SetActive(true);           // gifts during dates...?
-                            // set button active during dates that links to dialogue trigger method?
+                            forestcoreDialogue.dialogueStart();
                         }
                         else if (interestName == "grilldad")
                         {
                             grilldadDate.SetActive(true);
                             grilldadSprite.SetActive(true);
+                            grilldadDialogue.dialogueStart();
                         }
                         else if (interestName == "chemist")
                         {
                             chemistDate.SetActive(true);
                             chemistSprite.SetActive(true);
+                            chemistDialogue.dialogueStart();
                         }
                         else if (interestName == "gamer")
                         {
                             gamerDate.SetActive(true);
                             gamerSprite.SetActive(true);
+                            gamerDialogue.dialogueStart();
                         }
                         else if (interestName == "jojo")
                         {
                             jojoDate.SetActive(true);
                             jojoSprite.SetActive(true);
+                            jojoDialogue.dialogueStart();
                         }
                         else if (interestName == "occult")
                         {
                             occultDate.SetActive(true);
                             occultSprite.SetActive(true);
+                            occultDialogue.dialogueStart();
                         }
 
                         dateCount++;
