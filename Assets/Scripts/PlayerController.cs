@@ -44,6 +44,12 @@ public class PlayerController : MonoBehaviour
     public GameObject gamerSprite;
     public GameObject jojoSprite;
     public GameObject occultSprite;
+    public GameObject forestcoreShop;
+    public GameObject grilldadShop;
+    public GameObject chemistPharmacy;
+    public GameObject gamerHouse;
+    public GameObject jojoShop;
+    public GameObject occultGrandmaHouse;
 
     [Header("Dialogue")]
     public DialogueTriggerFC forestcoreDialogue;
@@ -101,18 +107,8 @@ public class PlayerController : MonoBehaviour
 
         // set active calls
         inventory.SetActive(false);
-        forestcoreDate.SetActive(false);
-        grilldadDate.SetActive(false);
-        chemistDate.SetActive(false);
-        gamerDate.SetActive(false);
-        jojoDate.SetActive(false);
-        occultDate.SetActive(false);
-        forestcoreSprite.SetActive(false);
-        grilldadSprite.SetActive(false);
-        chemistSprite.SetActive(false);
-        gamerSprite.SetActive(false);
-        jojoSprite.SetActive(false);
-        occultSprite.SetActive(false);
+        setEverythingInactive();
+        StartCoroutine(startingBuffer()); // the game does not allow u to begin dating until 4 minutes of gameplay have passed
     }
 
     void Update()
@@ -154,6 +150,7 @@ public class PlayerController : MonoBehaviour
         {
             if (isDateTime)
             {
+                isMurderTime = false;
                 Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 5f); // second number is radius
                 foreach (var hitCollider in hitColliders)
                 {
@@ -198,50 +195,86 @@ public class PlayerController : MonoBehaviour
 
                         dateCount++;
                         isSocialTime = true;
-                        isDateTime = false;
-                    }
-                    else
-                    {
-                        // text bubble from npc -- stored in npc controllers
+
+                        // if no dialogue is being played, stop the interaction
+                        if (!dialogueManager.isActive)
+                        {
+                            setEverythingInactive();
+                        }
                     }
                 }
             }
 
             if (isSocialTime)
             {
+                isDateTime = false;
                 Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 5f); // second number is radius
                 foreach (var hitCollider in hitColliders)
                 {
                     if (hitCollider.gameObject.tag == "Target")  
                     {
-                       // setactive scenes for each character
-                       // setactive sprite
-                       // setactive button to press to initiate friend dialogue
-                    }
-                    else
-                    {
-                        // text bubble from npc
+                        if (forestcore.isKillable)
+                        {
+                            forestcoreShop.SetActive(false);
+                            forestcoreSprite.SetActive(true);
+                            forestcoreDialogue.dialogueStart();
+                        }
+                        else if (grilldad.isKillable)
+                        {
+                            grilldadShop.SetActive(false);
+                            grilldadSprite.SetActive(true);
+                            grilldadDialogue.dialogueStart();
+                        }
+                        else if (chemist.isKillable)
+                        {
+                            chemistPharmacy.SetActive(false);
+                            chemistSprite.SetActive(true);
+                            chemistDialogue.dialogueStart();
+                        }
+                        else if (gamer.isKillable)
+                        {
+                            gamerHouse.SetActive(false);
+                            gamerSprite.SetActive(true);
+                            gamerDialogue.dialogueStart();
+                        }
+                        else if (jojo.isKillable)
+                        {
+                            jojoShop.SetActive(false);
+                            jojoSprite.SetActive(true);
+                            jojoDialogue.dialogueStart();
+                        }
+                        else if (occult.isKillable)
+                        {
+                            occultGrandmaHouse.SetActive(false);
+                            occultSprite.SetActive(true);
+                            occultDialogue.dialogueStart();
+                        }
                     }
 
-                    isSocialTime = false;
                     isIngredientTime = true;
-                    StartCoroutine(ingredientTimer());
+
+                    // if no dialogue is being played, stop the interaction
+                    if (!dialogueManager.isActive)
+                    {
+                        setEverythingInactive();
+                        StartCoroutine(ingredientTimer());
+                    }
                 }
             }
 
             if (isIngredientTime)
             {
-                // ingredient search mechanics
+                // ingredient search mechanics - if any?
+                isSocialTime = false;
             }
 
             if (isMurderTime)
             {
-                isIngredientTime = false;
                 // guarantees player is within range of love interest AND player has items required
                 Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 5f); // second number is radius
                 foreach (var hitCollider in hitColliders)
                 {
-                    if (hitCollider.gameObject.tag == "Target") // this is going to break --> maybe???? 
+                    if (hitCollider.gameObject.tag == "Target")
                     {
                         if (forestcore.playerHasItems)
                         {
@@ -253,7 +286,7 @@ public class PlayerController : MonoBehaviour
                         }
                         else if (chemist.playerHasItems)
                         {   
-                            chemist.initiateMurderGame();
+                            chemist.initiateMurderGame();           // where do the minigames begin?
                         }
                         else if (jojo.playerHasItems)
                         {
@@ -268,7 +301,6 @@ public class PlayerController : MonoBehaviour
                             occult.initiateMurderGame();
                         }
 
-                        isMurderTime = false;
                         isDateTime = true;
                     }
                 }
@@ -591,5 +623,33 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void setEverythingInactive()
+    {
+        forestcoreDate.SetActive(false);
+        grilldadDate.SetActive(false);
+        chemistDate.SetActive(false);
+        gamerDate.SetActive(false);
+        jojoDate.SetActive(false);
+        occultDate.SetActive(false);
+        forestcoreSprite.SetActive(false);
+        grilldadSprite.SetActive(false);
+        chemistSprite.SetActive(false);
+        gamerSprite.SetActive(false);
+        jojoSprite.SetActive(false);
+        occultSprite.SetActive(false);
+        forestcoreShop.SetActive(false);
+        grilldadShop.SetActive(false);
+        chemistPharmacy.SetActive(false);
+        gamerHouse.SetActive(false);
+        jojoShop.SetActive(false);
+        occultGrandmaHouse.SetActive(false);
+    }
+
+    IEnumerator startingBuffer()
+    {
+        yield return new WaitForSeconds(240);
+        isDateTime = true;
     }
 }
