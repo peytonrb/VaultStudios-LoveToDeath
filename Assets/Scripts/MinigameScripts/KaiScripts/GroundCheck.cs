@@ -52,7 +52,7 @@ public class GroundCheck : MonoBehaviour
         float time = player.jumpVelocity / -player.gravity;
         float height2 = player.jumpVelocity * time + (0.5f * (-player.gravity * (time * time)));
         float maxJumpHeight = height1 + height2;
-        float maxY = maxJumpHeight + 0.8f;
+        float maxY = maxJumpHeight * 0.8f;
         maxY += groundHeight;
         float minY = 1;
         float actualY = Random.Range(minY, maxY);
@@ -70,7 +70,7 @@ public class GroundCheck : MonoBehaviour
         float maxX = totalTime * player.velocity.x;
         maxX *= 0.8f;
         maxX += groundRight;
-        float minX = screenRight + 5;
+        float minX = screenRight + 30;
         float actualX = Random.Range(minX, maxX);
 
         pos.x = actualX + groundCollider.size.x / 2;
