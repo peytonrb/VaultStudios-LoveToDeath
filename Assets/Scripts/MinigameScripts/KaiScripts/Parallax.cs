@@ -19,9 +19,9 @@ public class Parallax : MonoBehaviour
 
         pos.x -= realVelocity * Time.fixedDeltaTime;
 
-        if (pos.x <= -25f)
+        if (pos.x <= -15f)
         {
-            pos.x = 80f;
+            pos.x = 50f;
         }
 
         transform.position = pos;

@@ -11,10 +11,11 @@ public class Player : MonoBehaviour
     public float distance = 0;
     public float jumpVelocity = 20f;
     public float maxXVelocity = 100f;
-    public float groundHeight = 6f;
+    public float groundHeight = 5f;
     public bool isGrounded = false;
     public bool isHoldingJump = false;
     public float maxHoldJumpTime = 0.4f;
+    public float maxMaxHoldJumpTime = 0.4f;
     public float holdJumpTimer = 0.0f;
     public float groundThreshold = 1f;
 
@@ -70,10 +71,22 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (pos.y <= groundHeight)
+        Vector2 rayOrigin = new Vector2(pos.x + 0.7f, pos.y); // ray origin is ahead of player
+        Vector2 rayDirection = Vector2.up;
+        float rayDistance = velocity.y * Time.fixedDeltaTime;
+        RaycastHit2D hit2D = Physics2D.Raycast(rayOrigin, rayDirection, rayDistance);
+        
+        if (hit2D.collider != null)
         {
-            pos.y = groundHeight;
-            isGrounded = true;
+            GroundCheck ground = hit2D.collider.GetComponent<GroundCheck>();
+
+            if (ground != null)
+            {
+                groundHeight = ground.groundHeight;  
+                pos.y = groundHeight;
+                // velocity.y = 0f; 
+                isGrounded = true;
+            }
         }
 
         distance += velocity.x * Time.fixedDeltaTime;
@@ -82,11 +95,23 @@ public class Player : MonoBehaviour
         {
             float velocityRatio = velocity.x / maxXVelocity;
             speed = maxSpeed * (1 - velocityRatio);
+            maxHoldJumpTime = maxMaxHoldJumpTime * velocityRatio; // jump length is proportional to speed 
+
             velocity.x += speed * Time.fixedDeltaTime;
 
             if (velocity.x >= maxXVelocity)
             {
                 velocity.x = maxXVelocity;
+            }
+ 
+            Vector2 rayOrigin2 = new Vector2(pos.x - 0.7f, pos.y); // ray origin is ahead of player
+            Vector2 rayDirection2 = Vector2.up;
+            float rayDistance2 = velocity.y * Time.fixedDeltaTime;
+            RaycastHit2D hit2D2 = Physics2D.Raycast(rayOrigin2, rayDirection2, rayDistance2);
+        
+            if (hit2D2.collider == null)
+            {
+                isGrounded = false;
             }
         }
 
