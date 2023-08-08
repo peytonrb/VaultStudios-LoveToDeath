@@ -9,6 +9,8 @@ TagManager:
   - BigPot
   - SmallPot
   - DateBackground
+  - Armani
+  - Light
   layers:
   - Default
   - TransparentFX
