@@ -10,11 +10,12 @@ public class GroundCheck : MonoBehaviour
     private BoxCollider2D collider2d;
     private bool didGenerateGround = false;
     public Player player;
+    public Obstacle obstaclePrefab;
 
     void Start()
     {
         collider2d = GetComponent<BoxCollider2D>();
-        groundHeight = transform.position.y + (collider2d.size.y / 2) + 1;
+        groundHeight = transform.position.y + (collider2d.size.y / 2);
         screenRight = Camera.main.transform.position.x * 2;
     }
 
@@ -22,9 +23,9 @@ public class GroundCheck : MonoBehaviour
     {
         Vector3 pos = transform.position;
         pos.x -= player.velocity.x * Time.fixedDeltaTime;
-        groundRight = transform.position.x + (collider2d.size.x / 2);
-        
-        if (groundRight < -10f)
+        groundRight = (transform.position.x - (collider2d.size.x / 2)) + transform.position.x + (collider2d.size.x / 2);
+
+        if (groundRight < -30f)
         {
             Destroy(gameObject);
             return;
@@ -32,7 +33,7 @@ public class GroundCheck : MonoBehaviour
         
         if (!didGenerateGround)
         {
-            if (groundRight < screenRight)
+            if (groundRight <= screenRight) // screen right = 27.64
             {
                 didGenerateGround = true;
                 generateGround();
@@ -50,11 +51,11 @@ public class GroundCheck : MonoBehaviour
 
         float height1 = player.jumpVelocity * player.maxHoldJumpTime;
         float time = player.jumpVelocity / -player.gravity;
-        float height2 = player.jumpVelocity * time + (0.5f * (-player.gravity * (time * time)));
+        float height2 = player.jumpVelocity * time + (0.5f * (player.gravity * (time * time)));
         float maxJumpHeight = height1 + height2;
         float maxY = maxJumpHeight * 0.8f;
         maxY += groundHeight;
-        float minY = 1;
+        float minY = 2f;
         float actualY = Random.Range(minY, maxY);
 
         pos.y = actualY - groundCollider.size.y / 2;
@@ -70,13 +71,30 @@ public class GroundCheck : MonoBehaviour
         float maxX = totalTime * player.velocity.x;
         maxX *= 0.8f;
         maxX += groundRight;
-        float minX = screenRight + 30;
+        float minX = screenRight + 24f;
         float actualX = Random.Range(minX, maxX);
 
-        pos.x = actualX + groundCollider.size.x / 2;
+        pos.x = actualX + (groundCollider.size.x / 2);
+
         pos.z = transform.position.z;
         moreGround.transform.position = pos;
         GroundCheck groundGO = moreGround.GetComponent<GroundCheck>();
         groundGO.groundHeight = moreGround.transform.position.y + (groundCollider.size.y / 2) + 1;
+
+        int obstacleNum = Random.Range(-1, 3);
+
+        for (int i = -1; i < obstacleNum; i++)
+        {
+            if (i >= 0)
+            {
+                GameObject obstacle = Instantiate(obstaclePrefab.gameObject);
+                // float halfWidth = (groundCollider.size.x / 2) - 1;
+                // float left = pos.x - halfWidth;
+                // float right = pos.x + halfWidth;
+                float x = Random.Range(screenRight + 1, screenRight * 2);
+                Vector3 obstaclePos = new Vector3(x, groundGO.groundHeight, 3.23f);
+                obstacle.transform.position = obstaclePos;
+            }
+        }
     }
 }

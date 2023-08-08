@@ -11,6 +11,12 @@ public class UIController : MonoBehaviour
     void Update()
     {
         int distance = Mathf.FloorToInt(player.distance);
+
+        if (distance == 1000)
+        {
+            player.hasWon = true;   // trigger ui here
+        }
+
         meterText.text = distance + " m";
     }
 }

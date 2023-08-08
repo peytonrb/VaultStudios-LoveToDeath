@@ -18,13 +18,17 @@ public class Player : MonoBehaviour
     public float maxMaxHoldJumpTime = 0.4f;
     public float holdJumpTimer = 0.0f;
     public float groundThreshold = 1f;
+    public bool isDead;
+
+    [Header("Win/Lose")]
+    public bool hasWon;
 
     void Start()
     {
-        
+        isDead = false;
+        hasWon = false;
     }
 
-    
     void Update()
     {
         Vector3 pos = transform.position;
@@ -50,6 +54,16 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 pos = transform.position;
+
+        if (pos.y <= -20f)
+        {
+            isDead = true;
+        }
+
+        if (isDead)                 // death --> trigger ui here
+        {
+            Destroy(gameObject);
+        }
 
         if (!isGrounded)
         {
@@ -87,6 +101,15 @@ public class Player : MonoBehaviour
                 // velocity.y = 0f; 
                 isGrounded = true;
             }
+        }
+
+        Vector2 rayOrigin3 = new Vector2(pos.x + 0.7f, pos.y + 1f); // ray origin is ahead of player
+        Vector2 rayDirection3 = Vector2.right;
+        RaycastHit2D hit2D3 = Physics2D.Raycast(rayOrigin3, rayDirection3, 0.5f);
+
+        if (hit2D3.collider != null)
+        {
+            isDead = true;
         }
 
         distance += velocity.x * Time.fixedDeltaTime;
