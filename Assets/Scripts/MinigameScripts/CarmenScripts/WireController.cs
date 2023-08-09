@@ -13,7 +13,7 @@ public class WireController : MonoBehaviour
     public GameObject wire_4;
     public GameObject wire_5;
     public GameObject wire_6;
-    // variables for 
+    // access to other scripts
     public Cube1 cube1;
     public Cube2 cube2;
     public Cube3 cube3;
@@ -80,6 +80,30 @@ public class WireController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // Checking to see if the player clicks on an object
+        if (Input.GetMouseButtonDown(0)) 
+        {
+			RaycastHit hit;
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			
+            // Destroys object when hit
+			if (Physics.Raycast(ray, out hit)) 
+            {
+				if (hit.transform.tag == "Wire" )
+                {
+                    Debug.Log( "My object is clicked by mouse");
+                    if (gameObject == wire_1 && GetComponent<Cube1>().canExplode == true)
+                    {
+                        Debug.Log("bad choice");
+                    }
+                    if (gameObject == wire_2 && GetComponent<Cube2>().canExplode == true)
+                    {
+                        Debug.Log("bad choice");
+                    }
+                    Destroy(hit.collider.gameObject);
+                }
+			}
+		}
     }
+
 }
