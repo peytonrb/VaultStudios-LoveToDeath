@@ -13,8 +13,8 @@ public class Ingredient : MonoBehaviour
 
     [SerializeField]
     int health = 3;
-    [SerializeField]
-    bool nonDestructible;
+    // [SerializeField]
+    // bool nonDestructible;
 
     public void Initialize(IngredientData ingredientData)
     {
@@ -25,8 +25,8 @@ public class Ingredient : MonoBehaviour
         ingredientCollider.size = ingredientData.size;
         ingredientCollider.offset = spriteRenderer.transform.localPosition;
 
-        if (ingredientData.nonDestructible)
-            nonDestructible = true;
+        // if (ingredientData.nonDestructible)
+        //     nonDestructible = true;
 
         this.health = ingredientData.health;
 

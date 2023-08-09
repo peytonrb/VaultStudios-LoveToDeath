@@ -12,6 +12,8 @@ TagManager:
   - Armani
   - Light
   - Wire
+  - BoundingBox
+  - ItemWesley
   layers:
   - Default
   - TransparentFX
