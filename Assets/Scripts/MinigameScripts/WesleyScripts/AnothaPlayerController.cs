@@ -19,17 +19,19 @@ public class AnothaPlayerController : MonoBehaviour
     public bool winLose;
     public Timer timer;
     public bool coroutineFinished;
+    public bool hasReplayed;
+    private Animator anim;
 
     [Header("Item Count")]
-    public int sodium = 0;
-    public int chlorine = 0;
-    public int lithium = 0;
-    public int potassium = 0;
-    public int helium = 0;
-    public int nitrogen = 0;
-    public int argon = 0;
-    public int lead = 0;
-    public int oxygen = 0;
+    private int sodium = 0;
+    private int chlorine = 0;
+    private int lithium = 0;
+    private int potassium = 0;
+    private int helium = 0;
+    private int nitrogen = 0;
+    private int argon = 0;
+    private int lead = 0;
+    private int oxygen = 0;
     // public RoomFirstGenerator generator;
 
     [Header("UI")]
@@ -56,6 +58,7 @@ public class AnothaPlayerController : MonoBehaviour
         generator.Invoke();
         rb.GetComponent<Rigidbody2D>();
         timer = GameObject.Find("EventSystem").GetComponent<Timer>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -73,7 +76,7 @@ public class AnothaPlayerController : MonoBehaviour
             heliumText.text = "" + helium;
             leadText.text = "" + lead;
 
-            if (points >= 100)
+            if (points >= 45)
                 winLose = true;
             else
                 winLose = false;
@@ -98,6 +101,15 @@ public class AnothaPlayerController : MonoBehaviour
     {
         movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         rb.velocity = movement * speed * Time.fixedDeltaTime;
+
+        if (movement.Equals(Vector2.zero))
+        {
+            anim.SetFloat("Speed", 0);
+        }
+        else
+        {
+            anim.SetFloat("Speed", 1);
+        }
         // transform.Translate(xInput * speed, yInput * speed, 0f);
     }
 
