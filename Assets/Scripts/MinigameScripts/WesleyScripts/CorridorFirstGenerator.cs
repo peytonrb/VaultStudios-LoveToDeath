@@ -109,8 +109,7 @@ public class CorridorFirstGenerator : MapGenerator
 
         return deadEnds;
     }
-
-    // inactive
+    
     public List<Vector2Int> increaseCorridorSizeByOne(List<Vector2Int> corridor)
     {
         List<Vector2Int> newCorridor = new List<Vector2Int>();
