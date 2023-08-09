@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Unity.VisualScripting;
+using System.ComponentModel;
 // Written by lace
 
 public class WireController : MonoBehaviour
@@ -20,14 +22,18 @@ public class WireController : MonoBehaviour
     public Cube4 cube4;
     public Cube5 cube5;
     public Cube6 cube6;
+    // lives variable
+    private int lives = 0;
+    // points variable
+    private int points = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         System.Random rng = new System.Random();
         // make sure the two numbers are not the same
-        int randomWire = rng.Next(1,7);
-        int randomWire2 = rng.Next(1,7);
+        int randomWire = rng.Next(1, 7);
+        int randomWire2 = rng.Next(1, 7);
         // if statements use the random numbers and correlate them to their
         // respective cube, and turn their boolean variable, "canExplode"
         // to true
@@ -68,7 +74,7 @@ public class WireController : MonoBehaviour
         // it worked well, i will continue to keep this as the safety net
         while (randomWire == randomWire2)
         {
-            randomWire2 = rng.Next(1,6);
+            randomWire2 = rng.Next(1, 6);
         }
 
         // prints out the value of the two exploding cubes into the console
@@ -77,33 +83,130 @@ public class WireController : MonoBehaviour
 
     }
 
+
     // Update is called once per frame
     void Update()
     {
         // Checking to see if the player clicks on an object
-        if (Input.GetMouseButtonDown(0)) 
+        if (Input.GetMouseButtonDown(0))
         {
-			RaycastHit hit;
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-			
-            // Destroys object when hit
-			if (Physics.Raycast(ray, out hit)) 
-            {
-				if (hit.transform.tag == "Wire" )
-                {
-                    Debug.Log( "My object is clicked by mouse");
-                    if (gameObject == wire_1 && GetComponent<Cube1>().canExplode == true)
-                    {
-                        Debug.Log("bad choice");
-                    }
-                    if (gameObject == wire_2 && GetComponent<Cube2>().canExplode == true)
-                    {
-                        Debug.Log("bad choice");
-                    }
-                    Destroy(hit.collider.gameObject);
-                }
-			}
-		}
-    }
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
+            // Destroys object when hit
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.transform.gameObject == wire_1)
+                {
+                    if (wire_1.GetComponent<Cube1>().canExplode == true)
+                    {
+                        Debug.Log("explode");
+                        lives += 1;
+                        Destroy(wire_1); 
+                        Debug.Log(lives);
+                    }
+                    else
+                    {
+                        points += 1;
+                        Destroy(wire_1);
+                        Debug.Log("good");
+                    }
+                }
+
+                if (hit.transform.gameObject == wire_2)
+                {
+                    if (wire_2.GetComponent<Cube2>().canExplode == true)
+                    {
+                        Debug.Log("explode");
+                        lives += 1;
+                        Destroy(wire_2); 
+                        Debug.Log(lives);
+                    }
+                    else
+                    {   
+                        points += 1;                 
+                        Destroy(wire_2);
+                        Debug.Log("good");
+                    }
+                }
+
+                if (hit.transform.gameObject == wire_3)
+                {
+                    if (wire_3.GetComponent<Cube3>().canExplode == true)
+                    {
+                        Debug.Log("explode");
+                        lives += 1;
+                        Destroy(wire_3);
+                        Debug.Log(lives); 
+                    }
+                    else
+                    {       
+                        points += 1;             
+                        Destroy(wire_3);
+                        Debug.Log("good");
+                    }
+                }
+
+                if (hit.transform.gameObject == wire_4)
+                {
+                    if (wire_4.GetComponent<Cube4>().canExplode == true)
+                    {
+                        Debug.Log("explode");
+                        lives += 1;
+                        Destroy(wire_4);
+                        Debug.Log(lives); 
+                    }
+                    else
+                    {
+                        points += 1;                    
+                        Destroy(wire_4);
+                        Debug.Log("good");
+                    }
+                }
+
+                if (hit.transform.gameObject == wire_5)
+                {
+                    if (wire_5.GetComponent<Cube5>().canExplode == true)
+                    {
+                        Debug.Log("explode");
+                        lives += 1;
+                        Destroy(wire_5);
+                        Debug.Log(lives); 
+                    }
+                    else
+                    {
+                        points += 1;                    
+                        Destroy(wire_5);
+                        Debug.Log("good");
+                    }
+                }
+
+                if (hit.transform.gameObject == wire_6)
+                {
+                    if (wire_6.GetComponent<Cube6>().canExplode == true)
+                    {
+                        Debug.Log("explode");
+                        lives += 1;
+                        Destroy(wire_6);
+                        Debug.Log(lives); 
+                    }
+                    else
+                    {
+                        points += 1;                    
+                        Destroy(wire_6);
+                        Debug.Log("good");
+                    }
+                }
+            }
+        }
+        if (lives >= 2)
+        {
+            Debug.Log("end game");
+        }
+
+        if (points >= 5)
+        {
+            Debug.Log("win game");
+        }
+    }
 }
