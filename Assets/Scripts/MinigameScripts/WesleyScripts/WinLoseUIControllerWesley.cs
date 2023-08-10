@@ -5,36 +5,51 @@ using UnityEngine.SceneManagement;
 
 public class WinLoseUIControllerWesley : MonoBehaviour
 {
-    public bool tryAgainPressed;
-    public GameObject tryAgainButton;
-    public AnothaPlayerController player;
+    public bool tryAgainPressed = false;
+    public bool again = false;
+    [SerializeField]
+    private GameObject tryAgainButton;
+    [SerializeField]
+    private AnothaPlayerController player;
+    private bool isFirst;
+    private WinLoseUIControllerWesley uiController;
     private bool win;
+
+    private void Awake()
+    {
+        isFirst = true;
+    }
 
     void Start()
     {
-        tryAgainPressed = false;
-        DontDestroyOnLoad(this.gameObject);
+        uiController = GameObject.Find("WinLoseUIControllerWesley").GetComponent<WinLoseUIControllerWesley>();
+
+        if (uiController.tryAgainButton == null)
+        {
+            Destroy(uiController.gameObject);
+            tryAgainPressed = true;
+        }
+
+        DontDestroyOnLoad(gameObject);
     }
 
     void Update()
     {
-        if (tryAgainPressed)
+        if (tryAgainButton == null)
+        {
+            return;
+        }
+        else if (tryAgainPressed)
         {
             tryAgainButton.SetActive(false);
-        }
-        else if (tryAgainButton == null)
-        {
-            Debug.Log("Button Deleted");
         }
     }
 
     public void tryAgain()
     {
-        if (!tryAgainPressed)
-        {
-            tryAgainPressed = true;
-            SceneManager.LoadScene(3);
-        }
+        tryAgainPressed = true;
+        again = true;
+        SceneManager.LoadScene(3);
     }
 
     public void backToTown()
