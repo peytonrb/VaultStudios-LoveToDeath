@@ -11,14 +11,8 @@ public class WinLoseUIControllerWesley : MonoBehaviour
     private GameObject tryAgainButton;
     [SerializeField]
     private AnothaPlayerController player;
-    private bool isFirst;
     private WinLoseUIControllerWesley uiController;
     private bool win;
-
-    private void Awake()
-    {
-        isFirst = true;
-    }
 
     void Start()
     {

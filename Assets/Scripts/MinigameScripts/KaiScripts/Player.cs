@@ -9,7 +9,9 @@ public class Player : MonoBehaviour
     public float speed = 10f;
     public float maxSpeed = 10f;
     public float distance = 0;
+    public float winningDistance;
     public float jumpVelocity = 20f;
+    public float velocityX;
     public float maxXVelocity = 100f;
     public float groundHeight = 5f;
     public bool isGrounded = false;
@@ -19,18 +21,29 @@ public class Player : MonoBehaviour
     public float holdJumpTimer = 0.0f;
     public float groundThreshold = 1f;
     public bool isDead;
+    public Animator anim;
 
     [Header("Win/Lose")]
     public bool hasWon;
+    public GameObject winScreen;
+    public GameObject loseScreen;
+    public GameObject loseScreenDoNotTryAgain;
+    public WinLoseUIControllerKai uiController;
+    public GameObject distanceText;
 
     void Start()
     {
         isDead = false;
         hasWon = false;
+        anim = GetComponent<Animator>();
+        winScreen.SetActive(false);
+        loseScreen.SetActive(false);
+        loseScreenDoNotTryAgain.SetActive(false);
     }
 
     void Update()
     {
+        velocityX = velocity.x;
         Vector3 pos = transform.position;
         float groundDistance = Mathf.Abs(pos.y - groundHeight);
 
@@ -38,6 +51,7 @@ public class Player : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                anim.SetBool("isJumping", true);
                 isGrounded = false;
                 velocity.y = jumpVelocity;
                 isHoldingJump = true;
@@ -48,6 +62,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
         {
             isHoldingJump = false;
+            anim.SetBool("isJumping", false);
         }
     }
 
@@ -60,8 +75,24 @@ public class Player : MonoBehaviour
             isDead = true;
         }
 
-        if (isDead)                 // death --> trigger ui here
+        if (isDead && distance >= winningDistance)
         {
+            distanceText.SetActive(false);
+            winScreen.SetActive(true);
+            Destroy(gameObject);
+        }
+        else if (isDead && distance < winningDistance)
+        {
+            if (!uiController.tryAgainPressed)
+            {
+                loseScreen.SetActive(true);
+            }
+            else
+            {
+                loseScreenDoNotTryAgain.SetActive(true);
+            }
+
+            distanceText.SetActive(false);
             Destroy(gameObject);
         }
 
@@ -103,7 +134,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        Vector2 rayOrigin3 = new Vector2(pos.x + 0.7f, pos.y + 1f); // ray origin is ahead of player
+        Vector2 rayOrigin3 = new Vector2(pos.x + 0.7f, pos.y + 1.5f); // ray origin is ahead of player
         Vector2 rayDirection3 = Vector2.right;
         RaycastHit2D hit2D3 = Physics2D.Raycast(rayOrigin3, rayDirection3, 0.5f);
 

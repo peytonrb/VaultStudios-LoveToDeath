@@ -4,34 +4,28 @@ using UnityEngine;
 
 public class ParallaxFront : MonoBehaviour
 {
-    public float depth = 1;
+    private Rigidbody2D rb;
+    public float speed;
     public Player player;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        rb.velocity = new Vector3(speed, 0f, 0f);
+    }
 
     void Update()
     {
-        float realVelocity = player.velocity.x / depth;
-        Vector3 pos = transform.position;
-
-        if (player.isDead)
+        if (!player.isDead)
         {
-            return;
+            if (transform.position.x < -10.52f)
+            {
+                transform.position = new Vector3(39.32f, 2.23f, 5f);
+            }
         }
         else
         {
-            pos.x -= realVelocity * Time.fixedDeltaTime;
-
-            if (pos.x <= -2.5f)
-            {
-                pos.x = 50f;
-                GameObject newOne = Instantiate(gameObject, new Vector3(35f, 2.23f, 5f), Quaternion.identity);
-                
-                if (pos.x == -26f)
-                {
-                    Destroy(gameObject);
-                }
-            }
-
-            transform.position = pos;
+            rb.velocity = new Vector3(0f, 0f, 0f);
         }
     }
 }
