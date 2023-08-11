@@ -159,7 +159,7 @@ public static class MazeGenerator
 
         maze[0, rng.Next(0, height)] &= ~WallState.LEFT; // Remove left wall of leftmost cell
         maze[width - 1, rng.Next(0, height)] &= ~WallState.RIGHT; // Remove right wall of rightmost cell
-        // finish always ends up on -x axis
+        // need to spawn game object at this point !!!!
 
         return applyRecursiveBacktracker(maze, width, height);
     }
