@@ -27,6 +27,12 @@ public class WireController : MonoBehaviour
     // points variable
     private int points = 0;
 
+    [Header("UI")]
+    public GameObject winScreen;
+    public GameObject loseScreen;
+    public GameObject loseScreenNoTryAgain;
+    public WinLoseUIControllerCarmen uiController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -81,6 +87,9 @@ public class WireController : MonoBehaviour
         Debug.Log(randomWire);
         Debug.Log(randomWire2);
 
+        winScreen.SetActive(false);
+        loseScreen.SetActive(false);
+        loseScreenNoTryAgain.SetActive(false);
     }
 
 
@@ -199,14 +208,22 @@ public class WireController : MonoBehaviour
                 }
             }
         }
+        
         if (lives >= 2)
         {
-            Debug.Log("end game");
+            if (!uiController.tryAgainPressed)
+            {
+                loseScreen.SetActive(true);
+            }
+            else
+            {
+                loseScreenNoTryAgain.SetActive(true);
+            }
         }
 
         if (points >= 5)
         {
-            Debug.Log("win game");
+            winScreen.SetActive(true);
         }
     }
 }

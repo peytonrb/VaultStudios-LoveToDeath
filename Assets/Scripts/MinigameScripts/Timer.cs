@@ -7,40 +7,17 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     public bool levelFinished;
-    public int timeLimit = 60;
-    private int oneSecond = 0;
-    public TextMeshProUGUI timer;
-   
-    void Start ()
-    {
-        levelFinished = false;
-        oneSecond = 120;
-        timer.text = "" + timeLimit;
-    }
-   
-    // Update is called once per frame
-    void Update ()
-    {
-        if (!levelFinished)
-        {
-            oneSecond--;
-        }
- 
-        if (oneSecond <= 0)
-        {
-            Countdown();
-            oneSecond = 120;
-        }
-    }
-   
-    //Count down once per second
-    void Countdown()
-    {
-        timeLimit--;
-        timer.text = "" + timeLimit;
+    public TextMeshProUGUI timerText;
+    public float timer;
 
-        if (timeLimit <= 0)
+    void Update()
+    {
+        timer -= Time.deltaTime;
+        timerText.text = "" + timer.ToString("00");
+
+        if (timer <= 0)
         {
+            timer = 0;
             levelFinished = true;
         }
     }

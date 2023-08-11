@@ -16,6 +16,7 @@ TagManager:
   - ItemWesley
   - TryAgainButton
   - MainUI
+  - KeyItem
   layers:
   - Default
   - TransparentFX

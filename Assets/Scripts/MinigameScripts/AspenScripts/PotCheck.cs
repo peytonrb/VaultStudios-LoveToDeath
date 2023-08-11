@@ -7,7 +7,17 @@ public class PotCheck : MonoBehaviour
     public CookedIngredientController cooked;
     public MeshRenderer bigPotionMat;
     public IngredientController ingredient;
-    public PlayerController player;
+    public GameObject winScreen;
+    public GameObject loseScreen;
+    public GameObject loseScreenNoTryAgain;
+    public WinLoseUIControllerAspen uiController;
+
+    void Start()
+    {
+        winScreen.SetActive(false);
+        loseScreen.SetActive(false);
+        loseScreenNoTryAgain.SetActive(false); 
+    }
 
     private void OnMouseDown()
     {
@@ -15,12 +25,18 @@ public class PotCheck : MonoBehaviour
         {
             if (GameManager_Aspen.orderValue == GameManager_Aspen.plateValue)
             {
-                Debug.Log("correct");
-                //display win screen --> on win screen button press --> player.bodycount++
+                winScreen.SetActive(true);
             }
             else 
             {
-                Debug.Log("you lose");
+                if (!uiController.tryAgainPressed)
+                {
+                    loseScreen.SetActive(true);
+                }
+                else
+                {
+                    loseScreenNoTryAgain.SetActive(true);
+                }
             }
         }
         else if (gameObject.tag == "SmallPot")

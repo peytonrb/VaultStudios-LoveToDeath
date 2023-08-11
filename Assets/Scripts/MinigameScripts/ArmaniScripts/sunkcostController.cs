@@ -19,6 +19,12 @@ public class sunkcostController : MonoBehaviour
     public GameObject winTextObject;
     public GameObject loseTextObject;
 
+    [Header("Win/Lose UI (Peyton)")]
+    public GameObject winScreen;
+    public GameObject loseScreen;
+    public GameObject loseScreenNoTryAgain;
+    public WinLoseUIControllerArmani uiController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +32,9 @@ public class sunkcostController : MonoBehaviour
         winTextObject.SetActive(false);
         loseTextObject.SetActive(false);
         instructionsObject.SetActive(false);
+        winScreen.SetActive(false);
+        loseScreen.SetActive(false);
+        loseScreenNoTryAgain.SetActive(false);
     }
 
     //Player movement
@@ -63,7 +72,8 @@ public class sunkcostController : MonoBehaviour
     void Victory()
     {
         speed = 0;
-        winTextObject.SetActive(true);
+        // winTextObject.SetActive(true); <- updated to win screen
+        winScreen.SetActive(true);
     }
 
     //Player has been spotted, losing the game
@@ -71,6 +81,14 @@ public class sunkcostController : MonoBehaviour
     {
         speed = 0;
         //player.SetActive(false);
-        loseTextObject.SetActive(true);
+        // loseTextObject.SetActive(true); <- updated to lose screen
+        if (!uiController.tryAgainPressed)
+        {
+            loseScreen.SetActive(true);
+        }
+        else
+        {
+            loseScreenNoTryAgain.SetActive(true);
+        }
     }
 }
