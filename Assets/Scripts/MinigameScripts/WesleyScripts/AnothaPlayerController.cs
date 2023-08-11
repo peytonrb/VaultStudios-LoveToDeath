@@ -66,6 +66,11 @@ public class AnothaPlayerController : MonoBehaviour
 
     void Update()
     {
+        anim.SetFloat("horizontal", movement.x);
+        anim.SetFloat("verical", movement.y);
+        anim.SetFloat("speed", movement.sqrMagnitude);
+        
+
         if (timer.levelFinished) // AND timer is finished 
         {
             finisherScreen.SetActive(true);
