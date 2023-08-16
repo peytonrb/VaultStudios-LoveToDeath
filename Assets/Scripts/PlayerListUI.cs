@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 public class PlayerListUI : MonoBehaviour
 {
     public Button[] playerList;
@@ -10,6 +11,13 @@ public class PlayerListUI : MonoBehaviour
     public Button back;
     public Button start;
     public static string loveInterest;
+    public TextMeshProUGUI title;
+    public GameObject forestcoreObj;
+    public GameObject grilldadObj;
+    public GameObject chemistObj;
+    public GameObject gamerObj;
+    public GameObject jojoObj;
+    public GameObject occultObj;
 
     //hi peyton (^人^) <- WHO DID THIS THIS IS SO CUTE
 
@@ -17,6 +25,12 @@ public class PlayerListUI : MonoBehaviour
     {
         back.gameObject.SetActive(false);
         start.gameObject.SetActive(false);
+        forestcoreObj.SetActive(false);
+        grilldadObj.SetActive(false);
+        chemistObj.SetActive(false);
+        gamerObj.SetActive(false);
+        jojoObj.SetActive(false);
+        occultObj.SetActive(false);
 
         for (int i = 0; i < playerCards.Length; i++)
         {
@@ -27,14 +41,16 @@ public class PlayerListUI : MonoBehaviour
     public void forestcore()
     {
         removeButtons();
-        enablePlayerCards("FORESTCORE");
+        enablePlayerCards("Aspen");
+        forestcoreObj.SetActive(true);
         loveInterest = "forestcore";
     }
 
     public void grillDad()
     {
         removeButtons();
-        enablePlayerCards("GRILLDAD");
+        enablePlayerCards("Davey");
+        grilldadObj.SetActive(true);
         loveInterest = "grilldad";
     }
 
@@ -48,14 +64,16 @@ public class PlayerListUI : MonoBehaviour
     public void chemist()
     {
         removeButtons();
-        enablePlayerCards("CHEMIST");
+        enablePlayerCards("Wesley");
+        chemistObj.SetActive(true);
         loveInterest = "chemist";
     }
 
     public void gamerFemme()
     {
         removeButtons();
-        enablePlayerCards("GAMER FEMME");
+        enablePlayerCards("Carmen");
+        gamerObj.SetActive(true);
         loveInterest = "gamer";
     }
 
@@ -69,29 +87,24 @@ public class PlayerListUI : MonoBehaviour
     public void jojo()
     {
         removeButtons();
-        enablePlayerCards("JOJO");
+        enablePlayerCards("Armani");
+        jojoObj.SetActive(true);
         loveInterest = "jojo";
     }
 
     public void occult()
     {
         removeButtons();
-        enablePlayerCards("OCCULT");
+        enablePlayerCards("Kai");
+        occultObj.SetActive(true);
         loveInterest = "occult";
     }
 
     // sets the selected player card active in the scene
-    private void enablePlayerCards(string characterName)
+    private void enablePlayerCards(string name)
     {
-        for (int i = 0; i < playerCards.Length; i++)
-        {
-            if (characterName == playerCards[i].name)
-            {
-                playerCards[i].SetActive(true);
-            }
-        }   
-
         start.gameObject.SetActive(true);
+        title.text = name;
     }
 
     // deactivates all other playercards on click
@@ -105,7 +118,7 @@ public class PlayerListUI : MonoBehaviour
         }
     }
 
-        // brings all buttons back to screen
+    // brings all buttons back to screen
     public void backButton()
     {
         for (int i = 0; i < playerList.Length; i++)
@@ -113,6 +126,7 @@ public class PlayerListUI : MonoBehaviour
             playerList[i].gameObject.SetActive(true);
         }
 
+        title.text = "Choose your desired partner:";
         back.gameObject.SetActive(false);
     }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Basic Movement")]
-    public CharacterController controller;
+    public Rigidbody controller;
     public float speed;
     public float gravity = -9.81f;
     public Transform groundCheck;
@@ -72,6 +72,12 @@ public class PlayerController : MonoBehaviour
     [Header("Other")]
     public GameObject inventory;
     public InventoryManager inventoryManager;
+    public Material skybox;
+    public Material skyboxNight;
+    private static readonly int rotation = Shader.PropertyToID("_Rotation");
+    private static readonly int exposure = Shader.PropertyToID("_Exposure");
+    private float elapsedTime = 0f;
+    private float timeScale = 2.5f;
 
     // i am like 99.9% sure theres a better way to do all of this but i have never done this type of 
     // gameplay coding before i am doing my best
@@ -108,6 +114,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         inventoryContainsItems();
+        skyboxController();
 
         // movement mechanics
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -120,11 +127,15 @@ public class PlayerController : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * x + transform.forward * z;
-        controller.Move(move * speed * Time.deltaTime);
+        // Vector3 move = transform.right * x + transform.forward * z;
+        // controller.MovePosition(move * speed * Time.deltaTime);
 
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
+        Vector3 tempVect = new Vector3(x, 0f, z);
+        tempVect = tempVect.normalized * speed * Time.deltaTime;
+        controller.MovePosition(transform.position + tempVect);
+
+        // velocity.y += gravity * Time.deltaTime;
+        // controller.MovePosition(velocity * Time.deltaTime);
         // end movement mechanics
 
         // key presses
@@ -144,6 +155,7 @@ public class PlayerController : MonoBehaviour
         {
             if (isDateTime)
             {
+                RenderSettings.skybox = skybox;
                 isMurderTime = false;
                 Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 5f); // second number is radius
                 foreach (var hitCollider in hitColliders)
@@ -264,6 +276,7 @@ public class PlayerController : MonoBehaviour
 
             if (isMurderTime)
             {
+                RenderSettings.skybox = skyboxNight;
                 // guarantees player is within range of love interest AND player has items required
                 Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 5f); // second number is radius
                 foreach (var hitCollider in hitColliders)
@@ -317,6 +330,11 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(180);
         isMurderTime = true;
+    }
+
+    public void skyboxController()
+    {
+        skybox.SetFloat(rotation, elapsedTime * timeScale);
     }
 
     // do not change unless bugs
