@@ -13,6 +13,17 @@ public class WinLoseUIControllerDavey : MonoBehaviour
     private MinigamePlayerController player;
     private WinLoseUIControllerDavey uiController;
     private bool win;
+    public GameObject mainMenu;
+    public GameObject title;
+    public GameObject button1;
+    public GameObject button2;
+    public GameObject instructions;
+    public Timer timer;
+
+    void Awake()
+    {
+        instructions.SetActive(false);
+    }
 
     void Start()
     {
@@ -49,5 +60,19 @@ public class WinLoseUIControllerDavey : MonoBehaviour
     public void backToTown()
     {
         SceneManager.LoadScene(2);
+    }
+
+    public void instructionsButton()
+    {
+        title.SetActive(false);
+        button1.SetActive(false);
+        button2.SetActive(false);
+        instructions.SetActive(true);
+    }
+
+    public void startGame()
+    {
+        mainMenu.SetActive(false);
+        timer.gameStarted = true;
     }
 }

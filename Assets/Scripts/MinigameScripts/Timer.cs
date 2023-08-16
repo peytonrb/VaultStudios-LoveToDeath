@@ -9,16 +9,20 @@ public class Timer : MonoBehaviour
     public bool levelFinished;
     public TextMeshProUGUI timerText;
     public float timer;
+    public bool gameStarted;
 
     void Update()
     {
-        timer -= Time.deltaTime;
-        timerText.text = "" + timer.ToString("00");
-
-        if (timer <= 0)
+        if (gameStarted)
         {
-            timer = 0;
-            levelFinished = true;
+            timer -= Time.deltaTime;
+            timerText.text = "" + timer.ToString("00");
+
+            if (timer <= 0)
+            {
+                timer = 0;
+                levelFinished = true;
+            }
         }
     }
 }

@@ -73,13 +73,7 @@ public class PlayerController : MonoBehaviour
     public GameObject inventory;
     public InventoryManager inventoryManager;
 
-    /*
-        i am writing this for any other programmers that may come across this program... to help understand, 
-        targets[] and all the string[] murderItems variables are all associated. for example, targets[0] will
-        ALWAYS CORRELATED TO murderItems1[]. targets[1] is always correlated to murderItems2[], etc.
-    */
-
-    // also i am like 99.9% sure theres a better way to do all of this but i have never done this type of 
+    // i am like 99.9% sure theres a better way to do all of this but i have never done this type of 
     // gameplay coding before i am doing my best
 
     void Start()

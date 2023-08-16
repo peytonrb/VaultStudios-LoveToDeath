@@ -12,6 +12,12 @@ public class MinigamePlayerController : MonoBehaviour
     public LayerMask groundMask;
     private Vector3 velocity;
     private bool isGrounded;
+    public GameObject mainMenu;
+
+    void Start()
+    {
+        mainMenu.SetActive(true);
+    }
 
     void Update()
     {
