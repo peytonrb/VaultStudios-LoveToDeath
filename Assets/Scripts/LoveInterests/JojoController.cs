@@ -17,6 +17,8 @@ public class JojoController : MonoBehaviour
     public bool playerHasItems;
     public string[] requiredItems = {"fishing line", "toolbox", "crowbar"};
 
+    // public GameObject house;
+
     void Start()
     {
         isDead = false;

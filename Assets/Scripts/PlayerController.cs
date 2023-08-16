@@ -50,6 +50,12 @@ public class PlayerController : MonoBehaviour
     public GameObject gamerHouse;
     public GameObject jojoShop;
     public GameObject occultGrandmaHouse;
+    public GameObject fcDialogueBox;
+    public GameObject gdDialogueBox;
+    public GameObject cDialogueBox;
+    public GameObject gDialogueBox;
+    public GameObject jDialogueBox;
+    public GameObject oDialogueBox;
 
     [Header("Dialogue")]
     public DialogueTriggerFC forestcoreDialogue;
@@ -68,6 +74,9 @@ public class PlayerController : MonoBehaviour
     private GameObject target1;
     private GameObject target2;
     private GameObject target3;
+    public GameObject target1House;
+    public GameObject target2House;
+    public GameObject target3House;
 
     [Header("Other")]
     public GameObject inventory;
@@ -100,7 +109,7 @@ public class PlayerController : MonoBehaviour
         target1.gameObject.tag = "Target";
 
         target2 = GameObject.Find(targets[1]);
-        target2.gameObject.tag = "Target";           
+        target2.gameObject.tag = "Target";
 
         target3 = GameObject.Find(targets[2]);
         target3.gameObject.tag = "Target";
@@ -165,37 +174,43 @@ public class PlayerController : MonoBehaviour
                         if (interestName == "forestcore")
                         {
                             forestcoreDate.SetActive(true);             
-                            forestcoreSprite.SetActive(true);           // gifts during dates...?
+                            forestcoreSprite.SetActive(true);    
+                            fcDialogueBox.SetActive(true);       // gifts during dates...?
                             forestcoreDialogue.dialogueStart();
                         }
                         else if (interestName == "grilldad")
                         {
                             grilldadDate.SetActive(true);
                             grilldadSprite.SetActive(true);
+                            gdDialogueBox.SetActive(true);    
                             grilldadDialogue.dialogueStart();
                         }
                         else if (interestName == "chemist")
                         {
                             chemistDate.SetActive(true);
                             chemistSprite.SetActive(true);
+                            cDialogueBox.SetActive(true);  
                             chemistDialogue.dialogueStart();
                         }
                         else if (interestName == "gamer")
                         {
                             gamerDate.SetActive(true);
                             gamerSprite.SetActive(true);
+                            gDialogueBox.SetActive(true);  
                             gamerDialogue.dialogueStart();
                         }
                         else if (interestName == "jojo")
                         {
                             jojoDate.SetActive(true);
                             jojoSprite.SetActive(true);
+                            jDialogueBox.SetActive(true); 
                             jojoDialogue.dialogueStart();
                         }
                         else if (interestName == "occult")
                         {
                             occultDate.SetActive(true);
                             occultSprite.SetActive(true);
+                            oDialogueBox.SetActive(true); 
                             occultDialogue.dialogueStart();
                         }
 
@@ -223,36 +238,42 @@ public class PlayerController : MonoBehaviour
                         {
                             forestcoreShop.SetActive(false);
                             forestcoreSprite.SetActive(true);
+                            fcDialogueBox.SetActive(true);    
                             forestcoreDialogue.dialogueStart();
                         }
                         else if (grilldad.isKillable)
                         {
                             grilldadShop.SetActive(false);
                             grilldadSprite.SetActive(true);
+                            gdDialogueBox.SetActive(true);  
                             grilldadDialogue.dialogueStart();
                         }
                         else if (chemist.isKillable)
                         {
                             chemistPharmacy.SetActive(false);
                             chemistSprite.SetActive(true);
+                            cDialogueBox.SetActive(true);  
                             chemistDialogue.dialogueStart();
                         }
                         else if (gamer.isKillable)
                         {
                             gamerHouse.SetActive(false);
                             gamerSprite.SetActive(true);
+                            gDialogueBox.SetActive(true);  
                             gamerDialogue.dialogueStart();
                         }
                         else if (jojo.isKillable)
                         {
                             jojoShop.SetActive(false);
                             jojoSprite.SetActive(true);
+                            jDialogueBox.SetActive(true);  
                             jojoDialogue.dialogueStart();
                         }
                         else if (occult.isKillable)
                         {
                             occultGrandmaHouse.SetActive(false);
                             occultSprite.SetActive(true);
+                            oDialogueBox.SetActive(true); 
                             occultDialogue.dialogueStart();
                         }
                     }
@@ -281,7 +302,7 @@ public class PlayerController : MonoBehaviour
                 Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 5f); // second number is radius
                 foreach (var hitCollider in hitColliders)
                 {
-                    if (hitCollider.gameObject.tag == "Target")
+                    if (hitCollider.gameObject.tag == "Target") // should be their house but this is not my problem rn
                     {
                         if (forestcore.playerHasItems)
                         {
@@ -657,6 +678,12 @@ public class PlayerController : MonoBehaviour
         gamerHouse.SetActive(false);
         jojoShop.SetActive(false);
         occultGrandmaHouse.SetActive(false);
+        fcDialogueBox.SetActive(false);
+        gdDialogueBox.SetActive(false);
+        cDialogueBox.SetActive(false);
+        gDialogueBox.SetActive(false);
+        jDialogueBox.SetActive(false);
+        oDialogueBox.SetActive(false);
     }
 
     IEnumerator startingBuffer()

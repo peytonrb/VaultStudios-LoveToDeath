@@ -17,6 +17,8 @@ public class GamerController : MonoBehaviour
     public bool playerHasItems;
     public string[] requiredItems = {"wire cutter", "screwdriver", "gloves"};
 
+    // public GameObject house;
+
     void Start()
     {
         isDead = false;

@@ -17,6 +17,8 @@ public class GrilldadController : MonoBehaviour
     public bool playerHasItems;
     public string[] requiredItems = {"gasoline", "key", "saw"};
 
+    // public GameObject house;
+
     void Start()
     {
         isDead = false;

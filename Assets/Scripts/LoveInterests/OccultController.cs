@@ -17,6 +17,8 @@ public class OccultController : MonoBehaviour
     public bool playerHasItems;
     public string[] requiredItems = {"necronomicon", "ouija board", "candles"};
 
+    // public GameObject house;
+
     void Start()
     {
         isDead = false;

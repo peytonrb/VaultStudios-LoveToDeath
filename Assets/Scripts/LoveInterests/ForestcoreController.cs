@@ -17,6 +17,8 @@ public class ForestcoreController : MonoBehaviour
     public bool playerHasItems;
     public string[] requiredItems = {"berries", "tea", "mortar"};
 
+    // public GameObject house;
+
     void Start()
     {
         isDead = false;

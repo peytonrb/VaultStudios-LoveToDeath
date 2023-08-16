@@ -16,6 +16,8 @@ public class ChemistController : MonoBehaviour
     public bool isDead;
     public bool playerHasItems;
     public string[] requiredItems = {"beaker", "bunsen burner", "gloves"};
+
+    // public GameObject house;
     
     void Start()
     {
