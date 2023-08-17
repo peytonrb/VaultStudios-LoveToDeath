@@ -56,6 +56,10 @@ public class PlayerController : MonoBehaviour
     public GameObject gDialogueBox;
     public GameObject jDialogueBox;
     public GameObject oDialogueBox;
+    public GameObject pauseMenu;
+    private bool pauseInactive;
+    public GameObject minigameMainMenu;
+    public MinigameMenuUI minigameMenuUI;
 
     [Header("Dialogue")]
     public DialogueTriggerFC forestcoreDialogue;
@@ -74,9 +78,9 @@ public class PlayerController : MonoBehaviour
     private GameObject target1;
     private GameObject target2;
     private GameObject target3;
-    public GameObject target1House;
-    public GameObject target2House;
-    public GameObject target3House;
+    // public GameObject target1House;
+    // public GameObject target2House;
+    // public GameObject target3House;
 
     [Header("Other")]
     public GameObject inventory;
@@ -88,8 +92,7 @@ public class PlayerController : MonoBehaviour
     private float elapsedTime = 0f;
     private float timeScale = 2.5f;
 
-    // i am like 99.9% sure theres a better way to do all of this but i have never done this type of 
-    // gameplay coding before i am doing my best
+    // regretting not using inheritance but it has been too long to go back
 
     void Start()
     {
@@ -97,6 +100,7 @@ public class PlayerController : MonoBehaviour
         isSocialTime = false;
         isMurderTime = false;
         isIngredientTime = false;
+        pauseInactive = true;
         dateCount = 0;
         bodyCount = 0;
         interestName = PlayerListUI.loveInterest;
@@ -136,16 +140,9 @@ public class PlayerController : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        // Vector3 move = transform.right * x + transform.forward * z;
-        // controller.MovePosition(move * speed * Time.deltaTime);
-
         Vector3 tempVect = new Vector3(x, 0f, z);
         tempVect = tempVect.normalized * speed * Time.deltaTime;
         controller.MovePosition(transform.position + tempVect);
-
-        // velocity.y += gravity * Time.deltaTime;
-        // controller.MovePosition(velocity * Time.deltaTime);
-        // end movement mechanics
 
         // key presses
         if (Input.GetKeyDown(KeyCode.E))
@@ -157,6 +154,18 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return) && dialogueManager.isActive)
         {
             dialogueManager.DisplayNextSentence();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && !inventory.activeSelf && pauseInactive)
+        {
+            pauseMenu.SetActive(true);
+            pauseInactive = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && !inventory.activeSelf && !pauseInactive)
+        {
+            pauseMenu.SetActive(false);
+            pauseInactive = true;
         }
 
         // character interaction key 
@@ -298,6 +307,7 @@ public class PlayerController : MonoBehaviour
             if (isMurderTime)
             {
                 RenderSettings.skybox = skyboxNight;
+                
                 // guarantees player is within range of love interest AND player has items required
                 Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 5f); // second number is radius
                 foreach (var hitCollider in hitColliders)
@@ -306,27 +316,33 @@ public class PlayerController : MonoBehaviour
                     {
                         if (forestcore.playerHasItems)
                         {
-                            forestcore.initiateMurderGame();
+                            minigameMainMenu.SetActive(true); 
+                            minigameMenuUI.nameOfTarget = "aspen";
                         }
                         else if (grilldad.playerHasItems)
                         {
-                            grilldad.initiateMurderGame();
+                            minigameMainMenu.SetActive(true); 
+                            minigameMenuUI.nameOfTarget = "davey";
                         }
                         else if (chemist.playerHasItems)
                         {   
-                            chemist.initiateMurderGame();           // where do the minigames begin?
+                            minigameMainMenu.SetActive(true);
+                            minigameMenuUI.nameOfTarget = "wesley";
                         }
                         else if (jojo.playerHasItems)
                         {
-                            jojo.initiateMurderGame();
+                            minigameMainMenu.SetActive(true); 
+                            minigameMenuUI.nameOfTarget = "armani";
                         }
                         else if (gamer.playerHasItems)
                         {
-                            gamer.initiateMurderGame();
+                            minigameMainMenu.SetActive(true); 
+                            minigameMenuUI.nameOfTarget = "carmen";
                         }
                         else if (occult.playerHasItems)
                         {
-                            occult.initiateMurderGame();
+                            minigameMainMenu.SetActive(true); 
+                            minigameMenuUI.nameOfTarget = "kai";
                         }
 
                         isDateTime = true;
@@ -684,6 +700,8 @@ public class PlayerController : MonoBehaviour
         gDialogueBox.SetActive(false);
         jDialogueBox.SetActive(false);
         oDialogueBox.SetActive(false);
+        pauseMenu.SetActive(false);
+        minigameMainMenu.SetActive(false);
     }
 
     IEnumerator startingBuffer()

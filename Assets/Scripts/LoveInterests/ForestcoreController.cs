@@ -39,33 +39,7 @@ public class ForestcoreController : MonoBehaviour
             }
         }
     }
-
-    void Update()
-    {
-        // if they are love interest
-        if (isLoveInterest)
-        {
-        }
-        // if they are killable
-        else if (isKillable)
-        {
-            // guarantees player is within range of love interest
-            Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 5f); // second number is radius
-            foreach (var hitCollider in hitColliders)
-            {
-                if (hitCollider.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.F) && playerHasItems)
-                {
-                    initiateMurderGame();
-                }
-            }
-        }
-        // if they are npc
-        else
-        {
-
-        }
-    }
-
+    
     public void initiateMurderGame()
     {
         SceneManager.LoadScene(4);
