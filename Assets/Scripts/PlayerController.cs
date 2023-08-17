@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -102,6 +103,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        PlayerPrefs.DeleteAll();
         startPosition = transform.position;
         isDateTime = true;
         isSocialTime = false;
@@ -129,6 +131,9 @@ public class PlayerController : MonoBehaviour
         inventory.SetActive(false);
         setEverythingInactive();
         // StartCoroutine(startingBuffer()); // the game does not allow u to begin dating until 4 minutes of gameplay have passed
+
+        // Cursor.visible = false;
+        // Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
@@ -157,16 +162,20 @@ public class PlayerController : MonoBehaviour
             inventoryManager.listItems();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && !inventory.activeSelf && pauseInactive)
+        if (Input.GetKeyDown(KeyCode.Escape) && pauseInactive)
         {
             pauseMenu.SetActive(true);
             pauseInactive = false;
+            // Cursor.visible = true;
+            // Cursor.lockState = CursorLockMode.None;
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && !inventory.activeSelf && !pauseInactive)
+        if (Input.GetKeyDown(KeyCode.Escape) && !pauseInactive)
         {
             pauseMenu.SetActive(false);
             pauseInactive = true;
+            // Cursor.visible = false;
+            // Cursor.lockState = CursorLockMode.Locked;
         }
 
         // character interaction key 
@@ -178,6 +187,8 @@ public class PlayerController : MonoBehaviour
                 RenderSettings.skybox = skybox;
                 DynamicGI.UpdateEnvironment();
                 directionalLight.color = new Color(1f, 0.95f, 0.83f);
+                // Cursor.visible = false;
+                // Cursor.lockState = CursorLockMode.Locked;
                 Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 20f); // second number is radius
 
                 foreach (var hitCollider in hitColliders)
@@ -310,12 +321,15 @@ public class PlayerController : MonoBehaviour
                 {
                     if (hitCollider.gameObject.name == "AspenHouse")
                     {
+                        // Cursor.visible = true;
+                        // Cursor.lockState = CursorLockMode.None;
+
                         // if (forestcore.playerHasItems && forestcore.isKillable == true)
                         // {
                         if (forestcore.isKillable == true)
                         {
-                            minigameMainMenu.SetActive(true); 
-                            minigameMenuUI.nameOfTarget = "aspen";
+                            // minigameMainMenu.SetActive(true); 
+                            // minigameMenuUI.nameOfTarget = "aspen";
                         }
                     }
                     else if (hitCollider.gameObject.name == "DaveyHouse")
@@ -324,8 +338,8 @@ public class PlayerController : MonoBehaviour
                         // {
                         if (grilldad.isKillable == true)
                         {
-                            minigameMainMenu.SetActive(true); 
-                            minigameMenuUI.nameOfTarget = "davey";
+                            // minigameMainMenu.SetActive(true); 
+                            // minigameMenuUI.nameOfTarget = "davey";
                         }
                     }
                     else if (hitCollider.gameObject.name == "WesleyHouse")
@@ -333,8 +347,8 @@ public class PlayerController : MonoBehaviour
                         // if (chemist.playerHasItems && chemist.isKillable == true)
                         if (chemist.isKillable == true)
                         {   
-                            minigameMainMenu.SetActive(true);
-                            minigameMenuUI.nameOfTarget = "wesley";
+                            // minigameMainMenu.SetActive(true);
+                            // minigameMenuUI.nameOfTarget = "wesley";
                         }
                     }
                     else if (hitCollider.gameObject.name == "CarmenHouse")
@@ -342,8 +356,10 @@ public class PlayerController : MonoBehaviour
                         // if (gamer.playerHasItems && gamer.isKillable == true)
                         if (gamer.isKillable == true)
                         {   
-                            minigameMainMenu.SetActive(true);
-                            minigameMenuUI.nameOfTarget = "carmen";
+                            SceneManager.LoadScene(9);
+                            PlayerPrefs.SetString("currentTarget", "carmen");
+                            // minigameMainMenu.SetActive(true);
+                            // minigameMenuUI.nameOfTarget = "carmen";
                         }
                     }
                     else if (hitCollider.gameObject.name == "ArmaniHouse")
@@ -351,8 +367,8 @@ public class PlayerController : MonoBehaviour
                         // if (jojo.playerHasItems && jojo.isKillable == true)
                         if (jojo.isKillable == true)
                         {   
-                            minigameMainMenu.SetActive(true);
-                            minigameMenuUI.nameOfTarget = "armani";
+                            // minigameMainMenu.SetActive(true);
+                            // minigameMenuUI.nameOfTarget = "armani";
                         }
                     }
                     else if (hitCollider.gameObject.name == "KaiHouse")
@@ -360,12 +376,11 @@ public class PlayerController : MonoBehaviour
                         // if (occult.playerHasItems && occult.isKillable == true)
                         if (occult.isKillable == true)
                         {   
-                            minigameMainMenu.SetActive(true);
-                            minigameMenuUI.nameOfTarget = "kai";
+                            // minigameMainMenu.SetActive(true);
+                            // minigameMenuUI.nameOfTarget = "kai";
                         }
                     }
 
-                    isDateTime = true;
                     isMurderTime = false;
                 }
             }

@@ -58,5 +58,6 @@ public class ForestcoreController : MonoBehaviour
     public void initiateMurderGame()
     {
         SceneManager.LoadScene(4);
+        player.isDateTime = true;
     }
 }

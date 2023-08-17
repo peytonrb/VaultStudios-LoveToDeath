@@ -52,10 +52,12 @@ public class GrilldadController : MonoBehaviour
         else
         {
             rb.freezeRotation = true;
-        }    }
+        }    
+    }
 
     public void initiateMurderGame()
     {
         SceneManager.LoadScene(6);
+        player.isDateTime = true;
     }
 }

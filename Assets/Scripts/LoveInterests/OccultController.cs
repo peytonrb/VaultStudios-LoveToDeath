@@ -58,5 +58,6 @@ public class OccultController : MonoBehaviour
     public void initiateMurderGame()
     {
         SceneManager.LoadScene(8);
+        player.isDateTime = true;
     }
 }

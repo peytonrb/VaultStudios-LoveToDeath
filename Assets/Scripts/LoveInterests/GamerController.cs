@@ -57,5 +57,6 @@ public class GamerController : MonoBehaviour
     public void initiateMurderGame()
     {
         SceneManager.LoadScene(5);
+        player.isDateTime = true;
     }   
 }

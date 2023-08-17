@@ -32,4 +32,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minigames/OccultMinigame.unity
     guid: 3600b6992521c11408fe316bb3053992
-  m_configObjects: {}
+  - enabled: 1
+    path: Assets/Scenes/MinigameMainMenu.unity
+    guid: 182ea5c3f74fc264dbe5bc7a8ee5d02f
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 3f1c50c9097aee04faceac2afd8b91cb, type: 2}

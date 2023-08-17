@@ -2,18 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class MinigameMenuUI : MonoBehaviour
 {
     public TextMeshProUGUI titleText;
-    public ChemistController wesley;
-    public ForestcoreController aspen;
-    public GamerController carmen;
-    public GrilldadController davey;
-    public JojoController armani;
-    public OccultController kai;
-    public string nameOfTarget; // establish this depending on whos house you show up to
-    public GameObject menu;
+
+    [SerializeField]
+    private string nameOfTarget; 
+
+    void Start()
+    {
+        nameOfTarget = PlayerPrefs.GetString("currentTarget");
+    }
 
     void Update()
     {
@@ -45,35 +46,34 @@ public class MinigameMenuUI : MonoBehaviour
 
     public void startMinigame()
     {
-        Debug.Log("entered");
         if (nameOfTarget == "wesley")
         {
-            wesley.initiateMurderGame();
+            SceneManager.LoadScene(3);
         }
         else if (nameOfTarget == "aspen")
         {
-            aspen.initiateMurderGame();
+            SceneManager.LoadScene(4);
         }
         else if (nameOfTarget == "carmen")
         {
-            carmen.initiateMurderGame();
+            SceneManager.LoadScene(5);
         }
         else if (nameOfTarget == "davey")
         {
-            davey.initiateMurderGame();
+            SceneManager.LoadScene(6);
         }
         else if (nameOfTarget == "armani")
         {
-            armani.initiateMurderGame();
+            SceneManager.LoadScene(7);
         }
         else if (nameOfTarget == "kai")
         {
-            kai.initiateMurderGame();
+            SceneManager.LoadScene(8);
         }
     }
 
     public void backButton()
     {
-        menu.SetActive(false);
+        SceneManager.LoadScene(2);
     }
 }

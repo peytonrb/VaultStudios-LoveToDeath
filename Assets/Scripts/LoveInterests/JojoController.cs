@@ -57,5 +57,6 @@ public class JojoController : MonoBehaviour
     public void initiateMurderGame()
     {
         SceneManager.LoadScene(7);
+        player.isDateTime = true;
     }
 }

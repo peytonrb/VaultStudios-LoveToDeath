@@ -58,5 +58,6 @@ public class ChemistController : MonoBehaviour
     public void initiateMurderGame()
     {
         SceneManager.LoadScene(3);
+        player.isDateTime = true;
     }
 }
