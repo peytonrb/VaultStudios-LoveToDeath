@@ -1254,6 +1254,7 @@ GameObject:
   - component: {fileID: 217563495}
   - component: {fileID: 217563494}
   - component: {fileID: 217563498}
+  - component: {fileID: 217563499}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1362,6 +1363,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1984867766}
+--- !u!114 &217563499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217563493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b4386b17b42c3845bae62a12ae406e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleText: {fileID: 130788159}
+  wesley: {fileID: 483860427}
+  aspen: {fileID: 2096276607}
+  carmen: {fileID: 493637114}
+  davey: {fileID: 2102738884}
+  armani: {fileID: 435362489}
+  kai: {fileID: 1864489027}
+  nameOfTarget: 
 --- !u!1 &235594588
 GameObject:
   m_ObjectHideFlags: 0
