@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Basic Movement")]
-    public Rigidbody controller;
+    public CharacterController controller;
     public float speed;
     public float gravity = -9.81f;
     public Transform groundCheck;
@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundMask;
     private Vector3 velocity;
     private bool isGrounded;
+    public Vector3 startPosition;
 
     [Header("Lover")]
     public ChemistController chemist;
@@ -21,6 +22,12 @@ public class PlayerController : MonoBehaviour
     public GrilldadController grilldad;
     public JojoController jojo;
     public OccultController occult;
+    public GameObject fcGO;
+    public GameObject gdGO;
+    public GameObject cGO;
+    public GameObject gGO;
+    public GameObject oGO;
+    public GameObject jGO;
     public bool isDateTime;
     public bool isSocialTime;
     public bool isMurderTime;
@@ -29,6 +36,7 @@ public class PlayerController : MonoBehaviour
     private PlayerListUI chosenInterest;
     private string interestName;    
     private int dateCount;
+    [SerializeField]
     private int bodyCount;  // if player wins minigame --> increase body count
 
     [Header("UI")]
@@ -78,9 +86,6 @@ public class PlayerController : MonoBehaviour
     private GameObject target1;
     private GameObject target2;
     private GameObject target3;
-    // public GameObject target1House;
-    // public GameObject target2House;
-    // public GameObject target3House;
 
     [Header("Other")]
     public GameObject inventory;
@@ -91,11 +96,13 @@ public class PlayerController : MonoBehaviour
     private static readonly int exposure = Shader.PropertyToID("_Exposure");
     private float elapsedTime = 0f;
     private float timeScale = 2.5f;
+    public Light directionalLight;
 
     // regretting not using inheritance but it has been too long to go back
 
     void Start()
     {
+        startPosition = transform.position;
         isDateTime = true;
         isSocialTime = false;
         isMurderTime = false;
@@ -121,7 +128,7 @@ public class PlayerController : MonoBehaviour
         // set active calls
         inventory.SetActive(false);
         setEverythingInactive();
-        StartCoroutine(startingBuffer()); // the game does not allow u to begin dating until 4 minutes of gameplay have passed
+        // StartCoroutine(startingBuffer()); // the game does not allow u to begin dating until 4 minutes of gameplay have passed
     }
 
     void Update()
@@ -137,23 +144,17 @@ public class PlayerController : MonoBehaviour
             velocity.y = -2f;
         }
 
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
 
-        Vector3 tempVect = new Vector3(x, 0f, z);
-        tempVect = tempVect.normalized * speed * Time.deltaTime;
-        controller.MovePosition(transform.position + tempVect);
+        Vector3 move = transform.right * horizontal + transform.forward * vertical;
+        controller.Move(move * speed * Time.deltaTime);
 
         // key presses
         if (Input.GetKeyDown(KeyCode.E))
         {
             inventory.SetActive(true);
             inventoryManager.listItems();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Return) && dialogueManager.isActive)
-        {
-            dialogueManager.DisplayNextSentence();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape) && !inventory.activeSelf && pauseInactive)
@@ -173,9 +174,12 @@ public class PlayerController : MonoBehaviour
         {
             if (isDateTime)
             {
+                reactivateNPCS();
                 RenderSettings.skybox = skybox;
-                isMurderTime = false;
-                Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 5f); // second number is radius
+                DynamicGI.UpdateEnvironment();
+                directionalLight.color = new Color(1f, 0.95f, 0.83f);
+                Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 20f); // second number is radius
+
                 foreach (var hitCollider in hitColliders)
                 {
                     if (hitCollider.gameObject.tag == "LoveInterest")
@@ -184,7 +188,7 @@ public class PlayerController : MonoBehaviour
                         {
                             forestcoreDate.SetActive(true);             
                             forestcoreSprite.SetActive(true);    
-                            fcDialogueBox.SetActive(true);       // gifts during dates...?
+                            fcDialogueBox.SetActive(true);
                             forestcoreDialogue.dialogueStart();
                         }
                         else if (interestName == "grilldad")
@@ -225,12 +229,6 @@ public class PlayerController : MonoBehaviour
 
                         dateCount++;
                         isSocialTime = true;
-
-                        // if no dialogue is being played, stop the interaction
-                        if (!dialogueManager.isActive)
-                        {
-                            setEverythingInactive();
-                        }
                     }
                 }
             }
@@ -238,115 +236,137 @@ public class PlayerController : MonoBehaviour
             if (isSocialTime)
             {
                 isDateTime = false;
-                Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 5f); // second number is radius
+                isIngredientTime = false;
+                Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 20f); // second number is radius
+
                 foreach (var hitCollider in hitColliders)
                 {
                     if (hitCollider.gameObject.tag == "Target")  
                     {
-                        if (forestcore.isKillable)
+                        if (hitCollider.gameObject.name == "forestcore")
                         {
-                            forestcoreShop.SetActive(false);
-                            forestcoreSprite.SetActive(true);
+                            forestcoreShop.SetActive(true);
+                            forestcoreSprite.SetActive(true);       // gifts during dates?
                             fcDialogueBox.SetActive(true);    
                             forestcoreDialogue.dialogueStart();
                         }
-                        else if (grilldad.isKillable)
+                        else if (hitCollider.gameObject.name == "grilldad")
                         {
-                            grilldadShop.SetActive(false);
+                            grilldadShop.SetActive(true);
                             grilldadSprite.SetActive(true);
                             gdDialogueBox.SetActive(true);  
                             grilldadDialogue.dialogueStart();
                         }
-                        else if (chemist.isKillable)
+                        else if (hitCollider.gameObject.name == "chemist")
                         {
-                            chemistPharmacy.SetActive(false);
+                            chemistPharmacy.SetActive(true);
                             chemistSprite.SetActive(true);
                             cDialogueBox.SetActive(true);  
                             chemistDialogue.dialogueStart();
                         }
-                        else if (gamer.isKillable)
+                        else if (hitCollider.gameObject.name == "gamer")
                         {
-                            gamerHouse.SetActive(false);
+                            gamerHouse.SetActive(true);
                             gamerSprite.SetActive(true);
                             gDialogueBox.SetActive(true);  
                             gamerDialogue.dialogueStart();
                         }
-                        else if (jojo.isKillable)
+                        else if (hitCollider.gameObject.name == "jojo")
                         {
-                            jojoShop.SetActive(false);
+                            jojoShop.SetActive(true);
                             jojoSprite.SetActive(true);
                             jDialogueBox.SetActive(true);  
                             jojoDialogue.dialogueStart();
                         }
-                        else if (occult.isKillable)
+                        else if (hitCollider.gameObject.name == "occult")
                         {
-                            occultGrandmaHouse.SetActive(false);
+                            occultGrandmaHouse.SetActive(true);
                             occultSprite.SetActive(true);
                             oDialogueBox.SetActive(true); 
                             occultDialogue.dialogueStart();
                         }
-                    }
 
-                    isIngredientTime = true;
-
-                    // if no dialogue is being played, stop the interaction
-                    if (!dialogueManager.isActive)
-                    {
-                        setEverythingInactive();
-                        StartCoroutine(ingredientTimer());
+                        isIngredientTime = true;
                     }
                 }
             }
 
             if (isIngredientTime)
             {
-                // ingredient search mechanics - if any?
                 isSocialTime = false;
+                RenderSettings.skybox = skyboxNight;
+                DynamicGI.UpdateEnvironment();
+                directionalLight.color = new Color(1f, 0.58f, 0.51f);
+                StartCoroutine(ingredientTimer());          // CHANGE BACK TO 180 SECONDS AFTER DEBUGGING!!!!!!!!!!!!!
             }
 
             if (isMurderTime)
             {
-                RenderSettings.skybox = skyboxNight;
+                deactivateNPCS();
                 
                 // guarantees player is within range of love interest AND player has items required
-                Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 5f); // second number is radius
+                Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 20f); // second number is radius
                 foreach (var hitCollider in hitColliders)
                 {
-                    if (hitCollider.gameObject.tag == "Target") // should be their house but this is not my problem rn
+                    if (hitCollider.gameObject.name == "AspenHouse")
                     {
-                        if (forestcore.playerHasItems)
+                        // if (forestcore.playerHasItems && forestcore.isKillable == true)
+                        // {
+                        if (forestcore.isKillable == true)
                         {
                             minigameMainMenu.SetActive(true); 
                             minigameMenuUI.nameOfTarget = "aspen";
                         }
-                        else if (grilldad.playerHasItems)
+                    }
+                    else if (hitCollider.gameObject.name == "DaveyHouse")
+                    {
+                        // if (grilldad.playerHasItems && grilldad.isKillable == true)
+                        // {
+                        if (grilldad.isKillable == true)
                         {
                             minigameMainMenu.SetActive(true); 
                             minigameMenuUI.nameOfTarget = "davey";
                         }
-                        else if (chemist.playerHasItems)
+                    }
+                    else if (hitCollider.gameObject.name == "WesleyHouse")
+                    {
+                        // if (chemist.playerHasItems && chemist.isKillable == true)
+                        if (chemist.isKillable == true)
                         {   
                             minigameMainMenu.SetActive(true);
                             minigameMenuUI.nameOfTarget = "wesley";
                         }
-                        else if (jojo.playerHasItems)
-                        {
-                            minigameMainMenu.SetActive(true); 
-                            minigameMenuUI.nameOfTarget = "armani";
-                        }
-                        else if (gamer.playerHasItems)
-                        {
-                            minigameMainMenu.SetActive(true); 
+                    }
+                    else if (hitCollider.gameObject.name == "CarmenHouse")
+                    {
+                        // if (gamer.playerHasItems && gamer.isKillable == true)
+                        if (gamer.isKillable == true)
+                        {   
+                            minigameMainMenu.SetActive(true);
                             minigameMenuUI.nameOfTarget = "carmen";
                         }
-                        else if (occult.playerHasItems)
-                        {
-                            minigameMainMenu.SetActive(true); 
+                    }
+                    else if (hitCollider.gameObject.name == "ArmaniHouse")
+                    {
+                        // if (jojo.playerHasItems && jojo.isKillable == true)
+                        if (jojo.isKillable == true)
+                        {   
+                            minigameMainMenu.SetActive(true);
+                            minigameMenuUI.nameOfTarget = "armani";
+                        }
+                    }
+                    else if (hitCollider.gameObject.name == "KaiHouse")
+                    {
+                        // if (occult.playerHasItems && occult.isKillable == true)
+                        if (occult.isKillable == true)
+                        {   
+                            minigameMainMenu.SetActive(true);
                             minigameMenuUI.nameOfTarget = "kai";
                         }
-
-                        isDateTime = true;
                     }
+
+                    isDateTime = true;
+                    isMurderTime = false;
                 }
             }
         }
@@ -365,8 +385,9 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator ingredientTimer()
     {
-        yield return new WaitForSeconds(180);
+        yield return new WaitForSeconds(5);
         isMurderTime = true;
+        isIngredientTime = false;
     }
 
     public void skyboxController()
@@ -469,7 +490,8 @@ public class PlayerController : MonoBehaviour
                 iteration++;
                 assignMurderItems(name, iteration);
             }
-        } else if (interestName == "grilldad")
+        } 
+        else if (interestName == "grilldad")
         {
             // assigning the names to the variable local to this script
             for (int i = 0; i < 3; i++)
@@ -483,7 +505,8 @@ public class PlayerController : MonoBehaviour
                 iteration++;
                 assignMurderItems(name, iteration);
             }
-        } else if (interestName == "chemist")
+        } 
+        else if (interestName == "chemist")
         {
             // assigning the names to the variable local to this script
             for (int i = 0; i < 3; i++)
@@ -497,7 +520,8 @@ public class PlayerController : MonoBehaviour
                 iteration++;
                 assignMurderItems(name, iteration);
             }
-        } else if (interestName == "gamer")
+        } 
+        else if (interestName == "gamer")
         {
             // assigning the names to the variable local to this script
             for (int i = 0; i < 3; i++)
@@ -511,7 +535,8 @@ public class PlayerController : MonoBehaviour
                 iteration++;
                 assignMurderItems(name, iteration);
             }
-        } else if (interestName == "occult")
+        } 
+        else if (interestName == "occult")
         {
             // assigning the names to the variable local to this script
             for (int i = 0; i < 3; i++)
@@ -525,7 +550,8 @@ public class PlayerController : MonoBehaviour
                 iteration++;
                 assignMurderItems(name, iteration);
             }
-        } else if (interestName == "jojo")
+        } 
+        else if (interestName == "jojo")
         {
             // assigning the names to the variable local to this script
             for (int i = 0; i < 3; i++)
@@ -674,7 +700,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void setEverythingInactive()
+    public void setEverythingInactive()
     {
         forestcoreDate.SetActive(false);
         grilldadDate.SetActive(false);
@@ -702,6 +728,26 @@ public class PlayerController : MonoBehaviour
         oDialogueBox.SetActive(false);
         pauseMenu.SetActive(false);
         minigameMainMenu.SetActive(false);
+    }
+
+    private void deactivateNPCS()
+    {
+        fcGO.SetActive(false);
+        gdGO.SetActive(false);
+        gGO.SetActive(false);
+        gGO.SetActive(false);
+        jGO.SetActive(false);
+        oGO.SetActive(false);
+    }
+
+    private void reactivateNPCS()
+    {
+        fcGO.SetActive(true);
+        gdGO.SetActive(true);
+        gGO.SetActive(true);
+        gGO.SetActive(true);
+        jGO.SetActive(true);
+        oGO.SetActive(true);
     }
 
     IEnumerator startingBuffer()

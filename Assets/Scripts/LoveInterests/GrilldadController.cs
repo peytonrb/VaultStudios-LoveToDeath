@@ -9,6 +9,8 @@ public class GrilldadController : MonoBehaviour
     public bool isLoveInterest;
     private PlayerListUI chosenInterest;
     public PlayerController player;
+    public Transform playerPos;
+    public Rigidbody rb;
     public string[] friends = {"forestcore", "emo", "chemist"};
 
     [Header("Is Killable")]
@@ -39,6 +41,18 @@ public class GrilldadController : MonoBehaviour
             }
         }
     }
+
+    void Update()
+    {
+        if (Vector3.Distance(player.transform.position, transform.position) >= 20f)
+        {
+            rb.freezeRotation = false;
+            transform.LookAt(playerPos);
+        }
+        else
+        {
+            rb.freezeRotation = true;
+        }    }
 
     public void initiateMurderGame()
     {

@@ -10,6 +10,8 @@ public class GamerController : MonoBehaviour
     private PlayerListUI chosenInterest;
     public string[] friends = {"forestcore", "emo", "jojo"};
     public PlayerController player;
+    public Rigidbody rb;
+    public Transform playerPos;
 
     [Header("Is Killable")]
     public bool isKillable;
@@ -39,6 +41,18 @@ public class GamerController : MonoBehaviour
             }
         }
     }
+
+    void Update()
+    {
+        if (Vector3.Distance(player.transform.position, transform.position) >= 20f)
+        {
+            rb.freezeRotation = false;
+            transform.LookAt(playerPos);
+        }
+        else
+        {
+            rb.freezeRotation = true;
+        }    }
 
     public void initiateMurderGame()
     {

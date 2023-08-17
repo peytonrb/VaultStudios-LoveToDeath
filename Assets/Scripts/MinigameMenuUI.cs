@@ -13,6 +13,7 @@ public class MinigameMenuUI : MonoBehaviour
     public JojoController armani;
     public OccultController kai;
     public string nameOfTarget; // establish this depending on whos house you show up to
+    public GameObject menu;
 
     void Update()
     {
@@ -44,29 +45,35 @@ public class MinigameMenuUI : MonoBehaviour
 
     public void startMinigame()
     {
-        if (nameOfTarget == "wesley" && wesley.isKillable)
+        Debug.Log("entered");
+        if (nameOfTarget == "wesley")
         {
             wesley.initiateMurderGame();
         }
-        else if (nameOfTarget == "aspen" && aspen.isKillable)
+        else if (nameOfTarget == "aspen")
         {
             aspen.initiateMurderGame();
         }
-        else if (nameOfTarget == "carmen" && carmen.isKillable)
+        else if (nameOfTarget == "carmen")
         {
             carmen.initiateMurderGame();
         }
-        else if (nameOfTarget == "davey" && davey.isKillable)
+        else if (nameOfTarget == "davey")
         {
             davey.initiateMurderGame();
         }
-        else if (nameOfTarget == "armani" && armani.isKillable)
+        else if (nameOfTarget == "armani")
         {
             armani.initiateMurderGame();
         }
-        else if (nameOfTarget == "kai" && kai.isKillable)
+        else if (nameOfTarget == "kai")
         {
             kai.initiateMurderGame();
         }
+    }
+
+    public void backButton()
+    {
+        menu.SetActive(false);
     }
 }

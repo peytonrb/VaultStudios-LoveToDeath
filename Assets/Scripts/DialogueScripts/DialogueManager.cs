@@ -64,6 +64,8 @@ public class DialogueManager : MonoBehaviour
         {
             EndDialogue();
             isActive = false;
+            player.setEverythingInactive();
+            player.transform.position = player.startPosition;
             return;
         }
 

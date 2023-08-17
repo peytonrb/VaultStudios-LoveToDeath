@@ -9,7 +9,9 @@ public class JojoController : MonoBehaviour
     public bool isLoveInterest;
     private PlayerListUI chosenInterest;
     public PlayerController player;
+    public Rigidbody rb;
     public string[] friends = {"grilldad", "chemist", "gamer"};
+    public Transform playerPos;
 
     [Header("Is Killable")]
     public bool isKillable;
@@ -39,6 +41,18 @@ public class JojoController : MonoBehaviour
             }
         }
     }
+
+    void Update()
+    {
+        if (Vector3.Distance(player.transform.position, transform.position) >= 20f)
+        {
+            rb.freezeRotation = false;
+            transform.LookAt(playerPos);
+        }
+        else
+        {
+            rb.freezeRotation = true;
+        }    }
 
     public void initiateMurderGame()
     {

@@ -9,6 +9,8 @@ public class ChemistController : MonoBehaviour
     public bool isLoveInterest;
     private PlayerListUI chosenInterest;
     public PlayerController player;
+    public Rigidbody rb;
+    public Transform playerPos;
     public string[] friends = {"grilldad", "jojo", "carmen"};
 
     [Header("Is Killable")]
@@ -37,6 +39,19 @@ public class ChemistController : MonoBehaviour
                     isKillable = true;
                 }
             }
+        }
+    }
+
+    void Update()
+    {
+        if (Vector3.Distance(player.transform.position, transform.position) >= 20f)
+        {
+            rb.freezeRotation = false;
+            transform.LookAt(playerPos);
+        }
+        else
+        {
+            rb.freezeRotation = true;
         }
     }
 
