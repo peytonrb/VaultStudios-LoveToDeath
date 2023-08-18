@@ -232,6 +232,7 @@ public class WireController : MonoBehaviour
             if (!hasAdded)
             {
                 player.bodyCount++;
+                GameManager.Instance.sceneJustLoaded = true;
                 hasAdded = true;
             }
         }

@@ -139,6 +139,8 @@ public class PlayerController : MonoBehaviour
         removeDeadNPCs();
 
         // set active calls
+        reassignments();
+        setEverythingInactive();
         // StartCoroutine(startingBuffer()); // the game does not allow u to begin dating until 4 minutes of gameplay have passed
     }
 
@@ -151,6 +153,7 @@ public class PlayerController : MonoBehaviour
         {
             reassignments();
             setEverythingInactive();
+            GameManager.Instance.sceneJustLoaded = false;
         }
 
         // movement mechanics
@@ -799,6 +802,7 @@ public class PlayerController : MonoBehaviour
         gamerHouse = GameObject.Find("Canvas/FriendDateBackgrounds/CarmenHouse");
         jojoShop = GameObject.Find("Canvas/FriendDateBackgrounds/ArmaniShop");
         occultGrandmaHouse = GameObject.Find("Canvas/FriendDateBackgrounds/KaiGrandmaHouse");
+        directionalLight = GameObject.Find("DirectionalLight").GetComponent<Light>();
 
         fcDialogueBox = FindInactiveObjectByName("AspenDB");
         gdDialogueBox = FindInactiveObjectByName("DaveyDB");

@@ -53,7 +53,6 @@ public class GameManager : MonoBehaviour
             playerLook.enabled = false;
             mainCamera.enabled = false;
             audioListener.enabled = false;
-            sceneJustLoaded = false;
         }
         else
         {
@@ -62,7 +61,6 @@ public class GameManager : MonoBehaviour
             playerLook.enabled = true;
             mainCamera.enabled = true;
             audioListener.enabled = true;
-            sceneJustLoaded = true;
         }
     }
 }
