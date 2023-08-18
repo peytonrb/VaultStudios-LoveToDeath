@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public Camera mainCamera;
     public AudioListener audioListener;
     public bool sceneJustLoaded;
+    public GameObject winScreen;
 
     private void Awake()
     {
@@ -43,7 +44,7 @@ public class GameManager : MonoBehaviour
     {
         if (bodyCount == 3)
         {
-            // win
+            winScreen.SetActive(true);
         }
 
         if (SceneManager.GetActiveScene().name != "Town")

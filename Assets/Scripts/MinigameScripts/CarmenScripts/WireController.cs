@@ -33,12 +33,14 @@ public class WireController : MonoBehaviour
     public GameObject loseScreenNoTryAgain;
     public WinLoseUIControllerCarmen uiController;
     public GameManager player;
+    public PlayerController pController;
     private bool hasAdded;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("GameManager").GetComponent<GameManager>();
+        pController = GameObject.Find("Player").GetComponent<PlayerController>();   
         hasAdded = false;
         System.Random rng = new System.Random();
         // make sure the two numbers are not the same
@@ -113,7 +115,6 @@ public class WireController : MonoBehaviour
                 {
                     if (wire_1.GetComponent<Cube1>().canExplode == true)
                     {
-                        Debug.Log("explode");
                         lives += 1;
                         Destroy(wire_1); 
                         Debug.Log(lives);
@@ -122,7 +123,6 @@ public class WireController : MonoBehaviour
                     {
                         points += 1;
                         Destroy(wire_1);
-                        Debug.Log("good");
                     }
                 }
 
@@ -130,7 +130,6 @@ public class WireController : MonoBehaviour
                 {
                     if (wire_2.GetComponent<Cube2>().canExplode == true)
                     {
-                        Debug.Log("explode");
                         lives += 1;
                         Destroy(wire_2); 
                         Debug.Log(lives);
@@ -139,7 +138,6 @@ public class WireController : MonoBehaviour
                     {   
                         points += 1;                 
                         Destroy(wire_2);
-                        Debug.Log("good");
                     }
                 }
 
@@ -147,7 +145,6 @@ public class WireController : MonoBehaviour
                 {
                     if (wire_3.GetComponent<Cube3>().canExplode == true)
                     {
-                        Debug.Log("explode");
                         lives += 1;
                         Destroy(wire_3);
                         Debug.Log(lives); 
@@ -156,7 +153,6 @@ public class WireController : MonoBehaviour
                     {       
                         points += 1;             
                         Destroy(wire_3);
-                        Debug.Log("good");
                     }
                 }
 
@@ -164,16 +160,13 @@ public class WireController : MonoBehaviour
                 {
                     if (wire_4.GetComponent<Cube4>().canExplode == true)
                     {
-                        Debug.Log("explode");
                         lives += 1;
                         Destroy(wire_4);
-                        Debug.Log(lives); 
                     }
                     else
                     {
                         points += 1;                    
                         Destroy(wire_4);
-                        Debug.Log("good");
                     }
                 }
 
@@ -181,7 +174,6 @@ public class WireController : MonoBehaviour
                 {
                     if (wire_5.GetComponent<Cube5>().canExplode == true)
                     {
-                        Debug.Log("explode");
                         lives += 1;
                         Destroy(wire_5);
                         Debug.Log(lives); 
@@ -190,7 +182,6 @@ public class WireController : MonoBehaviour
                     {
                         points += 1;                    
                         Destroy(wire_5);
-                        Debug.Log("good");
                     }
                 }
 
@@ -234,6 +225,7 @@ public class WireController : MonoBehaviour
                 player.bodyCount++;
                 GameManager.Instance.sceneJustLoaded = true;
                 hasAdded = true;
+                pController.isDateTime = true;
             }
         }
     }

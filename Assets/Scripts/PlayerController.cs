@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     private GameObject loveInterest; // stores the GameObject of the love interest
     private PlayerListUI chosenInterest;
     private string interestName;
-    private int dateCount;
+    public int dateCount;
 
     [Header("UI")]
     public GameObject forestcoreDate;
@@ -59,6 +59,14 @@ public class PlayerController : MonoBehaviour
     public GameObject oDialogueBox;
     public GameObject pauseMenu;
     private bool pauseInactive;
+
+    [Header("WinLose")]
+    public GameObject armaniWin;
+    public GameObject aspenWin;
+    public GameObject carmenWin;
+    public GameObject daveyWin;
+    public GameObject kaiWin;
+    public GameObject wesleyWin;
 
     [Header("Dialogue")]
     public DialogueTriggerFC forestcoreDialogue;
@@ -136,7 +144,6 @@ public class PlayerController : MonoBehaviour
         }
 
         reactivateNPCS();
-        removeDeadNPCs();
 
         // set active calls
         reassignments();
@@ -152,7 +159,10 @@ public class PlayerController : MonoBehaviour
         if (GameManager.Instance.sceneJustLoaded == true)
         {
             reassignments();
+            removeDeadNPCs();
+            winScreen();
             setEverythingInactive();
+            Cursor.lockState = CursorLockMode.Locked;
             GameManager.Instance.sceneJustLoaded = false;
         }
 
@@ -192,12 +202,11 @@ public class PlayerController : MonoBehaviour
         {
             if (isDateTime)
             {
+                isMurderTime = false;
                 reactivateNPCS();
                 RenderSettings.skybox = skybox;
                 DynamicGI.UpdateEnvironment();
                 directionalLight.color = new Color(1f, 0.95f, 0.83f);
-                // Cursor.visible = false;
-                // Cursor.lockState = CursorLockMode.Locked;
                 Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 20f); // second number is radius
 
                 foreach (var hitCollider in hitColliders)
@@ -328,6 +337,7 @@ public class PlayerController : MonoBehaviour
                 Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 20f); // second number is radius
                 foreach (var hitCollider in hitColliders)
                 {
+                    Debug.Log(hitCollider.gameObject.name);
                     if (hitCollider.gameObject.name == "AspenHouse")    // if you lose you won't come back to town
                     {
                         // Cursor.visible = true;
@@ -335,7 +345,7 @@ public class PlayerController : MonoBehaviour
 
                         // if (forestcore.playerHasItems && forestcore.isKillable == true)  <-- UNCOMMENT AFTER DEBUGGING
                         // {
-                        if (forestcore.isKillable == true)
+                        if (forestcore.gameObject.tag == "Target")
                         {
                             SceneManager.LoadScene(9);
                             PlayerPrefs.SetString("currentTarget", "carmen");
@@ -346,7 +356,7 @@ public class PlayerController : MonoBehaviour
                     {
                         // if (grilldad.playerHasItems && grilldad.isKillable == true)
                         // {
-                        if (grilldad.isKillable == true)
+                        if (grilldad.gameObject.tag == "Target")
                         {
                             SceneManager.LoadScene(9);
                             PlayerPrefs.SetString("currentTarget", "davey");
@@ -355,8 +365,9 @@ public class PlayerController : MonoBehaviour
                     }
                     else if (hitCollider.gameObject.name == "WesleyHouse")
                     {
+                        Debug.Log("entered if");
                         // if (chemist.playerHasItems && chemist.isKillable == true)
-                        if (chemist.isKillable == true)
+                        if (chemist.gameObject.tag == "Target")
                         {
                             SceneManager.LoadScene(9);
                             PlayerPrefs.SetString("currentTarget", "wesley");
@@ -365,8 +376,9 @@ public class PlayerController : MonoBehaviour
                     }
                     else if (hitCollider.gameObject.name == "CarmenHouse")
                     {
+                        Debug.Log("tag: " + gamer.gameObject.tag);
                         // if (gamer.playerHasItems && gamer.isKillable == true)
-                        if (gamer.isKillable == true)
+                        if (gamer.gameObject.tag == "Target")
                         {
                             SceneManager.LoadScene(9);
                             PlayerPrefs.SetString("currentTarget", "carmen");
@@ -376,7 +388,7 @@ public class PlayerController : MonoBehaviour
                     else if (hitCollider.gameObject.name == "ArmaniHouse")
                     {
                         // if (jojo.playerHasItems && jojo.isKillable == true)
-                        if (jojo.isKillable == true)
+                        if (jojo.gameObject.tag == "Target")
                         {
                             SceneManager.LoadScene(9);
                             PlayerPrefs.SetString("currentTarget", "armani");
@@ -386,15 +398,13 @@ public class PlayerController : MonoBehaviour
                     else if (hitCollider.gameObject.name == "KaiHouse")
                     {
                         // if (occult.playerHasItems && occult.isKillable == true)
-                        if (occult.isKillable == true)
+                        if (occult.gameObject.tag == "Target")
                         {
                             SceneManager.LoadScene(9);
                             PlayerPrefs.SetString("currentTarget", "kai");
                             occult.isDead = true;
                         }
                     }
-
-                    isMurderTime = false;
                 }
             }
         }
@@ -409,6 +419,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator ingredientTimer()
     {
         yield return new WaitForSeconds(5);
+        Debug.Log("reached");
         isMurderTime = true;
         isIngredientTime = false;
     }
@@ -802,7 +813,14 @@ public class PlayerController : MonoBehaviour
         gamerHouse = GameObject.Find("Canvas/FriendDateBackgrounds/CarmenHouse");
         jojoShop = GameObject.Find("Canvas/FriendDateBackgrounds/ArmaniShop");
         occultGrandmaHouse = GameObject.Find("Canvas/FriendDateBackgrounds/KaiGrandmaHouse");
-        directionalLight = GameObject.Find("DirectionalLight").GetComponent<Light>();
+        directionalLight = GameObject.Find("Directional Light").GetComponent<Light>();
+
+        armaniWin = GameObject.Find("Canvas/WinScreens/armani_win");
+        aspenWin = GameObject.Find("Canvas/WinScreens/aspen_win");
+        carmenWin = GameObject.Find("Canvas/WinScreens/carmen_win");
+        daveyWin = GameObject.Find("Canvas/WinScreens/davey_win");
+        kaiWin = GameObject.Find("Canvas/WinScreens/kai_win");
+        wesleyWin = GameObject.Find("Canvas/WinScreens/wesley_win");
 
         fcDialogueBox = FindInactiveObjectByName("AspenDB");
         gdDialogueBox = FindInactiveObjectByName("DaveyDB");
@@ -856,6 +874,12 @@ public class PlayerController : MonoBehaviour
         jDialogueBox.SetActive(false);
         oDialogueBox.SetActive(false);
         pauseMenu.SetActive(false);
+        armaniWin.SetActive(false);
+        aspenWin.SetActive(false);
+        carmenWin.SetActive(false);
+        daveyWin.SetActive(false);
+        kaiWin.SetActive(false);
+        wesleyWin.SetActive(false);
     }
 
     private void deactivateNPCS()
@@ -882,5 +906,33 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(240);
         isDateTime = true;
+    }
+
+    public void winScreen()
+    {
+        if (interestName == "forestcore")
+        {
+            GameManager.Instance.winScreen = aspenWin;
+        }
+        else if (interestName == "grilldad")
+        {
+            GameManager.Instance.winScreen = daveyWin;
+        }
+        else if (interestName == "chemist")
+        {
+            GameManager.Instance.winScreen = wesleyWin;
+        }
+        else if (interestName == "gamer")
+        {
+            GameManager.Instance.winScreen = carmenWin;
+        }
+        else if (interestName == "jojo")
+        {
+            GameManager.Instance.winScreen = armaniWin;
+        }
+        else if (interestName == "occult")
+        {
+            GameManager.Instance.winScreen = kaiWin;
+        }
     }
 }

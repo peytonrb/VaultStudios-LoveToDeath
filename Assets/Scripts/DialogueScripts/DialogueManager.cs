@@ -21,6 +21,7 @@ public class DialogueManager : MonoBehaviour
         isActive = false;
         sentences = new Queue<string>();
         textBoxUI.SetActive(false);
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     void Update()
@@ -39,16 +40,37 @@ public class DialogueManager : MonoBehaviour
         textBoxUI.SetActive(true);
         isActive = true;
 
-        if (player.isDateTime && !isDead && isLoveInterest)
+        if (player.isDateTime && player.dateCount == 0)
         {
-            foreach (string sentence in dialogue.loveInterestDate)
+            Debug.Log("entered if statement for date 1");
+            foreach (string sentence in dialogue.loveInterestDate1)
             {
                 sentences.Enqueue(sentence);
             }
         }
 
-        if (player.isSocialTime && !isDead && isKillable)
+        if (player.isDateTime && player.dateCount == 1)
         {
+            Debug.Log("entered if statement for date 2");
+            foreach (string sentence in dialogue.loveInterestDate2)
+            {
+                sentences.Enqueue(sentence);
+            }
+        }
+
+        if (player.isDateTime && player.dateCount == 2)
+        {
+            Debug.Log("entered if statement for date 3");
+            foreach (string sentence in dialogue.loveInterestDate3)
+            {
+                sentences.Enqueue(sentence);
+            }
+        }
+
+        // will only occur once
+        if (player.isSocialTime)
+        {
+            Debug.Log("entered if statement for friend");
             foreach (string sentence in dialogue.friendDate)
             {
                 sentences.Enqueue(sentence);

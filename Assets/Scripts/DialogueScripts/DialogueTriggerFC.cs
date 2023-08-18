@@ -21,7 +21,7 @@ public class DialogueTriggerFC : MonoBehaviour
         isKillable = controller.isKillable;
     }
 
-    public void dialogueStart() // attach to button?
+    public void dialogueStart()
     {
         manager.isDead = isDead;
         manager.isLoveInterest = isLoveInterest;

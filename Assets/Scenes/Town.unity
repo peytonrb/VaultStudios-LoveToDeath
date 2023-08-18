@@ -2288,6 +2288,7 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   audioListener: {fileID: 0}
   sceneJustLoaded: 0
+  winScreen: {fileID: 0}
 --- !u!4 &214740553
 Transform:
   m_ObjectHideFlags: 0
@@ -3752,7 +3753,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: Armani
-    loveInterestDate: []
+    loveInterestDate1: []
+    loveInterestDate2: []
+    loveInterestDate3: []
     friendDate: []
   manager: {fileID: 1848510533}
   isDead: 0
@@ -4233,8 +4236,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: Wesley
-    loveInterestDate: []
-    friendDate: []
+    loveInterestDate1: []
+    loveInterestDate2: []
+    loveInterestDate3: []
+    friendDate:
+    - hi
+    - hi
+    - hi
   manager: {fileID: 1848510533}
   isDead: 0
   isLoveInterest: 0
@@ -4482,10 +4490,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: Carmen
-    loveInterestDate:
-    - "should not \t"
-    - "be here\t"
-    - fucking fix
+    loveInterestDate1: []
+    loveInterestDate2: []
+    loveInterestDate3: []
     friendDate:
     - "more random \t"
     - "stutt again\t"
@@ -11275,6 +11282,7 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   audioListener: {fileID: 0}
   sceneJustLoaded: 0
+  winScreen: {fileID: 0}
 --- !u!4 &1615340927
 Transform:
   m_ObjectHideFlags: 0
@@ -13532,7 +13540,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: Kai
-    loveInterestDate: []
+    loveInterestDate1: []
+    loveInterestDate2: []
+    loveInterestDate3: []
     friendDate: []
   manager: {fileID: 1848510533}
   isDead: 0
@@ -15628,10 +15638,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: Aspen
-    loveInterestDate:
-    - random words 1
-    - random words 2
-    - random words 3
+    loveInterestDate1:
+    - "random\twords"
+    - "random\twords"
+    - "random\twords"
+    loveInterestDate2:
+    - "random\twords"
+    - "random\twords"
+    - "random\twords"
+    loveInterestDate3: []
     friendDate:
     - random
     - random
@@ -15813,7 +15828,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: Davey
-    loveInterestDate: []
+    loveInterestDate1: []
+    loveInterestDate2: []
+    loveInterestDate3: []
     friendDate: []
   manager: {fileID: 1848510533}
   isDead: 0
@@ -18467,6 +18484,10 @@ PrefabInstance:
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 8216745134989861429, guid: d997b8d7ee26ebc40b6d37a4bbd2945b, type: 3}
+      propertyPath: kaiWin
+      value: 
+      objectReference: {fileID: 3445827}
+    - target: {fileID: 8216745134989861429, guid: d997b8d7ee26ebc40b6d37a4bbd2945b, type: 3}
       propertyPath: occult
       value: 
       objectReference: {fileID: 1864489027}
@@ -18478,6 +18499,14 @@ PrefabInstance:
       propertyPath: chemist
       value: 
       objectReference: {fileID: 483860427}
+    - target: {fileID: 8216745134989861429, guid: d997b8d7ee26ebc40b6d37a4bbd2945b, type: 3}
+      propertyPath: aspenWin
+      value: 
+      objectReference: {fileID: 1632933497}
+    - target: {fileID: 8216745134989861429, guid: d997b8d7ee26ebc40b6d37a4bbd2945b, type: 3}
+      propertyPath: daveyWin
+      value: 
+      objectReference: {fileID: 626151746}
     - target: {fileID: 8216745134989861429, guid: d997b8d7ee26ebc40b6d37a4bbd2945b, type: 3}
       propertyPath: grilldad
       value: 
@@ -18491,6 +18520,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 826807080}
     - target: {fileID: 8216745134989861429, guid: d997b8d7ee26ebc40b6d37a4bbd2945b, type: 3}
+      propertyPath: armaniWin
+      value: 
+      objectReference: {fileID: 1164345500}
+    - target: {fileID: 8216745134989861429, guid: d997b8d7ee26ebc40b6d37a4bbd2945b, type: 3}
+      propertyPath: carmenWin
+      value: 
+      objectReference: {fileID: 1170051786}
+    - target: {fileID: 8216745134989861429, guid: d997b8d7ee26ebc40b6d37a4bbd2945b, type: 3}
       propertyPath: gamerDate
       value: 
       objectReference: {fileID: 1143499087}
@@ -18502,6 +18539,10 @@ PrefabInstance:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 1984867766}
+    - target: {fileID: 8216745134989861429, guid: d997b8d7ee26ebc40b6d37a4bbd2945b, type: 3}
+      propertyPath: wesleyWin
+      value: 
+      objectReference: {fileID: 998500805}
     - target: {fileID: 8216745134989861429, guid: d997b8d7ee26ebc40b6d37a4bbd2945b, type: 3}
       propertyPath: controller
       value: 
