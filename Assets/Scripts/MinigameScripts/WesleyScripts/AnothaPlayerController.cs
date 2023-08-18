@@ -50,7 +50,6 @@ public class AnothaPlayerController : MonoBehaviour
     public GameObject winScreen;
     public GameObject loseScreen;
     public GameObject loseScreenDoNotTryAgain;
-    public GameManager player;
     public PlayerController pController;
 
     void Start()
@@ -67,7 +66,6 @@ public class AnothaPlayerController : MonoBehaviour
         timer = GameObject.Find("EventSystem").GetComponent<Timer>();
         timer.gameStarted = true;
         anim = GetComponent<Animator>();
-        player = GameObject.Find("GameManager").GetComponent<GameManager>();
         pController = GameObject.Find("Player").GetComponent<PlayerController>();   
     }
 
@@ -106,7 +104,7 @@ public class AnothaPlayerController : MonoBehaviour
 
                 if (!hasAdded)
                 {
-                    player.bodyCount++;
+                    GameManager.Instance.bodyCount++;
                     GameManager.Instance.sceneJustLoaded = true;
                     hasAdded = true;
                     pController.isDateTime = true;
