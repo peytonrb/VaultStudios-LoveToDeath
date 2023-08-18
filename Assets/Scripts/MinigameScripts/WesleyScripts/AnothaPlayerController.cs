@@ -61,6 +61,7 @@ public class AnothaPlayerController : MonoBehaviour
         generator.Invoke();
         rb.GetComponent<Rigidbody2D>();
         timer = GameObject.Find("EventSystem").GetComponent<Timer>();
+        timer.gameStarted = true;
         anim = GetComponent<Animator>();
     }
 
@@ -69,7 +70,6 @@ public class AnothaPlayerController : MonoBehaviour
         anim.SetFloat("Horizontal", movement.x);
         anim.SetFloat("Vertical", movement.y);
         anim.SetFloat("speed", movement.sqrMagnitude);
-        
 
         if (timer.levelFinished) // AND timer is finished 
         {
