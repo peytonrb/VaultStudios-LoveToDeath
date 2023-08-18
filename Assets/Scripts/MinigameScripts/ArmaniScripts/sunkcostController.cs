@@ -25,6 +25,8 @@ public class sunkcostController : MonoBehaviour
     public GameObject loseScreenNoTryAgain;
     public WinLoseUIControllerArmani uiController;
     public bool hasAdded;
+    public GameManager player;
+    public PlayerController pController;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +39,8 @@ public class sunkcostController : MonoBehaviour
         loseScreen.SetActive(false);
         loseScreenNoTryAgain.SetActive(false);
         hasAdded = false;
+        player = GameObject.Find("GameManager").GetComponent<GameManager>();
+        pController = GameObject.Find("Player").GetComponent<PlayerController>();   
     }
 
     //Player movement

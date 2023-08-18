@@ -12,6 +12,8 @@ public class PotCheck : MonoBehaviour
     public GameObject loseScreenNoTryAgain;
     public WinLoseUIControllerAspen uiController;
     public bool hasAdded;
+    public GameManager player;
+    public PlayerController pController;
 
     void Start()
     {
@@ -19,6 +21,8 @@ public class PotCheck : MonoBehaviour
         loseScreen.SetActive(false);
         loseScreenNoTryAgain.SetActive(false);
         hasAdded = false;
+        player = GameObject.Find("GameManager").GetComponent<GameManager>();
+        pController = GameObject.Find("Player").GetComponent<PlayerController>();   
     }
 
     private void OnMouseDown()

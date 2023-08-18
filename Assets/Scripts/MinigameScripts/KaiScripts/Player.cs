@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     public bool isDead;
     public Animator anim;
     public bool hasAdded;
+    public GameManager player;
+    public PlayerController pController;
 
     [Header("Win/Lose")]
     public bool hasWon;
@@ -36,11 +38,13 @@ public class Player : MonoBehaviour
     {
         isDead = false;
         hasWon = false;
-        hasAdded = false
+        hasAdded = false;
         anim = GetComponent<Animator>();
         winScreen.SetActive(false);
         loseScreen.SetActive(false);
         loseScreenDoNotTryAgain.SetActive(false);
+        player = GameObject.Find("GameManager").GetComponent<GameManager>();
+        pController = GameObject.Find("Player").GetComponent<PlayerController>();   
     }
 
     void Update()

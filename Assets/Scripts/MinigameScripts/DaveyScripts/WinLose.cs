@@ -11,6 +11,8 @@ public class WinLose : MonoBehaviour
     public GameObject loseScreenNoTryAgain;
     public WinLoseUIControllerDavey uiController;
     public bool hasAdded;
+    public GameManager player;
+    public PlayerController pController;
 
     void Start()
     {
@@ -18,6 +20,8 @@ public class WinLose : MonoBehaviour
         loseScreenNoTryAgain.SetActive(false);
         loseScreen.SetActive(false);
         hasAdded = false;
+        player = GameObject.Find("GameManager").GetComponent<GameManager>();
+        pController = GameObject.Find("Player").GetComponent<PlayerController>();   
     }
 
     void Update()
