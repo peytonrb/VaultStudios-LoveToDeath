@@ -10,21 +10,38 @@ public class JojoController : MonoBehaviour
     private PlayerListUI chosenInterest;
     public PlayerController player;
     public Rigidbody rb;
-    public string[] friends = {"grilldad", "chemist", "gamer"};
+    public string[] friends = { "grilldad", "chemist", "gamer" };
     public Transform playerPos;
 
     [Header("Is Killable")]
     public bool isKillable;
     public bool isDead;
     public bool playerHasItems;
-    public string[] requiredItems = {"fishing line", "toolbox", "crowbar"};
+    public string[] requiredItems = { "fishing line", "toolbox", "crowbar" };
 
     // public GameObject house;
+    public static JojoController Instance { get; private set; } 
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            DestroyImmediate(gameObject);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
 
     void Start()
     {
         isDead = false;
         playerHasItems = false;
+
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
+        playerPos = GameObject.Find("Player").transform;
 
         if (PlayerListUI.loveInterest == "jojo")
         {
@@ -52,7 +69,14 @@ public class JojoController : MonoBehaviour
         else
         {
             rb.freezeRotation = true;
-        }    }
+        }
+
+        if (player == null)
+        {
+            player = GameObject.Find("Player").GetComponent<PlayerController>();
+            playerPos = GameObject.Find("Player").transform;
+        }
+    }
 
     public void initiateMurderGame()
     {

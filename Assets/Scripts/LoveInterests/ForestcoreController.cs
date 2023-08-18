@@ -11,20 +11,36 @@ public class ForestcoreController : MonoBehaviour
     public PlayerController player;
     public Transform playerPos;
     public Rigidbody rb;
-    public string[] friends = {"chemist", "jojo", "gamer"};
+    public string[] friends = { "chemist", "jojo", "gamer" };
 
     [Header("Is Killable")]
     public bool isKillable;
     public bool isDead;
     public bool playerHasItems;
-    public string[] requiredItems = {"berries", "tea", "mortar"};
+    public string[] requiredItems = { "berries", "tea", "mortar" };
 
     // public GameObject house;
+    public static ForestcoreController Instance { get; private set; } 
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            DestroyImmediate(gameObject);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
 
     void Start()
     {
         isDead = false;
         playerHasItems = false;
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
+        playerPos = GameObject.Find("Player").transform;
 
         if (PlayerListUI.loveInterest == "forestcore")
         {
@@ -53,8 +69,14 @@ public class ForestcoreController : MonoBehaviour
         {
             rb.freezeRotation = true;
         }
+
+        if (player == null)
+        {
+            player = GameObject.Find("Player").GetComponent<PlayerController>();
+            playerPos = GameObject.Find("Player").transform;
+        }
     }
-    
+
     public void initiateMurderGame()
     {
         SceneManager.LoadScene(4);

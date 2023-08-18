@@ -15,6 +15,7 @@ public class DialogueTriggerC : MonoBehaviour
     void Start()
     {
         controller = gameObject.GetComponent<ChemistController>();
+        manager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
         isDead = controller.isDead;
         isLoveInterest = controller.isLoveInterest;
         isKillable = controller.isKillable;

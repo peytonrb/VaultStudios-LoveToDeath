@@ -15,6 +15,7 @@ public class DialogueTriggerO : MonoBehaviour
     void Start()
     {
         controller = gameObject.GetComponent<OccultController>();
+        manager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
         isDead = controller.isDead;
         isLoveInterest = controller.isLoveInterest;
         isKillable = controller.isKillable;

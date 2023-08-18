@@ -14,6 +14,7 @@ public class MinigameMenuUI : MonoBehaviour
     void Start()
     {
         nameOfTarget = PlayerPrefs.GetString("currentTarget");
+        Cursor.lockState = CursorLockMode.None;
     }
 
     void Update()

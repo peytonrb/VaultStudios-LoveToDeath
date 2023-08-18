@@ -15,6 +15,7 @@ public class DialogueTriggerFC : MonoBehaviour
     void Start()
     {
         controller = gameObject.GetComponent<ForestcoreController>();
+        manager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
         isDead = controller.isDead;
         isLoveInterest = controller.isLoveInterest;
         isKillable = controller.isKillable;

@@ -15,6 +15,7 @@ public class DialogueTriggerGD : MonoBehaviour
     void Start()
     {
         controller = gameObject.GetComponent<GrilldadController>();
+        manager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
         isDead = controller.isDead;
         isLoveInterest = controller.isLoveInterest;
         isKillable = controller.isKillable;

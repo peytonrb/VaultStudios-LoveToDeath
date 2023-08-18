@@ -11,20 +11,37 @@ public class ChemistController : MonoBehaviour
     public PlayerController player;
     public Rigidbody rb;
     public Transform playerPos;
-    public string[] friends = {"grilldad", "jojo", "carmen"};
+    public string[] friends = { "grilldad", "jojo", "carmen" };
 
     [Header("Is Killable")]
     public bool isKillable;
     public bool isDead;
     public bool playerHasItems;
-    public string[] requiredItems = {"beaker", "bunsen burner", "gloves"};
+    public string[] requiredItems = { "beaker", "bunsen burner", "gloves" };
 
     // public GameObject house;
-    
+    public static ChemistController Instance { get; private set; } 
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            DestroyImmediate(gameObject);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
     void Start()
     {
         isDead = false;
         playerHasItems = false;
+
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
+        playerPos = GameObject.Find("Player").transform;
 
         if (PlayerListUI.loveInterest == "chemist")
         {
@@ -52,6 +69,12 @@ public class ChemistController : MonoBehaviour
         else
         {
             rb.freezeRotation = true;
+        }
+
+        if (player == null)
+        {
+            player = GameObject.Find("Player").GetComponent<PlayerController>();
+            playerPos = GameObject.Find("Player").transform;
         }
     }
 

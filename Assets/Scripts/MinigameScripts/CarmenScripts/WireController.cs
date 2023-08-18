@@ -32,10 +32,14 @@ public class WireController : MonoBehaviour
     public GameObject loseScreen;
     public GameObject loseScreenNoTryAgain;
     public WinLoseUIControllerCarmen uiController;
+    public GameManager player;
+    private bool hasAdded;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("GameManager").GetComponent<GameManager>();
+        hasAdded = false;
         System.Random rng = new System.Random();
         // make sure the two numbers are not the same
         int randomWire = rng.Next(1, 7);
@@ -221,9 +225,15 @@ public class WireController : MonoBehaviour
             }
         }
 
-        if (points >= 5)
+        if (points >= 4)
         {
             winScreen.SetActive(true);
+
+            if (!hasAdded)
+            {
+                player.bodyCount++;
+                hasAdded = true;
+            }
         }
     }
 }

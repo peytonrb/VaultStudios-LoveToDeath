@@ -11,20 +11,37 @@ public class OccultController : MonoBehaviour
     public PlayerController player;
     public Transform playerPos;
     public Rigidbody rb;
-    public string[] friends = {"forestcore", "grilldad", "chemist"};
+    public string[] friends = { "forestcore", "grilldad", "chemist" };
 
     [Header("Is Killable")]
     public bool isKillable;
     public bool isDead;
     public bool playerHasItems;
-    public string[] requiredItems = {"necronomicon", "ouija board", "candles"};
+    public string[] requiredItems = { "necronomicon", "ouija board", "candles" };
 
     // public GameObject house;
+    public static OccultController Instance { get; private set; } 
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            DestroyImmediate(gameObject);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
 
     void Start()
     {
         isDead = false;
         playerHasItems = false;
+
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
+        playerPos = GameObject.Find("Player").transform;
 
         if (PlayerListUI.loveInterest == "occult")
         {
@@ -52,6 +69,12 @@ public class OccultController : MonoBehaviour
         else
         {
             rb.freezeRotation = true;
+        }
+
+        if (player == null)
+        {
+            player = GameObject.Find("Player").GetComponent<PlayerController>();
+            playerPos = GameObject.Find("Player").transform;
         }
     }
 

@@ -8,7 +8,7 @@ public class GamerController : MonoBehaviour
     [Header("Chosen Love Interest")]
     public bool isLoveInterest;
     private PlayerListUI chosenInterest;
-    public string[] friends = {"forestcore", "emo", "jojo"};
+    public string[] friends = { "forestcore", "emo", "jojo" };
     public PlayerController player;
     public Rigidbody rb;
     public Transform playerPos;
@@ -17,14 +17,31 @@ public class GamerController : MonoBehaviour
     public bool isKillable;
     public bool isDead;
     public bool playerHasItems;
-    public string[] requiredItems = {"wire cutter", "screwdriver", "gloves"};
+    public string[] requiredItems = { "wire cutter", "screwdriver", "gloves" };
 
     // public GameObject house;
+    public static GamerController Instance { get; private set; } 
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            DestroyImmediate(gameObject);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
 
     void Start()
     {
         isDead = false;
         playerHasItems = false;
+
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
+        playerPos = GameObject.Find("Player").transform;
 
         if (PlayerListUI.loveInterest == "gamer")
         {
@@ -52,11 +69,18 @@ public class GamerController : MonoBehaviour
         else
         {
             rb.freezeRotation = true;
-        }    }
+        }
+
+        if (player == null)
+        {
+            player = GameObject.Find("Player").GetComponent<PlayerController>();
+            playerPos = GameObject.Find("Player").transform;
+        }
+    }
 
     public void initiateMurderGame()
     {
         SceneManager.LoadScene(5);
         player.isDateTime = true;
-    }   
+    }
 }
