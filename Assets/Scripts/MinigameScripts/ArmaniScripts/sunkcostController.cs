@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class sunkcostController : MonoBehaviour
 {
-   // relating to player movement 
+    // relating to player movement 
     private Rigidbody rb;
     public float speed = 0;
     private float movementX;
@@ -24,6 +24,7 @@ public class sunkcostController : MonoBehaviour
     public GameObject loseScreen;
     public GameObject loseScreenNoTryAgain;
     public WinLoseUIControllerArmani uiController;
+    public bool hasAdded;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,7 @@ public class sunkcostController : MonoBehaviour
         winScreen.SetActive(false);
         loseScreen.SetActive(false);
         loseScreenNoTryAgain.SetActive(false);
+        hasAdded = false;
     }
 
     //Player movement
@@ -45,7 +47,7 @@ public class sunkcostController : MonoBehaviour
         movementX = movementVector.x;
         movementY = movementVector.y;
     }
-    
+
     private void OnTriggerEnter(Collider other)
     {
         //Player loses if they touch a spotlight
@@ -74,6 +76,14 @@ public class sunkcostController : MonoBehaviour
         speed = 0;
         // winTextObject.SetActive(true); <- updated to win screen
         winScreen.SetActive(true);
+
+        if (!hasAdded)
+        {
+            player.bodyCount++;
+            GameManager.Instance.sceneJustLoaded = true;
+            hasAdded = true;
+            pController.isDateTime = true;
+        }
     }
 
     //Player has been spotted, losing the game

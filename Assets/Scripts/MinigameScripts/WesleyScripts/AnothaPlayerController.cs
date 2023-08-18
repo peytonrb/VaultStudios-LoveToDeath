@@ -22,6 +22,7 @@ public class AnothaPlayerController : MonoBehaviour
     public bool hasReplayed;
     private Animator anim;
     public WinLoseUIControllerWesley uiController;
+    public bool hasAdded;
 
     [Header("Item Count")]
     private int sodium = 0;
@@ -56,6 +57,7 @@ public class AnothaPlayerController : MonoBehaviour
         winScreen.SetActive(false);
         loseScreen.SetActive(false);
         loseScreenDoNotTryAgain.SetActive(false);
+        hasAdded = false;
         coroutineFinished = false;
         itemsCollected = new List<string>();
         generator.Invoke();
@@ -97,6 +99,14 @@ public class AnothaPlayerController : MonoBehaviour
             if (winLose)
             {
                 winScreen.SetActive(true);
+
+                if (!hasAdded)
+                {
+                    player.bodyCount++;
+                    GameManager.Instance.sceneJustLoaded = true;
+                    hasAdded = true;
+                    pController.isDateTime = true;
+                }
             }
             else if (!winLose && !uiController.tryAgainPressed)
             {

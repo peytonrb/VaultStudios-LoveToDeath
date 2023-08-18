@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     public float groundThreshold = 1f;
     public bool isDead;
     public Animator anim;
+    public bool hasAdded;
 
     [Header("Win/Lose")]
     public bool hasWon;
@@ -35,6 +36,7 @@ public class Player : MonoBehaviour
     {
         isDead = false;
         hasWon = false;
+        hasAdded = false
         anim = GetComponent<Animator>();
         winScreen.SetActive(false);
         loseScreen.SetActive(false);
@@ -80,6 +82,14 @@ public class Player : MonoBehaviour
             distanceText.SetActive(false);
             winScreen.SetActive(true);
             Destroy(gameObject);
+
+            if (!hasAdded)
+            {
+                player.bodyCount++;
+                GameManager.Instance.sceneJustLoaded = true;
+                hasAdded = true;
+                pController.isDateTime = true;
+            }
         }
         else if (isDead && distance < winningDistance)
         {

@@ -11,12 +11,14 @@ public class PotCheck : MonoBehaviour
     public GameObject loseScreen;
     public GameObject loseScreenNoTryAgain;
     public WinLoseUIControllerAspen uiController;
+    public bool hasAdded;
 
     void Start()
     {
         winScreen.SetActive(false);
         loseScreen.SetActive(false);
-        loseScreenNoTryAgain.SetActive(false); 
+        loseScreenNoTryAgain.SetActive(false);
+        hasAdded = false;
     }
 
     private void OnMouseDown()
@@ -26,8 +28,16 @@ public class PotCheck : MonoBehaviour
             if (GameManager_Aspen.orderValue == GameManager_Aspen.plateValue)
             {
                 winScreen.SetActive(true);
+
+                if (!hasAdded)
+                {
+                    player.bodyCount++;
+                    GameManager.Instance.sceneJustLoaded = true;
+                    hasAdded = true;
+                    pController.isDateTime = true;
+                }
             }
-            else 
+            else
             {
                 if (!uiController.tryAgainPressed)
                 {

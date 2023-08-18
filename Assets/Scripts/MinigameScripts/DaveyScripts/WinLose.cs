@@ -10,12 +10,14 @@ public class WinLose : MonoBehaviour
     public GameObject loseScreen;
     public GameObject loseScreenNoTryAgain;
     public WinLoseUIControllerDavey uiController;
+    public bool hasAdded;
 
     void Start()
     {
         winScreen.SetActive(false);
         loseScreenNoTryAgain.SetActive(false);
         loseScreen.SetActive(false);
+        hasAdded = false;
     }
 
     void Update()
@@ -23,6 +25,14 @@ public class WinLose : MonoBehaviour
         if (hasItem)
         {
             winScreen.SetActive(true);
+
+            if (!hasAdded)
+            {
+                player.bodyCount++;
+                GameManager.Instance.sceneJustLoaded = true;
+                hasAdded = true;
+                pController.isDateTime = true;
+            }
         }
         else if (timer.levelFinished && !hasItem)
         {
