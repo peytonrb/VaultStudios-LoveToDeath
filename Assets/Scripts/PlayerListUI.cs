@@ -11,13 +11,13 @@ public class PlayerListUI : MonoBehaviour
     public Button back;
     public Button start;
     public static string loveInterest;
-    public TextMeshProUGUI title;
     public GameObject forestcoreObj;
     public GameObject grilldadObj;
     public GameObject chemistObj;
     public GameObject gamerObj;
     public GameObject jojoObj;
     public GameObject occultObj;
+    public GameObject buttonBackground;
 
     //hi peyton (^人^) <- WHO DID THIS THIS IS SO CUTE
 
@@ -31,6 +31,7 @@ public class PlayerListUI : MonoBehaviour
         gamerObj.SetActive(false);
         jojoObj.SetActive(false);
         occultObj.SetActive(false);
+        buttonBackground.SetActive(true);
 
         for (int i = 0; i < playerCards.Length; i++)
         {
@@ -104,13 +105,13 @@ public class PlayerListUI : MonoBehaviour
     private void enablePlayerCards(string name)
     {
         start.gameObject.SetActive(true);
-        title.text = name;
     }
 
     // deactivates all other playercards on click
     private void removeButtons()
     {
         back.gameObject.SetActive(true);
+        buttonBackground.SetActive(false);
 
         for (int i = 0; i < playerList.Length; i++)
         {
@@ -126,8 +127,19 @@ public class PlayerListUI : MonoBehaviour
             playerList[i].gameObject.SetActive(true);
         }
 
-        title.text = "Choose your desired partner:";
+        disableAllCharacters();
         back.gameObject.SetActive(false);
+        buttonBackground.SetActive(true);
+    }
+
+    public void disableAllCharacters()
+    {
+        forestcoreObj.SetActive(false);
+        grilldadObj.SetActive(false);
+        chemistObj.SetActive(false);
+        gamerObj.SetActive(false);
+        jojoObj.SetActive(false);
+        occultObj.SetActive(false);
     }
 
     public void startButton()
