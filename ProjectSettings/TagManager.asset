@@ -17,6 +17,12 @@ TagManager:
   - TryAgainButton
   - MainUI
   - KeyItem
+  - ArmaniItem
+  - AspenItem
+  - CarmenItem
+  - DaveyItem
+  - KaiItem
+  - WesleyItem
   layers:
   - Default
   - TransparentFX

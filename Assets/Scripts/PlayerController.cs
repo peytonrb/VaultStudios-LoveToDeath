@@ -86,6 +86,14 @@ public class PlayerController : MonoBehaviour
     private GameObject target2;
     private GameObject target3;
 
+    [Header("Items")]
+    public int armaniItemCount;
+    public int aspenItemCount;
+    public int daveyItemCount;
+    public int carmenItemCount;
+    public int kaiItemCount;
+    public int wesleyItemCount;
+
     [Header("Other")]
     public Material skybox;
     public Material skyboxNight;
@@ -185,16 +193,14 @@ public class PlayerController : MonoBehaviour
         {
             pauseMenu.SetActive(true);
             pauseInactive = false;
-            // Cursor.visible = true;
-            // Cursor.lockState = CursorLockMode.None;
+            Cursor.lockState = CursorLockMode.None;
         }
 
         if (Input.GetKeyDown(KeyCode.Escape) && !pauseInactive)
         {
             pauseMenu.SetActive(false);
             pauseInactive = true;
-            // Cursor.visible = false;
-            // Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
         // character interaction key 
@@ -275,8 +281,9 @@ public class PlayerController : MonoBehaviour
                         if (hitCollider.gameObject.name == "forestcore")
                         {
                             forestcoreShop.SetActive(true);
-                            forestcoreSprite.SetActive(true);       // gifts during dates?
+                            forestcoreSprite.SetActive(true);       // gifts during dates --> have as a dialogue box at the end
                             fcDialogueBox.SetActive(true);
+                            aspenItemCount++;
                             forestcoreDialogue.dialogueStart();
                         }
                         else if (hitCollider.gameObject.name == "grilldad")
@@ -284,6 +291,7 @@ public class PlayerController : MonoBehaviour
                             grilldadShop.SetActive(true);
                             grilldadSprite.SetActive(true);
                             gdDialogueBox.SetActive(true);
+                            daveyItemCount++;
                             grilldadDialogue.dialogueStart();
                         }
                         else if (hitCollider.gameObject.name == "chemist")
@@ -291,6 +299,7 @@ public class PlayerController : MonoBehaviour
                             chemistPharmacy.SetActive(true);
                             chemistSprite.SetActive(true);
                             cDialogueBox.SetActive(true);
+                            wesleyItemCount++;
                             chemistDialogue.dialogueStart();
                         }
                         else if (hitCollider.gameObject.name == "gamer")
@@ -298,6 +307,7 @@ public class PlayerController : MonoBehaviour
                             gamerHouse.SetActive(true);
                             gamerSprite.SetActive(true);
                             gDialogueBox.SetActive(true);
+                            carmenItemCount++;
                             gamerDialogue.dialogueStart();
                         }
                         else if (hitCollider.gameObject.name == "jojo")
@@ -305,6 +315,7 @@ public class PlayerController : MonoBehaviour
                             jojoShop.SetActive(true);
                             jojoSprite.SetActive(true);
                             jDialogueBox.SetActive(true);
+                            armaniItemCount++;
                             jojoDialogue.dialogueStart();
                         }
                         else if (hitCollider.gameObject.name == "occult")
@@ -312,6 +323,7 @@ public class PlayerController : MonoBehaviour
                             occultGrandmaHouse.SetActive(true);
                             occultSprite.SetActive(true);
                             oDialogueBox.SetActive(true);
+                            kaiItemCount++;
                             occultDialogue.dialogueStart();
                         }
 
@@ -340,12 +352,7 @@ public class PlayerController : MonoBehaviour
                     Debug.Log(hitCollider.gameObject.name);
                     if (hitCollider.gameObject.name == "AspenHouse")    // if you lose you won't come back to town
                     {
-                        // Cursor.visible = true;
-                        // Cursor.lockState = CursorLockMode.None;
-
-                        // if (forestcore.playerHasItems && forestcore.isKillable == true)  <-- UNCOMMENT AFTER DEBUGGING
-                        // {
-                        if (forestcore.gameObject.tag == "Target")
+                        if (aspenItemCount == 3 && forestcore.gameObject.tag == "Target")
                         {
                             SceneManager.LoadScene(9);
                             PlayerPrefs.SetString("currentTarget", "carmen");
@@ -354,9 +361,7 @@ public class PlayerController : MonoBehaviour
                     }
                     else if (hitCollider.gameObject.name == "DaveyHouse")
                     {
-                        // if (grilldad.playerHasItems && grilldad.isKillable == true)
-                        // {
-                        if (grilldad.gameObject.tag == "Target")
+                        if (daveyItemCount == 3 && grilldad.gameObject.tag == "Target")
                         {
                             SceneManager.LoadScene(9);
                             PlayerPrefs.SetString("currentTarget", "davey");
@@ -365,9 +370,7 @@ public class PlayerController : MonoBehaviour
                     }
                     else if (hitCollider.gameObject.name == "WesleyHouse")
                     {
-                        Debug.Log("entered if");
-                        // if (chemist.playerHasItems && chemist.isKillable == true)
-                        if (chemist.gameObject.tag == "Target")
+                        if (wesleyItemCount == 3 && chemist.gameObject.tag == "Target")
                         {
                             SceneManager.LoadScene(9);
                             PlayerPrefs.SetString("currentTarget", "wesley");
@@ -376,9 +379,7 @@ public class PlayerController : MonoBehaviour
                     }
                     else if (hitCollider.gameObject.name == "CarmenHouse")
                     {
-                        Debug.Log("tag: " + gamer.gameObject.tag);
-                        // if (gamer.playerHasItems && gamer.isKillable == true)
-                        if (gamer.gameObject.tag == "Target")
+                        if (carmenItemCount == 3 && gamer.gameObject.tag == "Target")
                         {
                             SceneManager.LoadScene(9);
                             PlayerPrefs.SetString("currentTarget", "carmen");
@@ -387,8 +388,7 @@ public class PlayerController : MonoBehaviour
                     }
                     else if (hitCollider.gameObject.name == "ArmaniHouse")
                     {
-                        // if (jojo.playerHasItems && jojo.isKillable == true)
-                        if (jojo.gameObject.tag == "Target")
+                        if (armaniItemCount == 3 && jojo.gameObject.tag == "Target")
                         {
                             SceneManager.LoadScene(9);
                             PlayerPrefs.SetString("currentTarget", "armani");
@@ -397,8 +397,7 @@ public class PlayerController : MonoBehaviour
                     }
                     else if (hitCollider.gameObject.name == "KaiHouse")
                     {
-                        // if (occult.playerHasItems && occult.isKillable == true)
-                        if (occult.gameObject.tag == "Target")
+                        if (kaiItemCount == 3 && occult.gameObject.tag == "Target")
                         {
                             SceneManager.LoadScene(9);
                             PlayerPrefs.SetString("currentTarget", "kai");
@@ -408,12 +407,37 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-
-        // if (inventory.activeSelf && Input.GetKeyDown(KeyCode.Escape))
-        // {
-        //     inventory.SetActive(false);
-        // }
         // end key presses
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.tag == "ArmaniItem")
+        {
+            armaniItemCount++;
+        }
+        else if (collider.gameObject.tag == "AspenItem")
+        {
+            aspenItemCount++;
+        }
+        else if (collider.gameObject.tag == "CarmenItem")
+        {
+            carmenItemCount++;
+        }
+        else if (collider.gameObject.tag == "DaveyItem")
+        {
+            daveyItemCount++;
+        }
+        else if (collider.gameObject.tag == "KaiItem")
+        {
+            kaiItemCount++;
+        }
+        else if (collider.gameObject.tag == "WesleyItem")
+        {
+            wesleyItemCount++;
+        }
+
+        collider.gameObject.SetActive(false);
     }
 
     IEnumerator ingredientTimer()
@@ -439,7 +463,7 @@ public class PlayerController : MonoBehaviour
         // checks if player has required items
         for (int i = 0; i < murderItems1.Length; i++)
             // {
-            //     if (inventoryManager.contains(murderItems1[i]))          // UNCOMMENT
+            //     if (inventoryManager.contains(murderItems1[i]))
             //     {
             //         counter1++;
             //     }
