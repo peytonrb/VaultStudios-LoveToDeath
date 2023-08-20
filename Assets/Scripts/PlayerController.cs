@@ -210,6 +210,7 @@ public class PlayerController : MonoBehaviour
 
         Vector3 move = transform.right * horizontal + transform.forward * vertical;
         controller.Move(move * speed * Time.deltaTime);
+        // controller.SimpleMove(transform.forward * vertical * 10f * speed * Time.deltaTime);
 
         // key presses
         if (Input.GetKeyDown(KeyCode.Escape) && !notesOpen)
