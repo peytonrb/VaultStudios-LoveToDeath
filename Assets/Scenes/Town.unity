@@ -2964,6 +2964,82 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8077587878334100004, guid: ba17e7187f160c043b92e8d051ef8922, type: 3}
+--- !u!1 &381337627
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 381337628}
+  - component: {fileID: 381337630}
+  - component: {fileID: 381337629}
+  m_Layer: 5
+  m_Name: GamerSprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &381337628
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381337627}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -6.847302}
+  m_LocalScale: {x: 4.76838, y: 1.0506027, z: 1.0506027}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2031360099}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 646.79, y: 309}
+  m_SizeDelta: {x: 200, y: 600}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &381337629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381337627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 69250403fc9db2b429743541541df54e, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &381337630
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381337627}
+  m_CullTransparentMesh: 1
 --- !u!1 &392468922
 GameObject:
   m_ObjectHideFlags: 0
@@ -3093,6 +3169,82 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 396348025}
+  m_CullTransparentMesh: 1
+--- !u!1 &400699415
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 400699416}
+  - component: {fileID: 400699418}
+  - component: {fileID: 400699417}
+  m_Layer: 5
+  m_Name: ForestcoreSprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &400699416
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400699415}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -6.847302}
+  m_LocalScale: {x: 5.234251, y: 1.0506027, z: 1.0506027}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2031360099}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 628.21, y: 309}
+  m_SizeDelta: {x: 200, y: 600}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &400699417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400699415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 3d82a6873301b69459a07687662df015, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &400699418
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400699415}
   m_CullTransparentMesh: 1
 --- !u!1 &407118792
 GameObject:
@@ -3253,98 +3405,96 @@ MonoBehaviour:
   dialogue:
     name: Armani
     loveInterestDate1:
-    - "What paltry wares! Is this the high-\rclass establishment you're peddling\r
-      it as or a clearance rack?!"
-    - "Naturally, I can only wear the\r finest quality attire. It's from\r Italy,
-      you see, and simply\r impossible to acquire at these pedestrian shores."
-    - "I'm so glad somebody understands.\r It's so rare to find another person\r
-      with an appreciate for quality who\r could match my optic ability.\r Unfortunately,
-      it seems this young\r man is useless when it comes to\r directing the customer's
-      eye to\r what would suit them..."
-    - "This has been a lovely time for\r both of us, but I'm afraid I must\r excuse
-      myself for some important\r meetings.\r"
-    - "We'll finish this conversation some\r other time then. Farewell!"
+    - What paltry wares! Is this the high-class establishment you're peddling it
+      as or a clearance rack?!
+    - Naturally, I can only wear the finest quality attire. It's from Italy, you
+      see, and simply impossible to acquire at these pedestrian shores.
+    - I'm so glad somebody understands. It's so rare to find another person with
+      an appreciate for quality who could match my optic ability. Unfortunately,
+      it seems this young man is useless when it comes to directing the customer's
+      eye to what would suit them...
+    - This has been a lovely time for both of us, but I'm afraid I must excuse myself
+      for some important meetings.
+    - We'll finish this conversation some other time then. Farewell!
     loveInterestDate2:
-    - "Hello? To whom am I, Armani, CEO of\r ScarpeCorp, winner of Livingston's\r
-      \"Best Hair Award\" 10 years in a\r row, speaking to?"
-    - "Ah, yes! Yes, I remember you. Er,\r how did you receive the pleasure of\r
-      my number?"
-    - "...Ahah, actually. As a matter of\r fact, my schedule just so happens\r to
-      be quite elegant freed.\r I had a few matters of some minor\r importance last
-      week -- some car\r repairs, a funeral, but now that's\r done with I may resume
-      business.\r "
-    - "And may I just say, such affairs\r are quite a schedule clogger. A\r deeply
-      unfortunate matter for one as busy as myself."
-    - "Now... I do have some smaller\r matters to attend to.\r But perhaps it would
-      suit someone\r of an equally lofty aesthetic\r position to accompany me upon
-      this\r outing?"
-    - "Wonderful!\r I'm simply facing some artistic\r queries at my personal estate,
-      and\r none of the designers I've hired\r understand at all what I'm\r attempting
-      to show here.\r I shall be anticipating your\r arrival then. Expect details
-      on\r location and such from my\r secretary."
-    - "Now, about that artistic issue I\r required consultation on. You're\r standing
-      on it.\r"
-    - "That's correct. The very sand\r itself. You see, I'm hoping to\r build a beach
-      house here, but every\r designer I've hired has absolutely\r no idea what they're
-      doing. It's\r truly incompetent."
-    - "Ahah. I can see from the look in\r your eyes that you are beginning to\r understand
-      just a spark of my\r auteurial genius."
-    - "This has been an absolutely lovely\r time, but I'm afraid it must come\r to
-      an end.\r Please, feel\r free to enjoy yourself as long as\r you like. Or,
-      at least, until 11PM.\r I have hired guards to sweep the\r beaches of trash,
-      and I'd hate for\r you to get caught up in their dirty\r work."
+    - Hello? To whom am I, Armani, CEO of ScarpeCorp, winner of Livingston's "Best
+      Hair Award" 10 years in a row, speaking to?
+    - Ah, yes! Yes, I remember you. Er, how did you receive the pleasure of my number?
+    - "...Ahah, actually. As a matter of fact, my schedule just so happens to be
+      quite elegant freed. I had a few matters of some minor importance last week
+      -- some car repairs, a funeral, but now that's done with I may resume business.\r"
+    - And may I just say, such affairs are quite a schedule clogger. A deeply unfortunate
+      matter for one as busy as myself.
+    - Now... I do have some smaller matters to attend to. But perhaps it would suit
+      someone of an equally lofty aesthetic position to accompany me upon this outing?
+    - Wonderful! I'm simply facing some artistic queries at my personal estate, and
+      none of the designers I've hired understand at all what I'm attempting to show
+      here. I shall be anticipating your arrival then. Expect details on location
+      and such from my secretary.
+    - Now, about that artistic issue I required consultation on. You're standing
+      on it.
+    - That's correct. The very sand itself. You see, I'm hoping to build a beach
+      house here, but every designer I've hired has absolutely no idea what they're
+      doing. It's truly incompetent.
+    - Ahah. I can see from the look in your eyes that you are beginning to understand
+      just a spark of my auteurial genius.
+    - This has been an absolutely lovely time, but I'm afraid it must come to an
+      end. Please, feel free to enjoy yourself as long as you like. Or, at least,
+      until 11PM. I have hired guards to sweep the beaches of trash, and I'd hate
+      for you to get caught up in their dirty work.
     loveInterestDate3:
-    - "My, I feel rather underdressed in\r comparison.\r Ahah, that was a joke. I'm
-      never\r underdressed. Welcome back to my... humble\r estate."
-    - "We call it the Armani Amantillado. It's an Italian word. Do you know\r what
-      it means?\r\n"
-    - "Ahah, yes. My father named it\r originally, and I added my name\r along with
-      my numerous additions to\r make it a top-of-the-line\r distillery.\r\n"
-    - " It is both a top of the line home\r distillery and cellar. With only\r the
-      finest vintages upon the\r shelves.\r ...Granted, I, ah, don't drink the\r
-      stuff. But so I hear that they are\r the best!\r Of course, I made some interior\r
-      design adjustments to modernize the\r place.\n"
-    - "Though I have yet to... partake in\r any of the works here, I do find a\r
-      small enjoyment in the act of\r creating wine. The artistry of it\r all, you
-      see, very much suits my\r disposition.\r\n"
-    - "All of this is not for my own idle\r fancy, of course. I'm not a man who\r
-      engages in his own trite desires.\r I am proposing... A business venture. I
-      would highly\r appreciate your input on the idea."
-    - "What began as a simple hobby has\r blossomed into a wondrous venture\r I'm
-      certain you shall all enjoy.\r There's nothing one can enjoy more\r than a
-      cruise upon the ocean on\r your private dock. But, alas, it\r seems... you've
-      run out of drinks!\r"
-    - "What began as a simple hobby has\r blossomed into a wondrous venture\r I'm
-      certain you shall all enjoy.\r There's nothing one can enjoy more\r than a
-      cruise upon the ocean on\r your private dock. But, alas, it\r seems... you've
-      run out of drinks!\r"
-    - "\"Distillery at the Docks\".\r...Well, the name is a work in\r progress. The
-      distillery isn't at\r the docks, more on the boat itself,\r but there's no
-      alliteration there.\r A portable distillery that can fit\r into any modest-to-large
-      boat, and\r can"
-    - "Ahah. How silly of me. A minor\r detail, it slipped my mind. But\r there are,
-      of course, many other\r alcohols, I think, that take less\r time. A certainly
-      reasonable amount\r of time for a small trip on the\r sea.\r"
-    - " Or perhaps it could be a sort of,\r long-term commitment vacation...?\r Ahah."
-    - "All this to say, ah... I'm\r searching for my own mark to make\r upon this
-      company. I truly believed\r - believe - that this could be it.\r And it's difficult
-      to find others\r who share that sense of vision. And\r the ones I believed
-      may be able to,\r well, they had... some external\r affairs to attend to. Very\r
-      disappointing."
-    - "It is why I was so exultant to see\r that you seem to understand.\r So, would
-      you care to join me?\r We'll continue to develop this\r magnificent idea, and
-      take the\r world by storm! ...If you would\r agree."
+    - My, I feel rather underdressed in comparison. Ahah, that was a joke. I'm never
+      underdressed. Welcome back to my... humble estate.
+    - 'We call it the Armani Amantillado. It''s an Italian word. Do you know what
+      it means?
+
+'
+    - 'Ahah, yes. My father named it originally, and I added my name along with my
+      numerous additions to make it a top-of-the-line distillery.
+
+'
+    - 'It is both a top of the line home distillery and cellar. With only the finest
+      vintages upon the shelves. ...Granted, I, ah, don''t drink the stuff. But so
+      I hear that they are the best! Of course, I made some interior design adjustments
+      to modernize the place.
+
+'
+    - 'Though I have yet to... partake in any of the works here, I do find a small
+      enjoyment in the act of creating wine. The artistry of it all, you see, very
+      much suits my disposition.
+
+'
+    - All of this is not for my own idle fancy, of course. I'm not a man who engages
+      in his own trite desires. I am proposing... A business venture. I would highly
+      appreciate your input on the idea.
+    - What began as a simple hobby has blossomed into a wondrous venture I'm certain
+      you shall all enjoy. There's nothing one can enjoy more than a cruise upon
+      the ocean on your private dock. But, alas, it seems... you've run out of drinks!
+    - '"Distillery at the Docks"....Well, the name is a work in progress. The distillery
+      isn''t at the docks, more on the boat itself, but there''s no alliteration
+      there. A portable distillery that can fit into any modest-to-large boat, and
+      can-'
+    - Ahah. How silly of me. A minor detail, it slipped my mind. But there are, of
+      course, many other alcohols, I think, that take less time. A certainly reasonable
+      amount of time for a small trip on the sea.
+    - Or perhaps it could be a sort of, long-term commitment vacation...? Ahah.
+    - All this to say, ah... I'm searching for my own mark to make upon this company.
+      I truly believed - believe - that this could be it. And it's difficult to find
+      others who share that sense of vision. And the ones I believed may be able
+      to, well, they had... some external affairs to attend to. Very disappointing.
+    - It is why I was so exultant to see that you seem to understand. So, would you
+      care to join me? We'll continue to develop this magnificent idea, and take
+      the world by storm! ...If you would agree.
     friendDate:
-    - "Ahah. What is it you require of me?\r Hm...? So you wish to be graced\r with
-      my presence? I do believe in\r giving to the needy, so I can spare\r a moment
-      with you."
-    - "I'm certain you're grateful for the\r many intricate lessons contained\r within
-      our talk. Such enlightening\r words don't often come for free.\r But I'm a
-      magnanimous man... ah,\r let's see. Here's some garbage I found in the trash
-      the other day."
-    - "I'm not entirely certain what this\r is. But it does apply to my final\r lesson:
-      always know to use your\r resources. Only then will you begin\r to see yourself
-      grow as an\r entrepreneur, as my grandfather\r did."
+    - Ahah. What is it you require of me? Hm...? So you wish to be graced with my
+      presence? I do believe in giving to the needy, so I can spare a moment with
+      you.
+    - I'm certain you're grateful for the many intricate lessons contained within
+      our talk. Such enlightening words don't often come for free. But I'm a magnanimous
+      man... ah, let's see. Here's some garbage I found in the trash the other day.
+    - 'I''m not entirely certain what this is. But it does apply to my final lesson:
+      always know to use your resources. Only then will you begin to see yourself
+      grow as an entrepreneur, as my grandfather did.'
   manager: {fileID: 1848510533}
   isDead: 0
   isLoveInterest: 0
@@ -4823,6 +4973,82 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 14
   m_CollisionDetection: 0
+--- !u!1 &529807571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 529807572}
+  - component: {fileID: 529807574}
+  - component: {fileID: 529807573}
+  m_Layer: 5
+  m_Name: ChemistSprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &529807572
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529807571}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -6.847302}
+  m_LocalScale: {x: 4.76838, y: 1.1600754, z: 1.0506027}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2031360099}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 646.79, y: 339.97998}
+  m_SizeDelta: {x: 200, y: 600}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &529807573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529807571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 8881a3cba482ccd42a92a828dc681cfe, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &529807574
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529807571}
+  m_CullTransparentMesh: 1
 --- !u!1 &539899692
 GameObject:
   m_ObjectHideFlags: 0
@@ -5959,82 +6185,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2868909362458002737, guid: 72720e4c8725bfd408b7c394d9fb5209, type: 3}
---- !u!1 &729584609
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 729584610}
-  - component: {fileID: 729584612}
-  - component: {fileID: 729584611}
-  m_Layer: 5
-  m_Name: GamerSprite
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &729584610
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729584609}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -6.847302}
-  m_LocalScale: {x: 2.5170302, y: 1.1608387, z: 1.1608387}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2031360099}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 643.98, y: 361}
-  m_SizeDelta: {x: 200, y: 600}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &729584611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729584609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f306bab3091ccb8458318240a6b610c8, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &729584612
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729584609}
-  m_CullTransparentMesh: 1
 --- !u!1001 &738547653
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7359,82 +7509,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5573640062079606623, guid: 5ab75f1fb21381444925d0af801d5bf4, type: 3}
   m_PrefabInstance: {fileID: 1835457387}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &918058703
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 918058704}
-  - component: {fileID: 918058706}
-  - component: {fileID: 918058705}
-  m_Layer: 5
-  m_Name: ForestcoreSprite
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &918058704
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 918058703}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -6.847302}
-  m_LocalScale: {x: 2.8151171, y: 1.1919862, z: 1.1919862}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2031360099}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 643.98, y: 361}
-  m_SizeDelta: {x: 200, y: 600}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &918058705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 918058703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fe3144dea8dbfec4abdeb9afe3558893, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &918058706
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 918058703}
-  m_CullTransparentMesh: 1
 --- !u!1 &921068469
 GameObject:
   m_ObjectHideFlags: 0
@@ -8943,15 +9017,15 @@ RectTransform:
   m_GameObject: {fileID: 1081718762}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -6.847302}
-  m_LocalScale: {x: 2.40522, y: 1.187001, z: 1.187001}
+  m_LocalScale: {x: 4.76838, y: 1.0506027, z: 1.0506027}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2031360099}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 627, y: 357}
+  m_AnchoredPosition: {x: 628.21, y: 309}
   m_SizeDelta: {x: 200, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1081718764
@@ -8974,7 +9048,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ec63945939b775c4f9c2503ed0880f53, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f4faf84482d402941a05a9ee40022040, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10907,6 +10981,82 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4336473580786466659, guid: 72720e4c8725bfd408b7c394d9fb5209, type: 3}
+--- !u!1 &1336993805
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1336993806}
+  - component: {fileID: 1336993808}
+  - component: {fileID: 1336993807}
+  m_Layer: 5
+  m_Name: GrilldadSprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1336993806
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336993805}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -6.847302}
+  m_LocalScale: {x: 4.76838, y: 1.0506027, z: 1.0506027}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2031360099}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 646.79, y: 309}
+  m_SizeDelta: {x: 200, y: 600}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1336993807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336993805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 3f8d3facf86f2434d85680725fce548b, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1336993808
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336993805}
+  m_CullTransparentMesh: 1
 --- !u!54 &1373477703
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12141,82 +12291,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4270572096125141525, guid: d8f12839e87d98a428bd77a060fdc4f1, type: 3}
---- !u!1 &1517379835
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1517379836}
-  - component: {fileID: 1517379838}
-  - component: {fileID: 1517379837}
-  m_Layer: 5
-  m_Name: JojoSprite
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1517379836
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1517379835}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -6.847302}
-  m_LocalScale: {x: 1.9949629, y: 1.1904541, z: 1.1904541}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2031360099}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 643.98, y: 364}
-  m_SizeDelta: {x: 200, y: 600}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1517379837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1517379835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 77bb79278235a6843ab739c0ac33fc87, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1517379838
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1517379835}
-  m_CullTransparentMesh: 1
 --- !u!1001 &1534660971
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14421,7 +14495,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1733229265}
   m_CullTransparentMesh: 1
---- !u!1 &1738515583
+--- !u!1 &1738007479
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14429,43 +14503,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1738515584}
-  - component: {fileID: 1738515586}
-  - component: {fileID: 1738515585}
+  - component: {fileID: 1738007480}
+  - component: {fileID: 1738007482}
+  - component: {fileID: 1738007481}
   m_Layer: 5
-  m_Name: GrilldadSprite
+  m_Name: JojoSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1738515584
+--- !u!224 &1738007480
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1738515583}
+  m_GameObject: {fileID: 1738007479}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -6.847302}
-  m_LocalScale: {x: 2.4221258, y: 1.1242346, z: 0.7801767}
+  m_LocalScale: {x: 4.76838, y: 1.296864, z: 1.0506027}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2031360099}
-  m_RootOrder: 1
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 643.98, y: 354}
+  m_AnchoredPosition: {x: 646.79, y: 382.46997}
   m_SizeDelta: {x: 200, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1738515585
+--- !u!114 &1738007481
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1738515583}
+  m_GameObject: {fileID: 1738007479}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -14479,7 +14553,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1f6b7dbd89b6da44ebb983dcf6676e3b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 500884694a326f24abe9cac0234d2583, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14489,13 +14563,13 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!222 &1738515586
+--- !u!222 &1738007482
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1738515583}
+  m_GameObject: {fileID: 1738007479}
   m_CullTransparentMesh: 1
 --- !u!1 &1745372150
 GameObject:
@@ -15290,82 +15364,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8973827277141622061, guid: c44fb2d0f3cd18b45882471f8dae688e, type: 3}
---- !u!1 &1792313384
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1792313385}
-  - component: {fileID: 1792313387}
-  - component: {fileID: 1792313386}
-  m_Layer: 5
-  m_Name: ChemistSprite
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1792313385
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1792313384}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -6.847302}
-  m_LocalScale: {x: 1.7608443, y: 1.1658133, z: 1.1658133}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2031360099}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 643.98, y: 336}
-  m_SizeDelta: {x: 200, y: 600}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1792313386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1792313384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 219a53ec277915842b4cd3a0782159fa, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1792313387
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1792313384}
-  m_CullTransparentMesh: 1
 --- !u!1001 &1797504976
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16703,125 +16701,139 @@ MonoBehaviour:
     - 'I sense... a dark presence.
 
 '
-    - "Show your true face, demon of the\r shadows!\n"
-    - "...Oh. Maybe it was a squirrel.\r But... maybe squirrels could be\r demons,
-      too?"
-    - "Gah!!\r You -!\r Hang on..."
-    - "You're that person from the\r barbecue!\r What - for what reason have you\r
-      made your appearance known here? Come to interfere with my ritual,\r have you?!"
-    - " ...So, you're... not here to\r interrupt my ritual?\r\n"
-    - "I did sense... a certain malevolent\r presence emanating from you at the\r
-      barbecue.\n"
-    - "Perhaps you truly are a demon from\r the shadow realms...\r Or worse, an enemy
-      of the Onyx\r Veins Forums here to do battle with\r my blighted palms!\n"
-    - "For one molded by the\r darkness itself, such minor details\r can pass by
-      even my devilish\r vision.\r If you truly are a demon from the\r realm of evil,
-      I assume you'll be\r asking for some sort of bargain for\r this assistance..."
-    - "Uncharacteristic behavior from one\r of the darkness... a bargain is\r always
-      at stake...\r So... you're, like, also into this\r sort of thing?"
-    - "I've never encountered another\r touched by the shadows - in real\r life,
-      that is!\r Perhaps your sense for these\r affairs shall prove as cutting as\r
-      my own!\r If you... care to join, that is..."
-    - " This is kinda embarassing... but...\r uh, we gotta hold hands if there's\r
-      more than one person..."
-    - "Ut enim ad minim veniam, quis\r nostrud exercitation ullamco\r laboris nisi
-      ut aliquip ex ea\r commodo consequat.\r Duis aute irure dolor in\r reprehenderit
-      in voluptate velit\r esse cillum dolore eu fugiat nulla\r pariatur.\r "
-    - "Arise, Dark Lord Balthazar! For I\r am one who commands thee!"
+    - 'Show your true face, demon of the shadows!
+
+'
+    - ...Oh. Maybe it was a squirrel. But... maybe squirrels could be demons, too?
+    - Gah!! You -! Hang on...
+    - You're that person from the barbecue! What - for what reason have you made
+      your appearance known here? Come to interfere with my ritual, have you?!
+    - '...So, you''re... not here to interrupt my ritual?
+
+'
+    - I did sense... a certain malevolent presence emanating from you at the barbecue.
+    - 'Perhaps you truly are a demon from the shadow realms... Or worse, an enemy
+      of the Onyx Veins Forums here to do battle with my blighted palms!
+
+'
+    - For one molded by the darkness itself, such minor details can pass by even
+      my devilish vision. If you truly are a demon from the realm of evil, I assume
+      you'll be asking for some sort of bargain for this assistance...
+    - Uncharacteristic behavior from one of the darkness... a bargain is always at
+      stake... So... you're, like, also into this sort of thing?
+    - I've never encountered another touched by the shadows - in real life, that
+      is! Perhaps your sense for these affairs shall prove as cutting as my own!
+      If you... care to join, that is...
+    - This is kinda embarassing... but... uh, we gotta hold hands if there's more
+      than one person...
+    - Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+      aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+      voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    - Arise, Dark Lord Balthazar! For I am one who commands thee!
     - Oh... It didn't work...
-    - "Maybe - maybe! Maybe the ritual did\r work! It did summon a demon after\r
-      all... heh...\r And that demon - is - you!\r\n"
-    - " ...I, as one who barters with the\r edge of the mortal and the damned!\r
-      The Dark Lord's Left Hand of Darkness and Blight! Long time\r poster of the
-      Onyx Veins!\r I shall be your companion in the\r shadows!\r I shall be watching
-      you...\r And... if by any chance... you\r desired to witness another\r ritual...
-      or anything else you'd\r like to do... if you're free after\r this...\n"
+    - Maybe - maybe! Maybe the ritual did work! It did summon a demon after all...
+      heh... And that demon - is - you!
+    - ...I, as one who barters with the edge of the mortal and the damned! The Dark
+      Lord's Left Hand of Darkness and Blight! Long time poster of the Onyx Veins!
+      I shall be your companion in the shadows! I shall be watching you... And...
+      if by any chance... you desired to witness another ritual... or anything else
+      you'd like to do... if you're free after this...
     loveInterestDate2:
     - H - hey! You're here!
-    - "I see... that you've outsmarted me\r  once again! By arriving five\r minutes
-      early! Heh... I shall note this in the crevices of my memory\r the techniques
-      you utilize to hone\r your skills...Uh, you okay?"
-    - "Ooh, you must be looking at the\r buildings.\r Armani - you know that rich
-      guy\r with the ugly outfits? He owns this\r place."
-    - " So this is technically private\r property. But that's fine! We play\r by
-      no such mortal concepts as\r 'zoning laws'!\r\n"
-    - " I received a vision from the Dark\r Lord Balthazar four nights prior...\r
-      as I lay in a hypnagogian trance\r at my convenience store job...\r  \"Call
-      upon me at the hour of\r sundown, raise my spirit upon the\r shores...!\"\n"
-    - "This can only mean one thing: we\r must perform a symphonic ritual\r here,
-      at this very spot!\r As the grimoire outlines, we must\r form a pentagram and
-      point\r ourselves to the sky as the sun\r sets, then create a most infernal\r
-      racket as we proclaim ourselves to\r Balthazar!\n"
-    - " Then, and only then, shall he take\r physical form in our realm, and we\r
-      may command him in our unearthly\r desires!\r\n\n"
-    - "Heh... this is a compilation of my\r own research... far superior to the paltry
-      workings of Exile666...\r\n\n\n"
-    - ' Let the ritual commence!
+    - I see... that you've outsmarted me once again! By arriving five minutes early!
+      Heh... I shall note this in the crevices of my memory the techniques you utilize
+      to hone your skills...Uh, you okay?
+    - Ooh, you must be looking at the buildings. Armani - you know that rich guy
+      with the ugly outfits? He owns this place.
+    - 'So this is technically private property. But that''s fine! We play by no such
+      mortal concepts as ''zoning laws''!
+
+'
+    - I received a vision from the Dark Lord Balthazar four nights prior... as I
+      lay in a hypnagogian trance at my convenience store job... "Call upon me at
+      the hour of sundown, raise my spirit upon the shores...!"
+    - 'This can only mean one thing: we must perform a symphonic ritual here, at
+      this very spot! As the grimoire outlines, we must form a pentagram and point
+      ourselves to the sky as the sun sets, then create a most infernal racket as
+      we proclaim ourselves to Balthazar!
+
+'
+    - 'Then, and only then, shall he take physical form in our realm, and we may
+      command him in our unearthly desires!
 
 
 '
-    - "So - that's - sunset - over...\r Balthazar - should be here - any\r second
-      now...\n"
+    - 'Heh... this is a compilation of my own research... far superior to the paltry
+      workings of Exile666...
+
+
+'
+    - 'Let the ritual commence!
+
+
+'
+    - So - that's - sunset - over... Balthazar - should be here - any second now...
     - Any second...
-    - "That - maybe some nefarious force\r seeks to interfere with our\r plans...
-      or... something of that\r nature!\r Everything was perfect! How could\rit be...\r\n"
-    - "I guess those other guys were\r right...\r Sorry for wasting your time..."
-    - "Upon the next evening of our\r reunion, I swear, I shall find a\r ritual that
-      will bathe the world in\r eternal damnation!"
-    - "Farewell for now, infernal demon...\r Seeya soon, hopefully!"
+    - 'That - maybe some nefarious force seeks to interfere with our plans... or...
+      something of that nature! Everything was perfect! How could it be...
+
+'
+    - I guess those other guys were right... Sorry for wasting your time...
+    - Upon the next evening of our reunion, I swear, I shall find a ritual that will
+      bathe the world in eternal damnation!
+    - Farewell for now, infernal demon... Seeya soon, hopefully!
     loveInterestDate3:
-    - "I see the shadows are particularly\r magnanimous... or perhaps, an ill\r tiding
-      from a fellow watcher of the\r night..."
-    - "Bound by the mercantile commands of\r the earthly wills, I stand an\r unwilling
-      sentinel of this stall.\r Until 5PM, on these days, I work\r at... this hot
-      dog stall..."
-    - "But nobody's into hot dogs these days. I mean, they're gross, right?\r It's
-      pretty boring, too. I'm only\r here 'cause the pay's decent."
+    - I see the shadows are particularly magnanimous... or perhaps, an ill tiding
+      from a fellow watcher of the night...
+    - Bound by the mercantile commands of the earthly wills, I stand an unwilling
+      sentinel of this stall. Until 5PM, on these days, I work at... this hot dog
+      stall...
+    - But nobody's into hot dogs these days. I mean, they're gross, right? It's pretty
+      boring, too. I'm only here 'cause the pay's decent.
     - "But, hey, if you're here, wanna\r hang out?"
-    - "I have found my thoughts enveloped\r in consideration of our next\r ritual...
-      upon consultation of the\r Onyx Veins, I have surmised our\r best bet would
-      be...\r Um... how good are you with\r squeamish stuff?"
-    - "The best bet would be... like... a\r blood ritual... or something..."
-    - "It wouldn't be like, people blood,\r we could order some stuff online -\r
-      wait, you're agreeing?!"
+    - I have found my thoughts enveloped in consideration of our next ritual... upon
+      consultation of the Onyx Veins, I have surmised our best bet would be... Um...
+      how good are you with squeamish stuff?
+    - The best bet would be... like... a blood ritual... or something...
+    - It wouldn't be like, people blood, we could order some stuff online - wait,
+      you're agreeing?!
     - "You're... not making fun of me, are\r you?"
-    - " ...Sorry. I know I probably\r shouldn't second-guess you like\r that. I just
-      can't help it\r sometimes."
-    - "...See, nothing really... happens\r around here. People are boring.\r Livingston
-      is boring. Every day is\r basically the same. Which is why\r demonology is
-      so... important!\r But nobody seems to get that! "
-    - "Even\r on the Onyx Veins Forums, random people come in all the time and\r
-      pretend to give advice, or play\r along with our \"delusions\" just to\r screenshot
-      it and make fun of us\r later."
-    - " And don't get me started on what\r people are like here... Even my friends
-      here - Aspen,\r Wesley, Davey, I mean, they're\r cool. (Uh, well, were cool...)
-      But\r they don't really get it.\r  So knowing that someone here knows\r as
-      much as I do, it's...!"
+    - ...Sorry. I know I probably shouldn't second-guess you like that. I just can't
+      help it sometimes.
+    - '...See, nothing really... happens around here. People are boring. Livingston
+      is boring. Every day is basically the same. Which is why demonology is so...
+      important! But nobody seems to get that! '
+    - Even on the Onyx Veins Forums, random people come in all the time and pretend
+      to give advice, or play along with our "delusions" just to screenshot it and
+      make fun of us later.
+    - And don't get me started on what people are like here... Even my friends here
+      - Aspen, Wesley, Davey, I mean, they're cool. (Uh, well, were cool...) But
+      they don't really get it. So knowing that someone here knows as much as I do,
+      it's...!
     - "That's that. Thanks for keeping me\r company.\r\n"
     friendDate:
-    - "So, the servant of the shadow\r prince Stolas draws forth... what\r provocation
-      do you bring forth to\r oppose me?\r H-huh? You... want to spend time\r with
-      me...?\r H-heh...\r Hah... hahah!"
-    - "Yes! I understand! You must wish to\r scope out the competition! As a\r fellow
-      emissary of the Dark Lord\r Balthazar, I understand such\r animalistic desires.
-      It's an evil\r dog eat less evil dog world. And\r this... is simply whetting
-      the appetite..."
-    - "S-so, was there, like, a place you\r were thinking about...?..."
-    - "Well, that was an enlightening\r discussion, but my gr - but the\r shadows
-      call... I must return to my\r abode.\r ...Uh, this was fun.\r  If your dark
-      masters allow your\r schedule to be freed, you should\r come by sometime. I'll
-      have to\r check with my - my grandma...\r but..."
-    - "We may converse again there, as\r dark equals. The source of my lair\r contains
-      a great many artifacts and\r secrets that you may pursue.\r Consider yourself
-      lucky.\r Not many may gaze upon it without\r being totally consumed with\r
-      madness."
-    - "But! Don't think you've caught me\r off my watchful guard. Sentinels of the
-      night do not rest at the sight\r of the moon... you must understand,\r as one
-      also crafted by it."
-    - "Heh... that blank-eyed stare. You\r need not feign ignorance in front\r of
-      me. We stand as equals now.\r Ah, wait, yeah! Here. I ordered one\r of these
-      for my room, but the\r seller accidentally sent me two.\r You can have it.\r
-      It's... one of my dark artifacts.\r\n"
+    - So, the servant of the shadow prince Stolas draws forth... what provocation
+      do you bring forth to oppose me? H-huh? You... want to spend time with me...?
+      H-heh... Hah... hahah!
+    - Yes! I understand! You must wish to scope out the competition! As a fellow
+      emissary of the Dark Lord Balthazar, I understand such animalistic desires.
+      It's an evil dog eat less evil dog world. And this... is simply whetting the
+      appetite...
+    - S-so, was there, like, a place you were thinking about...?...
+    - Well, that was an enlightening discussion, but my gr - but the shadows call...
+      I must return to my abode ...Uh, this was fun. If your dark masters allow your
+      schedule to be freed, you should come by sometime. I'll have to check with
+      my - my grandma... but...
+    - We may converse again there, as dark equals. The source of my lair contains
+      a great many artifacts and secrets that you may pursue. Consider yourself lucky.
+      Not many may gaze upon it without being totally consumed with madness.
+    - But! Don't think you've caught me off my watchful guard. Sentinels of the night
+      do not rest at the sight of the moon... you must understand, as one also crafted
+      by it.
+    - Heh... that blank-eyed stare. You need not feign ignorance in front of me.
+      We stand as equals now. Ah, wait, yeah! Here. I ordered one of these for my
+      room, but the seller accidentally sent me two. You can have it. It's... one
+      of my dark artifacts.
     - 'Well, see you around!
 
 '
@@ -17102,8 +17114,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -187, y: 124}
-  m_SizeDelta: {x: 1000, y: 200}
+  m_AnchoredPosition: {x: 31.5, y: 76}
+  m_SizeDelta: {x: 1437, y: 185}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1892395020
 MonoBehaviour:
@@ -17127,8 +17139,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 01f8c749ddce4234fb952909bbe808c0, type: 2}
+  m_sharedMaterial: {fileID: 3731302295734179443, guid: 01f8c749ddce4234fb952909bbe808c0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -18448,8 +18460,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 01f8c749ddce4234fb952909bbe808c0, type: 2}
+  m_sharedMaterial: {fileID: 3731302295734179443, guid: 01f8c749ddce4234fb952909bbe808c0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -18581,12 +18593,12 @@ Transform:
   m_LocalScale: {x: 1.5082481, y: 1.5082481, z: 1.5082481}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 918058704}
-  - {fileID: 1738515584}
-  - {fileID: 1792313385}
-  - {fileID: 729584610}
-  - {fileID: 1517379836}
   - {fileID: 1081718763}
+  - {fileID: 400699416}
+  - {fileID: 1336993806}
+  - {fileID: 529807572}
+  - {fileID: 381337628}
+  - {fileID: 1738007480}
   m_Father: {fileID: 217563497}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19257,76 +19269,77 @@ MonoBehaviour:
   dialogue:
     name: Aspen
     loveInterestDate1:
-    - "You really frightened me for a\r sec... nobody comes during this\r time of
-      day, so I thought you were\r like, an injured deer or\r something... or like
-      a weird\r bird... hahah..."
-    - "Uh... I was... foraging... for\r supplies..."
-    - " Well... I told you about the store\r I run when we last met, you know...\r
-      Sage & Soothe...\r It's a natural remedy place, so a\r bunch of crystals and
-      herbs...\r things like that..."
-    - "But if I'm being honest... business\r isn't super good... I guess not\r everyone's
-      into it... I've been\r trying all sorts of stuff to try\r and get people excited...
-      punch\r cards... free tarot readings over\r $75... this one's my new idea for
-      a\r \"local goods\" section..."
-    - "I'm not really sure what'll work\r  anymore ...Hey, if you were a customer...\r
-      what kind of thing would you want\r  to see?"
-    - "Well... I should get going. Store's\r gonna open soon.\r Thanks for keeping
-      my little\r secret..."
-    - " Hey... why don't you stop by the\r store in a bit... I can give you a card
-      reading, free of charge,\r hahah..."
+    - You really frightened me for a sec... nobody comes during this time of day,
+      so I thought you were like, an injured deer or something... or like a weird
+      bird... hahah...
+    - Uh... I was... foraging... for supplies...
+    - Well... I told you about the store I run when we last met, you know... Sage
+      & Soothe... It's a natural remedy place, so a bunch of crystals and herbs...
+      things like that...
+    - But if I'm being honest... business isn't super good... I guess not everyone's
+      into it... I've been trying all sorts of stuff to try and get people excited...
+      punch cards... free tarot readings over $75... this one's my new idea for a
+      "local goods" section...
+    - I'm not really sure what'll work anymore ...Hey, if you were a customer...
+      what kind of thing would you want to see?
+    - Well... I should get going. Store's gonna open soon. Thanks for keeping my
+      little secret...
+    - Hey... why don't you stop by the store in a bit... I can give you a card reading,
+      free of charge, hahah...
     loveInterestDate2:
-    - "Glad you could find this place.\r It's a little... out of the way."
-    - "This place is owned by that\r annoying guy... Armani... he's like\r a mega
-      CEO of something, hahah...\r He's a real pain, but he's got this\r cute beach
-      here that I like to\r sneak onto..."
-    - "...Huh? ...Oh, sorry, you must've\r never done this before... I'm\r collecting
-      sea glass.\r Whenever glass gets dropped in the\r ocean, it tumbles around
-      and gets\r smoothed out... it's really pretty,\r especially around this beach...\r
-      Thanks for coming... I owe you\r one..."
-    - "Did you know... most of the sea\r glass here comes from Armani\r throwing
-      out his TVs...\r Whenever they make a bigger one...\r he gets it... and tosses
-      the other\r out the window. And since it's a closed area, it\r all washes back..."
-    - "I like to take it and throw it\r through Armani's window, hahah.\r I've been
-      doing it for like... ten\r years... pretty funny, right...\r Oh, but I keep
-      some of it...\r they're great for perseverance\r spells... And it sells pretty
-      okay..."
-    - "So if you can keep quiet about\r it... put the white ones into a\r separate
-      pile, hahah...\r If you put some pebbles in... I\r won't tell anyone..."
-    - "Nice... hahah, always makes me feel\r better...\r I've been feeling kind of
-      down\r lately because of the store not\r doing so well... oh, and one of my\r
-      friends died... I don't know if you\r heard..."
-    - "Thanks for coming along...\r Hey, you should come in for a\r bit... I can
-      do that reading I\r promised last time..."
+    - Glad you could find this place. It's a little... out of the way.
+    - This place is owned by that annoying guy... Armani... he's like a mega CEO
+      of something, hahah... He's a real pain, but he's got this cute beach here
+      that I like to sneak onto...
+    - ...Huh? ...Oh, sorry, you must've never done this before... I'm collecting
+      sea glass. Whenever glass gets dropped in the ocean, it tumbles around and
+      gets smoothed out... it's really pretty, especially around this beach... Thanks
+      for coming... I owe you one...
+    - "Did you know... most of the sea glass here comes from Armani throwing out
+      his TVs... Whenever they make a bigger one... he gets it... and tosses the
+      other out the window. And since it's a closed area, it all washes back...\r"
+    - I like to take it and throw it through Armani's window, hahah. I've been doing
+      it for like... ten years... pretty funny, right... Oh, but I keep some of it...
+      they're great for perseverance spells... And it sells pretty okay...
+    - So if you can keep quiet about it... put the white ones into a separate pile,
+      hahah... If you put some pebbles in... I won't tell anyone...
+    - Nice... hahah, always makes me feel better... I've been feeling kind of down
+      lately because of the store not doing so well... oh, and one of my friends
+      died... I don't know if you heard...
+    - Thanks for coming along... Hey, you should come in for a bit... I can do that
+      reading I promised last time...
     loveInterestDate3:
-    - "Heya, welcome to Soothe & Sage...\r Oh, hey, it's you... how's it\r going..."
-    - "Are you feeling okay...? Hey, if\r you've got an overheating problem,\r I'd
-      recommend aquamarine... or hematite..."
-    - "I hadn't realized how much stuff I\r had just lying around... this stock\r
-      has gotta been so old by now...\r"
-    - "You know, I was thinking about\r redecorating... think I should put\r these
-      signs out by the check out or\r the front...?"
-    - "Phew... I'm exhausted... But it\r looks pretty good, right? I've been thinking
-      about doing\r bunch of this stuff for a while,\r but I never got around to
-      it...\r Guess it worked out."
-    - "But yeah, you're a huge help... in\r your own way.\r Y'know, when I first
-      saw you at\r Davey's barbecue, I thought you\r might be kinda weird... or maybe\r
-      you were just lonely...\r But it turns out you're a pretty cute person. Kinda
-      clumsy, though,\r hahah... you must wind up in a lot\r  of trouble."
-    - "But that's not a bad thing... I can\r tell from your aura, and just from\r
-      spending time you... you've got a\r strong spirit.\r And you're pretty clever,
-      too...\r must be all that trouble you get\r into..."
-    - "But you've given me a lot of ideas\r to turn Soothe & Sage around.\r I really
-      owe you... And I'm not\r just saying that this time,\r hahah..."
+    - Heya, welcome to Soothe & Sage... Oh, hey, it's you... how's it going...
+    - Are you feeling okay...? Hey, if you've got an overheating problem, I'd recommend
+      aquamarine... or hematite...
+    - I hadn't realized how much stuff I had just lying around... this stock has
+      gotta been so old by now...
+    - You know, I was thinking about redecorating... think I should put these signs
+      out by the check out or the front...?
+    - Phew... I'm exhausted... But it looks pretty good, right? I've been thinking
+      about doing bunch of this stuff for a while, but I never got around to it...
+      Guess it worked out.
+    - But yeah, you're a huge help... in your own way. Y'know, when I first saw you
+      at Davey's barbecue, I thought you might be kinda weird... or maybe you were
+      just lonely... But it turns out you're a pretty cute person. Kinda clumsy,
+      though, hahah... you must wind up in a lot of trouble.
+    - But that's not a bad thing... I can tell from your aura, and just from spending
+      time you... you've got a strong spirit. And you're pretty clever, too... must
+      be all that trouble you get into...
+    - But you've given me a lot of ideas to turn Soothe & Sage around. I really owe
+      you... And I'm not just saying that this time, hahah...
     friendDate:
-    - "Ohh, hey... you're that guy. From\r that place... How's it going...?\r Huh...?
-      You wanna hang out?\r Well, sure... I'm just closing up,\r if you don't mind...\r"
-    - "All out of celestite...\r Letter boards, gotta update\r those...\r Torbernite
-      bracelets, check...\r Oh, hey...\r Could you grab that vervain for\r me...?
-      It's the purple one...Uh... no, the plant... that's a\r rock."
-    - "Man, uh, I thought you looked kind\r of scary, but I guess not, hahah...\r
-      Sorry for leaving you in the dust\r like that, if you just wanted to\r learn
-      more I'll tell you...\r These are juniper berries. It'll\r guard you against
-      hexes... And\r that's mugwort... that'll give you\r a boost to your clairvoyance...\r\n"
+    - Ohh, hey... you're that guy. From that place... How's it going...? Huh...?
+      You wanna hang out? Well, sure... I'm just closing up, if you don't mind...
+    - All out of celestite... Letter boards, gotta update those... Torbernite bracelets,
+      check... Oh, hey... Could you grab that vervain for me...? It's the purple
+      one...Uh... no, the plant... that's a rock.
+    - 'Man, uh, I thought you looked kind of scary, but I guess not, hahah... Sorry
+      for leaving you in the dust like that, if you just wanted to learn more I''ll
+      tell you... These are juniper berries. It''ll guard you against hexes... And
+      that''s mugwort... that''ll give you a boost to your clairvoyance...
+
+'
   manager: {fileID: 1848510533}
   isDead: 0
   isLoveInterest: 0
@@ -24719,7 +24732,7 @@ PrefabInstance:
     - target: {fileID: 8216745134989861429, guid: d997b8d7ee26ebc40b6d37a4bbd2945b, type: 3}
       propertyPath: jojoSprite
       value: 
-      objectReference: {fileID: 1517379835}
+      objectReference: {fileID: 0}
     - target: {fileID: 8216745134989861429, guid: d997b8d7ee26ebc40b6d37a4bbd2945b, type: 3}
       propertyPath: occultDate
       value: 
@@ -24731,7 +24744,7 @@ PrefabInstance:
     - target: {fileID: 8216745134989861429, guid: d997b8d7ee26ebc40b6d37a4bbd2945b, type: 3}
       propertyPath: gamerSprite
       value: 
-      objectReference: {fileID: 729584609}
+      objectReference: {fileID: 0}
     - target: {fileID: 8216745134989861429, guid: d997b8d7ee26ebc40b6d37a4bbd2945b, type: 3}
       propertyPath: orientation
       value: 
@@ -24775,7 +24788,7 @@ PrefabInstance:
     - target: {fileID: 8216745134989861429, guid: d997b8d7ee26ebc40b6d37a4bbd2945b, type: 3}
       propertyPath: chemistSprite
       value: 
-      objectReference: {fileID: 1792313384}
+      objectReference: {fileID: 0}
     - target: {fileID: 8216745134989861429, guid: d997b8d7ee26ebc40b6d37a4bbd2945b, type: 3}
       propertyPath: fcDialogueBox
       value: 
@@ -24799,7 +24812,7 @@ PrefabInstance:
     - target: {fileID: 8216745134989861429, guid: d997b8d7ee26ebc40b6d37a4bbd2945b, type: 3}
       propertyPath: grilldadSprite
       value: 
-      objectReference: {fileID: 1738515583}
+      objectReference: {fileID: 0}
     - target: {fileID: 8216745134989861429, guid: d997b8d7ee26ebc40b6d37a4bbd2945b, type: 3}
       propertyPath: minigameMenuUI
       value: 
@@ -24827,7 +24840,7 @@ PrefabInstance:
     - target: {fileID: 8216745134989861429, guid: d997b8d7ee26ebc40b6d37a4bbd2945b, type: 3}
       propertyPath: forestcoreSprite
       value: 
-      objectReference: {fileID: 918058703}
+      objectReference: {fileID: 0}
     - target: {fileID: 8216745134989861429, guid: d997b8d7ee26ebc40b6d37a4bbd2945b, type: 3}
       propertyPath: grilldadDialogue
       value: 

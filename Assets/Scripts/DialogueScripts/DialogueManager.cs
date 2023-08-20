@@ -42,7 +42,6 @@ public class DialogueManager : MonoBehaviour
 
         if (player.isDateTime && player.dateCount == 0)
         {
-            Debug.Log("entered if statement for date 1");
             foreach (string sentence in dialogue.loveInterestDate1)
             {
                 sentences.Enqueue(sentence);
@@ -51,7 +50,6 @@ public class DialogueManager : MonoBehaviour
 
         if (player.isDateTime && player.dateCount == 1)
         {
-            Debug.Log("entered if statement for date 2");
             foreach (string sentence in dialogue.loveInterestDate2)
             {
                 sentences.Enqueue(sentence);
@@ -60,7 +58,6 @@ public class DialogueManager : MonoBehaviour
 
         if (player.isDateTime && player.dateCount == 2)
         {
-            Debug.Log("entered if statement for date 3");
             foreach (string sentence in dialogue.loveInterestDate3)
             {
                 sentences.Enqueue(sentence);
@@ -70,7 +67,6 @@ public class DialogueManager : MonoBehaviour
         // will only occur once
         if (player.isSocialTime)
         {
-            Debug.Log("entered if statement for friend");
             foreach (string sentence in dialogue.friendDate)
             {
                 sentences.Enqueue(sentence);
@@ -92,6 +88,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         string fact = sentences.Dequeue();
+        // dialogueText.text = fact;
         StopAllCoroutines();
         StartCoroutine(SentenceScroll(fact));
     }
