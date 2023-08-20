@@ -15,5 +15,7 @@ public class MainUIController : MonoBehaviour
     public void backToTown()
     {
         pauseMenu.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        //unfreeze screen here
     }
 }

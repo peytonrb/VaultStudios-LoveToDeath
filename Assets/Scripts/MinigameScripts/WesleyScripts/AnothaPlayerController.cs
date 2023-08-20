@@ -117,6 +117,7 @@ public class AnothaPlayerController : MonoBehaviour
             else
             {
                 loseScreenDoNotTryAgain.SetActive(true);
+                pController.chemistIsDead = true;
             }
         }
     }

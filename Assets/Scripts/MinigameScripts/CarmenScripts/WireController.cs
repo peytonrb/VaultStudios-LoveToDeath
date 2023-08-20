@@ -213,6 +213,7 @@ public class WireController : MonoBehaviour
             else
             {
                 loseScreenNoTryAgain.SetActive(true);
+                pController.gamerIsDead = true;
             }
         }
 

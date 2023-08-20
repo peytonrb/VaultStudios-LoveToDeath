@@ -11,7 +11,7 @@ public class ChemistController : MonoBehaviour
     public PlayerController player;
     public Rigidbody rb;
     public Transform playerPos;
-    public string[] friends = { "grilldad", "jojo", "carmen" };
+    public string[] friends = { "grilldad", "jojo", "gamer" };
 
     [Header("Is Killable")]
     public bool isKillable;

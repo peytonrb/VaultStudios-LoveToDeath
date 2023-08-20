@@ -104,6 +104,7 @@ public class Player : MonoBehaviour
             else
             {
                 loseScreenDoNotTryAgain.SetActive(true);
+                pController.occultIsDead = true;
             }
 
             distanceText.SetActive(false);

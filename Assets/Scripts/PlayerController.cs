@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     public bool isIngredientTime;
     private GameObject loveInterest; // stores the GameObject of the love interest
     private PlayerListUI chosenInterest;
-    private string interestName;
+    public string interestName;
     public int dateCount;
 
     [Header("UI")]
@@ -58,7 +58,8 @@ public class PlayerController : MonoBehaviour
     public GameObject jDialogueBox;
     public GameObject oDialogueBox;
     public GameObject pauseMenu;
-    private bool pauseInactive;
+    public bool notesOpen;
+    public GameObject notesMenu;
 
     [Header("WinLose")]
     public GameObject armaniWin;
@@ -82,9 +83,9 @@ public class PlayerController : MonoBehaviour
     private string[] murderItems1 = new string[3];
     private string[] murderItems2 = new string[3];
     private string[] murderItems3 = new string[3];
-    private GameObject target1;
-    private GameObject target2;
-    private GameObject target3;
+    public GameObject target1;
+    public GameObject target2;
+    public GameObject target3;
 
     [Header("Items")]
     public int armaniItemCount;
@@ -94,6 +95,20 @@ public class PlayerController : MonoBehaviour
     public int kaiItemCount;
     public int wesleyItemCount;
 
+    [Header("For Notes Menu")] // yes i know this is redundant but im pressed for time pls be kind
+    public bool forestcoreFriendDateOccured;
+    public bool grilldadFriendDateOccured;
+    public bool chemistFriendDateOccured;
+    public bool gamerFriendDateOccured;
+    public bool jojoFriendDateOccured;
+    public bool occultFriendDateOccured;
+    public bool forestcoreIsDead;
+    public bool grilldadIsDead;
+    public bool chemistIsDead;
+    public bool gamerIsDead;
+    public bool jojoIsDead;
+    public bool occultIsDead;
+
     [Header("Other")]
     public Material skybox;
     public Material skyboxNight;
@@ -102,6 +117,7 @@ public class PlayerController : MonoBehaviour
     private float elapsedTime = 0f;
     private float timeScale = 2.5f;
     public Light directionalLight;
+    public bool isDateHappening;
     public static PlayerController Instance { get; private set; }
 
     // regretting not using inheritance but it has been too long to go back
@@ -127,8 +143,15 @@ public class PlayerController : MonoBehaviour
         isSocialTime = false;
         isMurderTime = false;
         isIngredientTime = false;
-        pauseInactive = true;
         dateCount = 0;
+        notesOpen = false;
+        forestcoreFriendDateOccured = false;
+        grilldadFriendDateOccured = false;
+        chemistFriendDateOccured = false;
+        gamerFriendDateOccured = false;
+        jojoFriendDateOccured = false;
+        occultFriendDateOccured = false;
+        isDateHappening = false;
 
         if (GameManager.Instance.isFirstInstance)
         {
@@ -189,18 +212,25 @@ public class PlayerController : MonoBehaviour
         controller.Move(move * speed * Time.deltaTime);
 
         // key presses
-        if (Input.GetKeyDown(KeyCode.Escape) && pauseInactive)
+        if (Input.GetKeyDown(KeyCode.Escape) && !notesOpen)
         {
             pauseMenu.SetActive(true);
-            pauseInactive = false;
             Cursor.lockState = CursorLockMode.None;
+            // freeze screen here
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && !pauseInactive)
+        if (Input.GetKeyDown(KeyCode.Escape) && notesOpen)
         {
-            pauseMenu.SetActive(false);
-            pauseInactive = true;
+            notesMenu.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
+            notesOpen = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && !notesOpen && !isDateHappening)
+        {
+            notesOpen = true;
+            notesMenu.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
         }
 
         // character interaction key 
@@ -209,6 +239,7 @@ public class PlayerController : MonoBehaviour
             if (isDateTime)
             {
                 isMurderTime = false;
+                isDateHappening = true;
                 reactivateNPCS();
                 RenderSettings.skybox = skybox;
                 DynamicGI.UpdateEnvironment();
@@ -264,6 +295,7 @@ public class PlayerController : MonoBehaviour
 
                         dateCount++;
                         isSocialTime = true;
+                        isDateHappening = false;
                     }
                 }
             }
@@ -271,6 +303,7 @@ public class PlayerController : MonoBehaviour
             if (isSocialTime)
             {
                 isDateTime = false;
+                isDateHappening = true;
                 isIngredientTime = false;
                 Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 20f); // second number is radius
 
@@ -284,6 +317,7 @@ public class PlayerController : MonoBehaviour
                             forestcoreSprite.SetActive(true);       // gifts during dates --> have as a dialogue box at the end
                             fcDialogueBox.SetActive(true);
                             aspenItemCount++;
+                            forestcoreFriendDateOccured = true;
                             forestcoreDialogue.dialogueStart();
                         }
                         else if (hitCollider.gameObject.name == "grilldad")
@@ -292,6 +326,7 @@ public class PlayerController : MonoBehaviour
                             grilldadSprite.SetActive(true);
                             gdDialogueBox.SetActive(true);
                             daveyItemCount++;
+                            grilldadFriendDateOccured = true;
                             grilldadDialogue.dialogueStart();
                         }
                         else if (hitCollider.gameObject.name == "chemist")
@@ -300,6 +335,7 @@ public class PlayerController : MonoBehaviour
                             chemistSprite.SetActive(true);
                             cDialogueBox.SetActive(true);
                             wesleyItemCount++;
+                            chemistFriendDateOccured = true;
                             chemistDialogue.dialogueStart();
                         }
                         else if (hitCollider.gameObject.name == "gamer")
@@ -308,6 +344,7 @@ public class PlayerController : MonoBehaviour
                             gamerSprite.SetActive(true);
                             gDialogueBox.SetActive(true);
                             carmenItemCount++;
+                            gamerFriendDateOccured = true;
                             gamerDialogue.dialogueStart();
                         }
                         else if (hitCollider.gameObject.name == "jojo")
@@ -316,6 +353,7 @@ public class PlayerController : MonoBehaviour
                             jojoSprite.SetActive(true);
                             jDialogueBox.SetActive(true);
                             armaniItemCount++;
+                            jojoFriendDateOccured = true;
                             jojoDialogue.dialogueStart();
                         }
                         else if (hitCollider.gameObject.name == "occult")
@@ -324,10 +362,12 @@ public class PlayerController : MonoBehaviour
                             occultSprite.SetActive(true);
                             oDialogueBox.SetActive(true);
                             kaiItemCount++;
+                            occultFriendDateOccured = true;
                             occultDialogue.dialogueStart();
                         }
 
                         isIngredientTime = true;
+                        isDateHappening = false;
                     }
                 }
             }
@@ -818,6 +858,7 @@ public class PlayerController : MonoBehaviour
         jojoDialogue = GameObject.Find("jojo").GetComponent<DialogueTriggerJJ>();
         occultDialogue = GameObject.Find("occult").GetComponent<DialogueTriggerO>();
         dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
+        notesMenu = GameObject.Find("Canvas/NotesMenu");
 
         forestcoreDate = GameObject.Find("Canvas/DateBackgrounds/ForestcoreBackground");
         grilldadDate = GameObject.Find("Canvas/DateBackgrounds/GrilldadBackground");
@@ -839,12 +880,12 @@ public class PlayerController : MonoBehaviour
         occultGrandmaHouse = GameObject.Find("Canvas/FriendDateBackgrounds/KaiGrandmaHouse");
         directionalLight = GameObject.Find("Directional Light").GetComponent<Light>();
 
-        armaniWin = GameObject.Find("Canvas/WinScreens/armani_win");
-        aspenWin = GameObject.Find("Canvas/WinScreens/aspen_win");
-        carmenWin = GameObject.Find("Canvas/WinScreens/carmen_win");
-        daveyWin = GameObject.Find("Canvas/WinScreens/davey_win");
-        kaiWin = GameObject.Find("Canvas/WinScreens/kai_win");
-        wesleyWin = GameObject.Find("Canvas/WinScreens/wesley_win");
+        armaniWin = GameObject.Find("Canvas/WinScreens/ArmaniWin");
+        aspenWin = GameObject.Find("Canvas/WinScreens/AspenWin");
+        carmenWin = GameObject.Find("Canvas/WinScreens/CarmenWin");
+        daveyWin = GameObject.Find("Canvas/WinScreens/DaveyWin");
+        kaiWin = GameObject.Find("Canvas/WinScreens/KaiWin");
+        wesleyWin = GameObject.Find("Canvas/WinScreens/WesleyWin");
 
         fcDialogueBox = FindInactiveObjectByName("AspenDB");
         gdDialogueBox = FindInactiveObjectByName("DaveyDB");
@@ -904,6 +945,7 @@ public class PlayerController : MonoBehaviour
         daveyWin.SetActive(false);
         kaiWin.SetActive(false);
         wesleyWin.SetActive(false);
+        notesMenu.SetActive(false);
     }
 
     private void deactivateNPCS()

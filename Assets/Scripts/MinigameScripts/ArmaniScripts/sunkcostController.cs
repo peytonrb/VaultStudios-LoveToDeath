@@ -103,6 +103,7 @@ public class sunkcostController : MonoBehaviour
         else
         {
             loseScreenNoTryAgain.SetActive(true);
+            pController.jojoIsDead = true;
         }
     }
 }

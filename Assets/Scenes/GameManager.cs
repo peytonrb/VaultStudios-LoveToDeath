@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public AudioListener audioListener;
     public bool sceneJustLoaded;
     public GameObject winScreen;
+    public GameObject winText;
 
     private void Awake()
     {
@@ -38,6 +39,8 @@ public class GameManager : MonoBehaviour
         playerLook = GameObject.Find("Main Camera").GetComponent<PlayerLook>();
         mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
         audioListener = GameObject.Find("Main Camera").GetComponent<AudioListener>();
+        winScreen.SetActive(false);
+        winText.SetActive(false);
     }
 
     void Update()
@@ -45,6 +48,7 @@ public class GameManager : MonoBehaviour
         if (bodyCount == 3)
         {
             winScreen.SetActive(true);
+            winText.SetActive(true);
         }
 
         if (SceneManager.GetActiveScene().name != "Town")

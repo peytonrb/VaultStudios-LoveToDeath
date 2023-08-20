@@ -129,6 +129,7 @@ public class PlayerListUI : MonoBehaviour
 
         disableAllCharacters();
         back.gameObject.SetActive(false);
+        start.gameObject.SetActive(false);
         buttonBackground.SetActive(true);
     }
 

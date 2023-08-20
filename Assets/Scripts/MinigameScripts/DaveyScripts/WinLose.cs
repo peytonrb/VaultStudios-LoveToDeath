@@ -47,6 +47,7 @@ public class WinLose : MonoBehaviour
             else
             {
                 loseScreenNoTryAgain.SetActive(true);
+                pController.grilldadIsDead = true;
             }
         }
     }
