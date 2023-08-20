@@ -240,7 +240,6 @@ public class PlayerController : MonoBehaviour
             if (isDateTime)
             {
                 isMurderTime = false;
-                isDateHappening = true;
                 reactivateNPCS();
                 RenderSettings.skybox = skybox;
                 DynamicGI.UpdateEnvironment();
@@ -251,6 +250,7 @@ public class PlayerController : MonoBehaviour
                 {
                     if (hitCollider.gameObject.tag == "LoveInterest")
                     {
+                        isDateHappening = true;
                         if (interestName == "forestcore")
                         {
                             forestcoreDate.SetActive(true);
@@ -304,7 +304,6 @@ public class PlayerController : MonoBehaviour
             if (isSocialTime)
             {
                 isDateTime = false;
-                isDateHappening = true;
                 isIngredientTime = false;
                 Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 20f); // second number is radius
 
@@ -312,6 +311,8 @@ public class PlayerController : MonoBehaviour
                 {
                     if (hitCollider.gameObject.tag == "Target")
                     {
+                        isDateHappening = true;
+
                         if (hitCollider.gameObject.name == "forestcore")
                         {
                             forestcoreShop.SetActive(true);
