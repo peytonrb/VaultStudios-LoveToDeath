@@ -3105,6 +3105,7 @@ GameObject:
   - component: {fileID: 396348026}
   - component: {fileID: 396348028}
   - component: {fileID: 396348027}
+  - component: {fileID: 396348029}
   m_Layer: 5
   m_Name: JojoBackground
   m_TagString: DateBackground
@@ -3170,6 +3171,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 396348025}
   m_CullTransparentMesh: 1
+--- !u!114 &396348029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396348025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c305273e65f73540983fab34d0bcb75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loveInterest: 
+  player: {fileID: 1482284574}
+  images:
+  - {fileID: 21300000, guid: e354d7bb51b28e544b2928d499ffa258, type: 3}
+  - {fileID: 21300000, guid: 452ec64ea04df6b408d494fc81e06cf1, type: 3}
+  - {fileID: 21300000, guid: 6d4f79d670dab34409b2d3cb61cead5d, type: 3}
 --- !u!1 &400699415
 GameObject:
   m_ObjectHideFlags: 0
@@ -3355,14 +3374,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 435362487}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 583, y: 29.69, z: 596.6}
+  m_LocalRotation: {x: 0.047145113, y: -0, z: -0, w: 0.998888}
+  m_LocalPosition: {x: 482.9, y: 14, z: 346.5}
   m_LocalScale: {x: 0.66414, y: 0.66414, z: 0.66414}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 5.404, y: 0, z: 0}
 --- !u!114 &435362489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6467,6 +6486,7 @@ GameObject:
   - component: {fileID: 768619872}
   - component: {fileID: 768619874}
   - component: {fileID: 768619873}
+  - component: {fileID: 768619875}
   m_Layer: 5
   m_Name: OccultBackground
   m_TagString: DateBackground
@@ -6532,6 +6552,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 768619871}
   m_CullTransparentMesh: 1
+--- !u!114 &768619875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768619871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c305273e65f73540983fab34d0bcb75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loveInterest: 
+  player: {fileID: 1482284574}
+  images:
+  - {fileID: 21300000, guid: 3c97361aefe2ded499928e7188907dd7, type: 3}
+  - {fileID: 21300000, guid: 3c97361aefe2ded499928e7188907dd7, type: 3}
+  - {fileID: 21300000, guid: 3c97361aefe2ded499928e7188907dd7, type: 3}
 --- !u!1 &780692299
 GameObject:
   m_ObjectHideFlags: 0
@@ -6862,6 +6900,7 @@ GameObject:
   - component: {fileID: 830670556}
   - component: {fileID: 830670558}
   - component: {fileID: 830670557}
+  - component: {fileID: 830670559}
   m_Layer: 5
   m_Name: ForestcoreBackground
   m_TagString: DateBackground
@@ -6909,7 +6948,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d8de9b6e3dec70045bf107bd9e6a8c9d, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6927,6 +6966,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 830670555}
   m_CullTransparentMesh: 1
+--- !u!114 &830670559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830670555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c305273e65f73540983fab34d0bcb75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loveInterest: 
+  player: {fileID: 0}
+  images:
+  - {fileID: 21300000, guid: d8de9b6e3dec70045bf107bd9e6a8c9d, type: 3}
+  - {fileID: 21300000, guid: b0afd334de330524e9dbfd99a414629e, type: 3}
+  - {fileID: 21300000, guid: ab9f9f618957b954fbbfbd535fd5c10d, type: 3}
 --- !u!1 &835432806
 GameObject:
   m_ObjectHideFlags: 0
@@ -9643,6 +9700,7 @@ GameObject:
   - component: {fileID: 1143499088}
   - component: {fileID: 1143499090}
   - component: {fileID: 1143499089}
+  - component: {fileID: 1143499091}
   m_Layer: 5
   m_Name: GamerBackground
   m_TagString: DateBackground
@@ -9708,6 +9766,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1143499087}
   m_CullTransparentMesh: 1
+--- !u!114 &1143499091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143499087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c305273e65f73540983fab34d0bcb75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loveInterest: 
+  player: {fileID: 1482284574}
+  images:
+  - {fileID: 21300000, guid: 6d101cfa70a44874d98beb15f8bd3d4a, type: 3}
+  - {fileID: 21300000, guid: 6d101cfa70a44874d98beb15f8bd3d4a, type: 3}
+  - {fileID: 21300000, guid: 6d101cfa70a44874d98beb15f8bd3d4a, type: 3}
 --- !u!1 &1162430794
 GameObject:
   m_ObjectHideFlags: 0
@@ -12088,6 +12164,7 @@ GameObject:
   - component: {fileID: 1487324085}
   - component: {fileID: 1487324087}
   - component: {fileID: 1487324086}
+  - component: {fileID: 1487324088}
   m_Layer: 5
   m_Name: GrilldadBackground
   m_TagString: DateBackground
@@ -12153,6 +12230,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1487324084}
   m_CullTransparentMesh: 1
+--- !u!114 &1487324088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487324084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c305273e65f73540983fab34d0bcb75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loveInterest: 
+  player: {fileID: 1482284574}
+  images:
+  - {fileID: 21300000, guid: 5898a66eefdb00a44a7d04b1047b1e09, type: 3}
+  - {fileID: 21300000, guid: 0dc1b2009b352714eb171326ee52ba10, type: 3}
+  - {fileID: 21300000, guid: ab9f9f618957b954fbbfbd535fd5c10d, type: 3}
 --- !u!1001 &1493781502
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18074,6 +18169,7 @@ GameObject:
   - component: {fileID: 1953524393}
   - component: {fileID: 1953524395}
   - component: {fileID: 1953524394}
+  - component: {fileID: 1953524396}
   m_Layer: 5
   m_Name: ChemistBackground
   m_TagString: DateBackground
@@ -18139,6 +18235,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1953524392}
   m_CullTransparentMesh: 1
+--- !u!114 &1953524396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953524392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c305273e65f73540983fab34d0bcb75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loveInterest: 
+  player: {fileID: 1482284574}
+  images:
+  - {fileID: 21300000, guid: be3c072a445f04a43b398c2fde4b1ef8, type: 3}
+  - {fileID: 21300000, guid: b35fab7797184c946bbbc0021b31a5fb, type: 3}
+  - {fileID: 21300000, guid: a79914909a782344cb1fd0eb6f9c6552, type: 3}
 --- !u!54 &1955774448
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21165,6 +21279,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: bridge
       objectReference: {fileID: 0}
+    - target: {fileID: 8113443606752852597, guid: 528261c376137a247b983992d8e2211b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 528261c376137a247b983992d8e2211b, type: 3}
 --- !u!1 &1983216528008215853 stripped
@@ -21467,6 +21585,10 @@ PrefabInstance:
       value: roads
       objectReference: {fileID: 0}
     - target: {fileID: 5557071368675109434, guid: 3b68ff02ef8beb44ca909a74e15f7754, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5557071368675109434, guid: 3b68ff02ef8beb44ca909a74e15f7754, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -21578,6 +21700,10 @@ PrefabInstance:
     - target: {fileID: 807215990595569314, guid: c1b253247fa2af941a970d606d1aa563, type: 3}
       propertyPath: m_Name
       value: mainland
+      objectReference: {fileID: 0}
+    - target: {fileID: 807215990595569314, guid: c1b253247fa2af941a970d606d1aa563, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 807215990595569314, guid: c1b253247fa2af941a970d606d1aa563, type: 3}
       propertyPath: m_StaticEditorFlags
